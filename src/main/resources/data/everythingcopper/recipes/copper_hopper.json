@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "I I",
+        "ICI",
+        " I "
+    ],
+    "key": {
+        "C": {
+            "item": "minecraft:chest"
+        },
+        "I": {
+            "tag": "forge:ingots/copper"
+        }
+    },
+    "result": {
+        "item": "everythingcopper:copper_hopper"
+    },
+    "conditions": [
+        {
+            "type": "forge:not",
+            "value": {
+                "type": "forge:mod_loaded",
+                "modid": "everythingcopper"
+            }
+        }
+    ]
+}

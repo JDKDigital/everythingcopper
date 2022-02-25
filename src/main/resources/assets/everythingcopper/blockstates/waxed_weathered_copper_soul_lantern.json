@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "hanging=false": {
+            "model": "everythingcopper:block/weathered_copper_soul_lantern"
+        },
+        "hanging=true": {
+            "model": "everythingcopper:block/weathered_copper_soul_lantern_hanging"
+        }
+    }
+}

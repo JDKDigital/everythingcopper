@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "III",
+        " i ",
+        "iii"
+    ],
+    "key": {
+        "I": {
+            "tag": "forge:storage_blocks/copper"
+        },
+        "i": {
+            "tag": "forge:ingots/copper"
+        }
+    },
+    "result": {
+        "item": "everythingcopper:copper_anvil"
+    },
+    "conditions": [
+        {
+            "type": "forge:not",
+            "value": {
+                "type": "forge:mod_loaded",
+                "modid": "everythingcopper"
+            }
+        }
+    ]
+}

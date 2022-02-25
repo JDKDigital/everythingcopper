@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "everythingcopper:block/weathered_copper_anvil",
+            "y": 270
+        },
+        "facing=north": {
+            "model": "everythingcopper:block/weathered_copper_anvil",
+            "y": 180
+        },
+        "facing=south": {
+            "model": "everythingcopper:block/weathered_copper_anvil"
+        },
+        "facing=west": {
+            "model": "everythingcopper:block/weathered_copper_anvil",
+            "y": 90
+        }
+    }
+}

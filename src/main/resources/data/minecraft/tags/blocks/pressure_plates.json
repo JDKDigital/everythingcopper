@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "everythingcopper:copper_pressure_plate",
+    "everythingcopper:exposed_copper_pressure_plate",
+    "everythingcopper:weathered_copper_pressure_plate",
+    "everythingcopper:oxidized_copper_pressure_plate",
+    "everythingcopper:waxed_copper_pressure_plate",
+    "everythingcopper:waxed_exposed_copper_pressure_plate",
+    "everythingcopper:waxed_weathered_copper_pressure_plate",
+    "everythingcopper:waxed_oxidized_copper_pressure_plate"
+  ]
+}

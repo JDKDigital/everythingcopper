@@ -1,0 +1,9 @@
+{
+    "type": "everythingcopper:wax_on",
+    "item": {
+        "item": "everythingcopper:copper_boots"
+    },
+    "wax": {
+        "tag": "everythingcopper:waxing_items"
+    }
+}

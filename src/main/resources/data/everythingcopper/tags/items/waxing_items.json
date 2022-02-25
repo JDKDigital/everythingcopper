@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:honeycomb",
+        {
+            "id": "productivebees:wax",
+            "required": false
+        }
+    ]
+}

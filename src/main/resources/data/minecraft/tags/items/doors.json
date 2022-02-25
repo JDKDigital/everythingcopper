@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "everythingcopper:copper_door",
+    "everythingcopper:exposed_copper_door",
+    "everythingcopper:weathered_copper_door",
+    "everythingcopper:oxidized_copper_door",
+    "everythingcopper:waxed_copper_door",
+    "everythingcopper:waxed_exposed_copper_door",
+    "everythingcopper:waxed_weathered_copper_door",
+    "everythingcopper:waxed_oxidized_copper_door"
+  ]
+}

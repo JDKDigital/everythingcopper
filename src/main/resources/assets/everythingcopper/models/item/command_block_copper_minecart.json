@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:item/generated",
+    "textures": {
+        "layer0": "everythingcopper:item/command_block_copper_minecart"
+    }
+}

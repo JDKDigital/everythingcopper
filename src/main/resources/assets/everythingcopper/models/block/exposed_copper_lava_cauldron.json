@@ -1,0 +1,11 @@
+{
+    "parent": "minecraft:block/template_cauldron_full",
+    "textures": {
+        "content": "minecraft:block/lava_still",
+        "inside": "everythingcopper:block/exposed_copper_cauldron_inner",
+        "particle": "everythingcopper:block/exposed_copper_cauldron_side",
+        "top": "everythingcopper:block/exposed_copper_cauldron_top",
+        "bottom": "everythingcopper:block/exposed_copper_cauldron_bottom",
+        "side": "everythingcopper:block/exposed_copper_cauldron_side"
+    }
+}

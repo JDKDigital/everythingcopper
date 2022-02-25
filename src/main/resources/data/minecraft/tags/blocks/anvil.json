@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+        "everythingcopper:copper_anvil",
+        "everythingcopper:exposed_copper_anvil",
+        "everythingcopper:weathered_copper_anvil",
+        "everythingcopper:oxidized_copper_anvil",
+        "everythingcopper:waxed_copper_anvil",
+        "everythingcopper:waxed_exposed_copper_anvil",
+        "everythingcopper:waxed_weathered_copper_anvil",
+        "everythingcopper:waxed_oxidized_copper_anvil"
+    ]
+}

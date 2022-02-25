@@ -1,0 +1,13 @@
+{
+    "variants": {
+        "level=1": {
+            "model": "everythingcopper:block/copper_water_cauldron"
+        },
+        "level=2": {
+            "model": "everythingcopper:block/copper_water_cauldron"
+        },
+        "level=3": {
+            "model": "everythingcopper:block/copper_water_cauldron"
+        }
+    }
+}
