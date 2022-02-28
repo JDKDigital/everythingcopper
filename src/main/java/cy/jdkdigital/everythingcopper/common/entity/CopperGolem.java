@@ -1,9 +1,11 @@
 package cy.jdkdigital.everythingcopper.common.entity;
 
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -13,17 +15,34 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.state.pattern.BlockInWorld;
+import net.minecraft.world.level.block.state.pattern.BlockPattern;
+import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
+import net.minecraft.world.level.block.state.predicate.BlockMaterialPredicate;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.material.Material;
 
 public class CopperGolem extends IronGolem implements IWeatheringEntity
 {
+    private static BlockPattern patternBase;
+    private static BlockPattern patternFull;
+
     public CopperGolem(EntityType<? extends IronGolem> entityType, Level level) {
         super(entityType, level);
     }
 
+    @Override
+    public SynchedEntityData getSyncData() {
+        return super.getEntityData();
+    }
+
     protected void defineSynchedData() {
         super.defineSynchedData();
-        defineData();
+        getSyncData().define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
+        getSyncData().define(DATA_WAXED, false);
     }
 
     @Override
@@ -79,5 +98,30 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
         super.readAdditionalSaveData(tag);
 
         loadWeatheredState(tag);
+    }
+
+    public static boolean canSpawnGolem(LevelReader level, BlockPos pos) {
+        return getOrCreateCopperGolemBase().find(level, pos) != null;
+    }
+
+    private static BlockPattern getOrCreateCopperGolemBase() {
+        if (patternBase == null) {
+            patternBase = BlockPatternBuilder.start().aisle("~ ~", "###", "~#~").where('#', BlockInWorld.hasState((state) -> {
+                return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER));
+            })).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+        }
+
+        return patternBase;
+    }
+
+    public static BlockPattern getOrCreateCopperGolemFull() {
+        if (patternFull == null) {
+            patternFull = BlockPatternBuilder.start().aisle("~^~", "###", "~#~").where('^', BlockInWorld.hasState((state) -> {
+                return state != null && (state.is(Blocks.CARVED_PUMPKIN) || state.is(Blocks.JACK_O_LANTERN));
+            })).where('#', BlockInWorld.hasState((state) -> {
+                return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER));
+            })).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+        }
+        return patternFull;
     }
 }

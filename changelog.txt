@@ -1,0 +1,14 @@
+0.1.0.2
+
+-- Fixed crash when building the copper golem
+-- Added model compatibility with Additional Bars
+
+
+0.1.0.1
+
+-- Now with anvils, hoppers and rails
+
+
+0.1.0.0
+
+-- Initial copper investment

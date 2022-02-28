@@ -22,14 +22,17 @@ public class CopperBars extends IronBarsBlock implements IWeatheringBlock
         weatherState = state;
     }
 
+    @Override
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, Random random) {
         this.onRandomTick(blockState, level, blockPos, random);
     }
 
+    @Override
     public boolean isRandomlyTicking(BlockState blockState) {
         return IWeatheringBlock.getNext(blockState.getBlock()).isPresent();
     }
 
+    @Override
     public WeatherState getAge() {
         return this.weatherState;
     }

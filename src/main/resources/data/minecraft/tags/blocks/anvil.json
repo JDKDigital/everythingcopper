@@ -5,9 +5,25 @@
         "everythingcopper:exposed_copper_anvil",
         "everythingcopper:weathered_copper_anvil",
         "everythingcopper:oxidized_copper_anvil",
+        "everythingcopper:chipped_copper_anvil",
+        "everythingcopper:chipped_exposed_copper_anvil",
+        "everythingcopper:chipped_weathered_copper_anvil",
+        "everythingcopper:chipped_oxidized_copper_anvil",
+        "everythingcopper:damaged_copper_anvil",
+        "everythingcopper:damaged_exposed_copper_anvil",
+        "everythingcopper:damaged_weathered_copper_anvil",
+        "everythingcopper:damaged_oxidized_copper_anvil",
         "everythingcopper:waxed_copper_anvil",
         "everythingcopper:waxed_exposed_copper_anvil",
         "everythingcopper:waxed_weathered_copper_anvil",
-        "everythingcopper:waxed_oxidized_copper_anvil"
+        "everythingcopper:waxed_oxidized_copper_anvil",
+        "everythingcopper:waxed_chipped_copper_anvil",
+        "everythingcopper:waxed_chipped_exposed_copper_anvil",
+        "everythingcopper:waxed_chipped_weathered_copper_anvil",
+        "everythingcopper:waxed_chipped_oxidized_copper_anvil",
+        "everythingcopper:waxed_damaged_copper_anvil",
+        "everythingcopper:waxed_damaged_exposed_copper_anvil",
+        "everythingcopper:waxed_damaged_weathered_copper_anvil",
+        "everythingcopper:waxed_damaged_oxidized_copper_anvil"
     ]
 }

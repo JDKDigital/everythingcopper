@@ -21,32 +21,32 @@ public interface IWeatheringEntity
     EntityDataAccessor<String> DATA_WEATHER_STATE = SynchedEntityData.defineId(CopperGolem.class, EntityDataSerializers.STRING);
     EntityDataAccessor<Boolean> DATA_WAXED = SynchedEntityData.defineId(CopperGolem.class, EntityDataSerializers.BOOLEAN);
 
-    SynchedEntityData getEntityData();
+    SynchedEntityData getSyncData();
 
     default void defineData() {
-        getEntityData().define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
-        getEntityData().define(DATA_WAXED, false);
+        getSyncData().define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
+        getSyncData().define(DATA_WAXED, false);
     }
 
     default WeatheringCopper.WeatherState getAge() {
-        return WeatheringCopper.WeatherState.valueOf(getEntityData().get(DATA_WEATHER_STATE));
+        return WeatheringCopper.WeatherState.valueOf(getSyncData().get(DATA_WEATHER_STATE));
     }
 
     default void setAge(WeatheringCopper.WeatherState age) {
-        getEntityData().set(DATA_WEATHER_STATE, age.name());
+        getSyncData().set(DATA_WEATHER_STATE, age.name());
     }
 
     default boolean isWaxed() {
-        return getEntityData().get(DATA_WAXED);
+        return getSyncData().get(DATA_WAXED);
     }
 
     default void setWaxed(boolean waxed) {
-        getEntityData().set(DATA_WAXED, waxed);
+        getSyncData().set(DATA_WAXED, waxed);
     }
 
     default void saveWeatheredState(CompoundTag tag) {
-        tag.putString("weathering", getEntityData().get(DATA_WEATHER_STATE));
-        tag.putBoolean("waxed", getEntityData().get(DATA_WAXED));
+        tag.putString("weathering", getSyncData().get(DATA_WEATHER_STATE));
+        tag.putBoolean("waxed", getSyncData().get(DATA_WAXED));
     }
 
     default void loadWeatheredState(CompoundTag tag) {
@@ -54,7 +54,7 @@ public interface IWeatheringEntity
             setAge(WeatheringCopper.WeatherState.valueOf(tag.getString("weathering")));
         }
         if (tag.contains("waxed")) {
-            getEntityData().set(DATA_WAXED, tag.getBoolean("waxed"));
+            getSyncData().set(DATA_WAXED, tag.getBoolean("waxed"));
         }
     }
 

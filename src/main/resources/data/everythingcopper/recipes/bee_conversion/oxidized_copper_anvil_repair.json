@@ -1,0 +1,21 @@
+{
+  "type": "productivebees:block_conversion",
+  "bee": "productivebees:copper",
+  "from": {
+    "Name": "everythingcopper:chipped_oxidized_copper_anvil"
+  },
+  "to": {
+    "Name": "everythingcopper:oxidized_copper_anvil"
+  },
+  "chance": 70,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "productivebees"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:copper"
+    }
+  ]
+}

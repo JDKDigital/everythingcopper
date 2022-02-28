@@ -27,7 +27,7 @@ public class ModItems
     public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings", () -> new CopperArmorItem(ArmorMaterials.IRON, EquipmentSlot.LEGS, (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
     public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots", () -> new CopperArmorItem(ArmorMaterials.IRON, EquipmentSlot.FEET, (new Item.Properties()).tab(CreativeModeTab.TAB_COMBAT)));
 
-    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item((new Item.Properties()).tab(CreativeModeTab.TAB_MATERIALS)));
+    public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item((new Item.Properties().food(ModEffects.NUGGY)).tab(CreativeModeTab.TAB_MATERIALS)));
 //    public static final RegistryObject<Item> COPPER_BUCKET = ITEMS.register("copper_bucket", () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_MISC)));
     public static final RegistryObject<Item> COPPER_SHEARS = ITEMS.register("copper_shears", () -> new CopperShearsItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> COPPER_HORSE_ARMOR = ITEMS.register("copper_horse_armor", () -> new CopperHorseArmorItem(5, "leather", (new Item.Properties()).stacksTo(1).tab(CreativeModeTab.TAB_MISC)));

@@ -1,5 +1,13 @@
 {
   "replace": false,
   "values": [
+    "everythingcopper:copper_rail",
+    "everythingcopper:exposed_copper_rail",
+    "everythingcopper:weathered_copper_rail",
+    "everythingcopper:oxidized_copper_rail",
+    "everythingcopper:waxed_copper_rail",
+    "everythingcopper:waxed_exposed_copper_rail",
+    "everythingcopper:waxed_weathered_copper_rail",
+    "everythingcopper:waxed_oxidized_copper_rail"
   ]
 }

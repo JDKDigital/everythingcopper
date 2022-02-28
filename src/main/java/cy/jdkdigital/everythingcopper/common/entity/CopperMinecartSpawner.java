@@ -4,6 +4,7 @@ import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
@@ -19,6 +20,11 @@ public class CopperMinecartSpawner extends MinecartSpawner implements IWeatherin
 
     public CopperMinecartSpawner(Level level, double x, double y, double z) {
         super(level, x, y, z);
+    }
+
+    @Override
+    public SynchedEntityData getSyncData() {
+        return super.getEntityData();
     }
 
     protected void defineSynchedData() {

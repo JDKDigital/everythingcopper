@@ -1,73 +1,9 @@
 {
-    "ambientocclusion": false,
+    "parent": "block/iron_bars_post_ends",
     "textures": {
+        "texture": "everythingcopper:block/oxidized_copper_bars",
         "particle": "everythingcopper:block/oxidized_copper_bars",
+        "bars": "everythingcopper:block/oxidized_copper_bars",
         "edge": "everythingcopper:block/oxidized_copper_bars"
-    },
-    "elements": [
-        {
-            "from": [
-                7,
-                0.001,
-                7
-            ],
-            "to": [
-                9,
-                0.001,
-                9
-            ],
-            "faces": {
-                "down": {
-                    "uv": [
-                        7,
-                        7,
-                        9,
-                        9
-                    ],
-                    "texture": "#edge"
-                },
-                "up": {
-                    "uv": [
-                        7,
-                        7,
-                        9,
-                        9
-                    ],
-                    "texture": "#edge"
-                }
-            }
-        },
-        {
-            "from": [
-                7,
-                15.999,
-                7
-            ],
-            "to": [
-                9,
-                15.999,
-                9
-            ],
-            "faces": {
-                "down": {
-                    "uv": [
-                        7,
-                        7,
-                        9,
-                        9
-                    ],
-                    "texture": "#edge"
-                },
-                "up": {
-                    "uv": [
-                        7,
-                        7,
-                        9,
-                        9
-                    ],
-                    "texture": "#edge"
-                }
-            }
-        }
-    ]
+    }
 }

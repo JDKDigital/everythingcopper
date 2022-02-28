@@ -1,21 +1,15 @@
 package cy.jdkdigital.everythingcopper.common.block;
 
-import cy.jdkdigital.everythingcopper.EverythingCopper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -28,14 +22,17 @@ public class CopperDoor extends DoorBlock implements IWeatheringBlock
         weatherState = state;
     }
 
+    @Override
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, Random random) {
         this.onRandomTick(blockState, level, blockPos, random);
     }
 
+    @Override
     public boolean isRandomlyTicking(BlockState blockState) {
         return blockState.getValue(DoorBlock.HALF).equals(DoubleBlockHalf.LOWER) && IWeatheringBlock.getNext(blockState.getBlock()).isPresent();
     }
 
+    @Override
     public WeatheringCopper.WeatherState getAge() {
         return this.weatherState;
     }
@@ -87,8 +84,8 @@ public class CopperDoor extends DoorBlock implements IWeatheringBlock
                 if (blockState.getValue(DoorBlock.HALF).equals(DoubleBlockHalf.UPPER)) {
                     replacedPosition = replacedPosition.below();
                 }
-                level.setBlock(replacedPosition, Blocks.AIR.defaultBlockState(), 3);
-                level.setBlock(replacedPosition, newState.setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER), 0);
+                level.setBlock(replacedPosition, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+                level.setBlock(replacedPosition, newState.setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
                 level.setBlock(replacedPosition.above(), newState.setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER), Block.UPDATE_ALL_IMMEDIATE);
             });
         }

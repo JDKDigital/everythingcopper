@@ -1,6 +1,7 @@
 {
-    "parent": "minecraft:item/generated",
+    "parent": "minecraft:item/iron_bars",
     "textures": {
-        "layer0": "everythingcopper:block/copper_bars"
+        "layer0": "everythingcopper:block/copper_bars",
+        "texture": "everythingcopper:block/copper_bars"
     }
 }

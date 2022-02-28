@@ -2,6 +2,7 @@ package cy.jdkdigital.everythingcopper.event;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.IWeatheringBlock;
+import cy.jdkdigital.everythingcopper.common.entity.CopperGolem;
 import cy.jdkdigital.everythingcopper.event.loot.CopperLootModifier;
 import cy.jdkdigital.everythingcopper.init.ModEntities;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
@@ -9,8 +10,6 @@ import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -21,15 +20,10 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
-import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
-import net.minecraft.world.level.block.state.predicate.BlockMaterialPredicate;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
-import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -56,18 +50,14 @@ public class EventHandler
         if (event.getPlacedBlock().getBlock().equals(Blocks.CARVED_PUMPKIN) || event.getPlacedBlock().getBlock().equals(Blocks.JACK_O_LANTERN)) {
             LevelAccessor level = event.getWorld();
 
-            BlockPattern copperGolemPattern = BlockPatternBuilder.start().aisle("~^~", "###", "~#~").where('^', BlockInWorld.hasState((state) -> {
-                return state != null && (state.is(Blocks.CARVED_PUMPKIN) || state.is(Blocks.JACK_O_LANTERN));
-            })).where('#', BlockInWorld.hasState((state) -> {
-                return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER));
-            })).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+            BlockPattern copperGolemPattern = CopperGolem.getOrCreateCopperGolemFull();
 
             BlockPattern.BlockPatternMatch blockPatternMatch = copperGolemPattern.find(event.getWorld(), event.getPos());
             if (blockPatternMatch != null) {
                 for(int j = 0; j < copperGolemPattern.getWidth(); ++j) {
                     for(int k = 0; k < copperGolemPattern.getHeight(); ++k) {
                         BlockInWorld block = blockPatternMatch.getBlock(j, k, 0);
-                        level.setBlock(block.getPos(), Blocks.AIR.defaultBlockState(), 2);
+                        level.setBlock(block.getPos(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                         level.levelEvent(2001, block.getPos(), Block.getId(block.getState()));
                     }
                 }

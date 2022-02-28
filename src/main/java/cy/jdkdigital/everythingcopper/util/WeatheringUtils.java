@@ -3,10 +3,8 @@ package cy.jdkdigital.everythingcopper.util;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.ImmutableBiMap;
-import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.init.ModBlocks;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -126,6 +124,15 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_SOUL_LANTERN.get(),
                                     ModBlocks.OXIDIZED_COPPER_SOUL_LANTERN.get()
+                            ).put(
+                                    ModBlocks.COPPER_RAIL.get(),
+                                    ModBlocks.EXPOSED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_RAIL.get(),
+                                    ModBlocks.WEATHERED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_RAIL.get(),
+                                    ModBlocks.OXIDIZED_COPPER_RAIL.get()
                             ).put(
                                     ModBlocks.COPPER_ANVIL.get(),
                                     ModBlocks.EXPOSED_COPPER_ANVIL.get()
@@ -286,6 +293,18 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_SOUL_LANTERN.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_SOUL_LANTERN.get()
+                            ).put(
+                                    ModBlocks.COPPER_RAIL.get(),
+                                    ModBlocks.WAXED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_RAIL.get(),
+                                    ModBlocks.WAXED_EXPOSED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_RAIL.get(),
+                                    ModBlocks.WAXED_WEATHERED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.OXIDIZED_COPPER_RAIL.get(),
+                                    ModBlocks.WAXED_OXIDIZED_COPPER_RAIL.get()
                             ).put(
                                     ModBlocks.COPPER_ANVIL.get(),
                                     ModBlocks.WAXED_COPPER_ANVIL.get()

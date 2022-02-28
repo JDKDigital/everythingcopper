@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/template_anvil",
+    "textures": {
+        "particle": "everythingcopper:block/oxidized_copper_anvil",
+        "body": "everythingcopper:block/oxidized_copper_anvil",
+        "top": "everythingcopper:block/oxidized_copper_anvil_top"
+    }
+}

@@ -1,6 +1,5 @@
 package cy.jdkdigital.everythingcopper.common.item;
 
-import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.entity.CopperMinecart;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;

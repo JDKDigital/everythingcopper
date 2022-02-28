@@ -1,6 +1,5 @@
 package cy.jdkdigital.everythingcopper.common.block;
 
-import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
@@ -69,8 +68,8 @@ public interface IWeatheringBlock extends WeatheringCopper
                     if (blockState.getValue(DoorBlock.HALF).equals(DoubleBlockHalf.UPPER)) {
                         replacedPosition = replacedPosition.below();
                     }
-                    level.setBlock(replacedPosition, Blocks.AIR.defaultBlockState(), 3);
-                    level.setBlock(replacedPosition, waxedBlockState.setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER), 0);
+                    level.setBlock(replacedPosition, Blocks.AIR.defaultBlockState(), Block.UPDATE_ALL);
+                    level.setBlock(replacedPosition, waxedBlockState.setValue(DoorBlock.HALF, DoubleBlockHalf.LOWER), Block.UPDATE_CLIENTS);
                     level.setBlock(replacedPosition.above(), waxedBlockState.setValue(DoorBlock.HALF, DoubleBlockHalf.UPPER), Block.UPDATE_ALL_IMMEDIATE);
                     level.levelEvent(player, 3003, replacedPosition, 0);
                     level.levelEvent(player, 3003, replacedPosition.above(), 0);
