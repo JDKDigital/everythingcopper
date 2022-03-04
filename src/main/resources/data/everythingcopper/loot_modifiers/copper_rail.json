@@ -1,0 +1,16 @@
+{
+    "conditions": [
+        {
+            "condition": "minecraft:alternative",
+            "terms": [
+                {
+                    "condition": "forge:loot_table_id",
+                    "loot_table_id": "minecraft:chests/abandoned_mineshaft"
+                }
+            ]
+        }
+    ],
+    "type": "everythingcopper:copper_rail_loot",
+    "addition": "everythingcopper:copper_rail",
+    "count": 8
+}

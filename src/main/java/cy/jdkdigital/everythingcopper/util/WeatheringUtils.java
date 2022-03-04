@@ -70,42 +70,6 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_HOPPER.get(),
                                     ModBlocks.OXIDIZED_COPPER_HOPPER.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_CAULDRON.get(),
-//                                    ModBlocks.EXPOSED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_CAULDRON.get(),
-//                                    ModBlocks.WEATHERED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_CAULDRON.get(),
-//                                    ModBlocks.OXIDIZED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.EXPOSED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.WEATHERED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.OXIDIZED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.EXPOSED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.WEATHERED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.OXIDIZED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.EXPOSED_COPPER_POWDER_SNOW_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.WEATHERED_COPPER_POWDER_SNOW_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.OXIDIZED_COPPER_POWDER_SNOW_CAULDRON.get()
                             ).put(
                                     ModBlocks.COPPER_LANTERN.get(),
                                     ModBlocks.EXPOSED_COPPER_LANTERN.get()
@@ -133,6 +97,15 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_RAIL.get(),
                                     ModBlocks.OXIDIZED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.COPPER_LADDER.get(),
+                                    ModBlocks.EXPOSED_COPPER_LADDER.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_LADDER.get(),
+                                    ModBlocks.WEATHERED_COPPER_LADDER.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_LADDER.get(),
+                                    ModBlocks.OXIDIZED_COPPER_LADDER.get()
                             ).put(
                                     ModBlocks.COPPER_ANVIL.get(),
                                     ModBlocks.EXPOSED_COPPER_ANVIL.get()
@@ -221,54 +194,6 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_HOPPER.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_HOPPER.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_EXPOSED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_WEATHERED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.OXIDIZED_COPPER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_OXIDIZED_COPPER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_EXPOSED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_WEATHERED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.OXIDIZED_COPPER_WATER_CAULDRON.get(),
-//                                    ModBlocks.WAXED_OXIDIZED_COPPER_WATER_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.WAXED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.WAXED_EXPOSED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.WAXED_WEATHERED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.OXIDIZED_COPPER_LAVA_CAULDRON.get(),
-//                                    ModBlocks.WAXED_OXIDIZED_COPPER_LAVA_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.WAXED_COPPER_POWDER_SNOW_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.EXPOSED_COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.WAXED_EXPOSED_COPPER_POWDER_SNOW_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.WEATHERED_COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.WAXED_WEATHERED_COPPER_POWDER_SNOW_CAULDRON.get()
-//                            ).put(
-//                                    ModBlocks.OXIDIZED_COPPER_POWDER_SNOW_CAULDRON.get(),
-//                                    ModBlocks.WAXED_OXIDIZED_COPPER_POWDER_SNOW_CAULDRON.get()
                             ).put(
                                     ModBlocks.COPPER_LANTERN.get(),
                                     ModBlocks.WAXED_COPPER_LANTERN.get()
@@ -305,6 +230,18 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_RAIL.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_RAIL.get()
+                            ).put(
+                                    ModBlocks.COPPER_LADDER.get(),
+                                    ModBlocks.WAXED_COPPER_LADDER.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_LADDER.get(),
+                                    ModBlocks.WAXED_EXPOSED_COPPER_LADDER.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_LADDER.get(),
+                                    ModBlocks.WAXED_WEATHERED_COPPER_LADDER.get()
+                            ).put(
+                                    ModBlocks.OXIDIZED_COPPER_LADDER.get(),
+                                    ModBlocks.WAXED_OXIDIZED_COPPER_LADDER.get()
                             ).put(
                                     ModBlocks.COPPER_ANVIL.get(),
                                     ModBlocks.WAXED_COPPER_ANVIL.get()

@@ -47,8 +47,15 @@ public class EverythingCopper
 
         // dispenser behavior for minecart placement
         // fix minecart items
-        // horse armor weathering
+        // horse armor weathering and proper textures
         // iron/copper bar borders
+        // less noise on rails
+        // outline waxed copper blocks when holding wax
+        // change stats for items
+        // kiln for smelting non-blast and non-smoker items
+        // wind chime?
+        // lightning rod extension
+        // depth meter
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModEffects.EFFECTS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
@@ -102,6 +109,11 @@ public class EverythingCopper
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_RAIL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_RAIL.get(), RenderType.cutout());
 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_LADDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXPOSED_COPPER_LADDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_LADDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_LADDER.get(), RenderType.cutout());
+
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_DOOR.get(), RenderType.cutout());
@@ -136,6 +148,11 @@ public class EverythingCopper
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_RAIL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_RAIL.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_OXIDIZED_COPPER_RAIL.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_COPPER_LADDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_LADDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_LADDER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_OXIDIZED_COPPER_LADDER.get(), RenderType.cutout());
 
         ItemProperties.register(ModItems.COPPER_SWORD.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
         ItemProperties.register(ModItems.COPPER_SHOVEL.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));

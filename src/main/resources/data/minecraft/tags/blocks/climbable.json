@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "everythingcopper:copper_ladder",
+    "everythingcopper:exposed_copper_ladder",
+    "everythingcopper:weathered_copper_ladder",
+    "everythingcopper:oxidized_copper_ladder",
+    "everythingcopper:waxed_copper_ladder",
+    "everythingcopper:waxed_exposed_copper_ladder",
+    "everythingcopper:waxed_weathered_copper_ladder",
+    "everythingcopper:waxed_oxidized_copper_ladder"
+  ]
+}

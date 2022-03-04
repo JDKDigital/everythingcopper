@@ -3,7 +3,8 @@ package cy.jdkdigital.everythingcopper.event;
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.IWeatheringBlock;
 import cy.jdkdigital.everythingcopper.common.entity.CopperGolem;
-import cy.jdkdigital.everythingcopper.event.loot.CopperLootModifier;
+import cy.jdkdigital.everythingcopper.event.loot.CopperBlockLootModifier;
+import cy.jdkdigital.everythingcopper.event.loot.CopperItemLootModifier;
 import cy.jdkdigital.everythingcopper.init.ModEntities;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -34,14 +35,15 @@ public class EventHandler
     @SubscribeEvent
     public static void onLootRegister(RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
         event.getRegistry().registerAll(
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_boots")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_chestplate")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_helmet")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_horse_armor")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_leggings")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_pickaxe")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_shovel")),
-            new CopperLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_sword"))
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_boots")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_chestplate")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_helmet")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_horse_armor")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_leggings")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_pickaxe")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_shovel")),
+            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_sword")),
+            new CopperBlockLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_rail"))
         );
     }
 
