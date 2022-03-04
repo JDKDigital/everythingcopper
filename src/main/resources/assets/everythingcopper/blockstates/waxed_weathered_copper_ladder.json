@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "everythingcopper:block/weathered_copper_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "everythingcopper:block/weathered_copper_ladder"
+    },
+    "facing=south": {
+      "model": "everythingcopper:block/weathered_copper_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "everythingcopper:block/weathered_copper_ladder",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/ladder",
+  "textures": {
+    "layer0": "everythingcopper:block/exposed_copper_ladder"
+  }
+}

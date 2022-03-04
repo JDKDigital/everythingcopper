@@ -15,11 +15,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class CopperLootModifier extends LootModifier
+public class CopperItemLootModifier extends LootModifier
 {
     private final Item addition;
 
-    protected CopperLootModifier(LootItemCondition[] conditionsIn, Item addition) {
+    protected CopperItemLootModifier(LootItemCondition[] conditionsIn, Item addition) {
         super(conditionsIn);
         this.addition = addition;
     }
@@ -41,16 +41,16 @@ public class CopperLootModifier extends LootModifier
         return generatedLoot;
     }
 
-    public static class Serializer extends GlobalLootModifierSerializer<CopperLootModifier>
+    public static class Serializer extends GlobalLootModifierSerializer<CopperItemLootModifier>
     {
         @Override
-        public CopperLootModifier read(ResourceLocation resourceLocation, JsonObject jsonObject, LootItemCondition[] lootItemConditions) {
+        public CopperItemLootModifier read(ResourceLocation resourceLocation, JsonObject jsonObject, LootItemCondition[] lootItemConditions) {
             Item addition = ForgeRegistries.ITEMS.getValue(new ResourceLocation((GsonHelper.getAsString(jsonObject, "addition"))));
-            return new CopperLootModifier(lootItemConditions, addition);
+            return new CopperItemLootModifier(lootItemConditions, addition);
         }
 
         @Override
-        public JsonObject write(CopperLootModifier instance) {
+        public JsonObject write(CopperItemLootModifier instance) {
             JsonObject json = makeConditions(instance.conditions);
             json.addProperty("addition", ForgeRegistries.ITEMS.getKey(instance.addition).toString());
             return json;
