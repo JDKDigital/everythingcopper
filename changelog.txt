@@ -1,3 +1,14 @@
+1.18.2-0.1.0.5
+
+-- Updated to Forge 40.0.18
+
+
+1.18.2-0.1.0.4
+
+-- Armor and tools are now repaired with copper, not iron
+-- Armor and tools have changed stats, no longer just iron copies
+
+
 1.18.2-0.1.0.3
 
 -- Added copper ladders

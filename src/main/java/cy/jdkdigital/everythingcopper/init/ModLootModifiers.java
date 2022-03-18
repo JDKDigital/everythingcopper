@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 @Mod.EventBusSubscriber(modid = EverythingCopper.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModLootModifiers
 {
-    public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_SERIALIZERS = DeferredRegister.create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS, EverythingCopper.MODID);
+    public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_SERIALIZERS = DeferredRegister.create(ForgeRegistries.Keys.LOOT_MODIFIER_SERIALIZERS, EverythingCopper.MODID);
 
     public static final RegistryObject<GlobalLootModifierSerializer<CopperItemLootModifier>> COPPER_BOOTS = LOOT_SERIALIZERS.register("copper_boots_loot", CopperItemLootModifier.Serializer::new);
     public static final RegistryObject<GlobalLootModifierSerializer<CopperItemLootModifier>> COPPER_CHESTPLATE = LOOT_SERIALIZERS.register("copper_chestplate_loot", CopperItemLootModifier.Serializer::new);
