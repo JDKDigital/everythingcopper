@@ -33,7 +33,7 @@ public class CopperBlockLootModifier extends LootModifier
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
         // Randomized tarnish level
-        if (addition instanceof BlockItem blockItem) {
+        if (context.getRandom().nextBoolean() && addition instanceof BlockItem blockItem) {
             Block block = blockItem.getBlock();
             for (int i = 0; i < context.getRandom().nextInt(5); i++) {
                 block = IWeatheringBlock.getNext(block).orElse(block);

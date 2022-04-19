@@ -1,0 +1,6 @@
+{
+	"parent": "everythingcopper:block/copper_chime_wall",
+	"textures": {
+		"2": "block/weathered_copper"
+	}
+}

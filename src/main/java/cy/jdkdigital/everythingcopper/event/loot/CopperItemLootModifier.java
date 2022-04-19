@@ -27,17 +27,19 @@ public class CopperItemLootModifier extends LootModifier
     @NotNull
     @Override
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-        ItemStack loot = new ItemStack(addition, 1);
+        if (context.getRandom().nextBoolean()) {
+            ItemStack loot = new ItemStack(addition, 1);
 
-        // Randomized tarnish level
-        CompoundTag tag = loot.getOrCreateTag();
-        switch (context.getRandom().nextInt(3)) {
-            case 0 -> tag.putString("state", "exposed");
-            case 1 -> tag.putString("state", "weathered");
-            default -> tag.putString("state", "oxidized");
+            // Randomized tarnish level
+            CompoundTag tag = loot.getOrCreateTag();
+            switch (context.getRandom().nextInt(3)) {
+                case 0 -> tag.putString("state", "exposed");
+                case 1 -> tag.putString("state", "weathered");
+                default -> tag.putString("state", "oxidized");
+            }
+
+            generatedLoot.add(loot);
         }
-
-        generatedLoot.add(loot);
         return generatedLoot;
     }
 

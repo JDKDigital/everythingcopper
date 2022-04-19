@@ -1,11 +1,14 @@
 package cy.jdkdigital.everythingcopper;
 
+import cy.jdkdigital.everythingcopper.client.render.blockentity.CopperChimeRenderer;
+import cy.jdkdigital.everythingcopper.common.block.entity.CopperChimeBlockEntity;
 import cy.jdkdigital.everythingcopper.common.entity.CopperGolem;
 import cy.jdkdigital.everythingcopper.common.item.ICopperItem;
 import cy.jdkdigital.everythingcopper.event.EventHandler;
 import cy.jdkdigital.everythingcopper.init.*;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
@@ -44,14 +47,14 @@ public class EverythingCopper
 
     public EverythingCopper() {
         // TODO
-
+        // cauldrons
+        // bucket
         // dispenser behavior for minecart placement
         // fix minecart items
         // horse armor weathering and proper textures
-        // iron/copper bar borders
+        // iron/copper bar intersecting borders
         // less noise on rails
         // outline waxed copper blocks when holding wax
-        // change stats for items
         // kiln for smelting non-blast and non-smoker items
         // wind chime?
         // lightning rod extension
@@ -64,6 +67,7 @@ public class EverythingCopper
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModLootModifiers.LOOT_SERIALIZERS.register(modEventBus);
         ModRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
+        ModSounds.SOUNDS.register(modEventBus);
 
         modEventBus.addListener(EventHandler::onEntityAttributeCreate);
         modEventBus.addListener(this::onCommonSetup);
@@ -114,6 +118,11 @@ public class EverythingCopper
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_LADDER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_LADDER.get(), RenderType.cutout());
 
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHIME.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXPOSED_COPPER_CHIME.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_CHIME.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_CHIME.get(), RenderType.cutout());
+
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_DOOR.get(), RenderType.cutout());
@@ -153,6 +162,13 @@ public class EverythingCopper
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_LADDER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_LADDER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_OXIDIZED_COPPER_LADDER.get(), RenderType.cutout());
+
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_COPPER_CHIME.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_CHIME.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_CHIME.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_OXIDIZED_COPPER_CHIME.get(), RenderType.cutout());
+
+        BlockEntityRenderers.register(ModBlockEntities.COPPER_CHIME.get(), CopperChimeRenderer::new);
 
         ItemProperties.register(ModItems.COPPER_SWORD.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
         ItemProperties.register(ModItems.COPPER_SHOVEL.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));

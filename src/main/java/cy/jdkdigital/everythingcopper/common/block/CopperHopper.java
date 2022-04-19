@@ -49,10 +49,12 @@ public class CopperHopper extends HopperBlock implements IWeatheringBlock
         return res.equals(InteractionResult.PASS) ? super.use(blockState, level, blockpos, player, hand, hitResult) : res;
     }
 
+    @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState blockState) {
         return new CopperHopperBlockEntity(pos, blockState);
     }
 
+    @Override
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState blockState, BlockEntityType<T> entityType) {
         return level.isClientSide ? null : createTickerHelper(entityType, ModBlockEntities.COPPER_HOPPER.get(), HopperBlockEntity::pushItemsTick);

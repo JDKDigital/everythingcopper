@@ -136,6 +136,10 @@
     "block.everythingcopper.exposed_copper_ladder": "Exposed Copper Ladder",
     "block.everythingcopper.weathered_copper_ladder": "Weathered Copper Ladder",
     "block.everythingcopper.oxidized_copper_ladder": "Oxidized Copper Ladder",
+    "block.everythingcopper.copper_chime": "Copper Chime [WIP]",
+    "block.everythingcopper.exposed_copper_chime": "Exposed Copper Chime [WIP]",
+    "block.everythingcopper.weathered_copper_chime": "Weathered Copper Chime [WIP]",
+    "block.everythingcopper.oxidized_copper_chime": "Oxidized Copper Chime [WIP]",
     "block.everythingcopper.waxed_copper_anvil": "Waxed Copper Anvil",
     "block.everythingcopper.waxed_exposed_copper_anvil": "Waxed Exposed Copper Anvil",
     "block.everythingcopper.waxed_weathered_copper_anvil": "Waxed Weathered Copper Anvil",
@@ -204,6 +208,10 @@
     "block.everythingcopper.waxed_exposed_copper_ladder": "Waxed Exposed Copper Ladder",
     "block.everythingcopper.waxed_weathered_copper_ladder": "Waxed Weathered Copper Ladder",
     "block.everythingcopper.waxed_oxidized_copper_ladder": "Waxed Oxidized Copper Ladder",
+    "block.everythingcopper.waxed_copper_chime": "Waxed Copper Chime [WIP]",
+    "block.everythingcopper.waxed_exposed_copper_chime": "Waxed Exposed Copper Chime [WIP]",
+    "block.everythingcopper.waxed_weathered_copper_chime": "Waxed Weathered Copper Chime [WIP]",
+    "block.everythingcopper.waxed_oxidized_copper_chime": "Waxed Oxidized Copper Chime [WIP]",
 
     "item.everythingcopper.unaffected_copper_axe": "Copper Axe",
     "item.everythingcopper.exposed_copper_axe": "Exposed Copper Axe",
@@ -311,5 +319,7 @@
     "death.attack.everythingcopper.copper_poisoning2": "Copper poisoning got the better of %1$s",
     "death.attack.everythingcopper.copper_poisoning2.player": "Copper poisoning got the better of %1$s. We should all blame %2$s",
     "death.attack.everythingcopper.copper_poisoning3": "%1$s choked on a copper nug. Don't eat metal kids!",
-    "death.attack.everythingcopper.copper_poisoning3.player": "%1$s choked on a copper nug when running from %2$s. Don't eat while running."
+    "death.attack.everythingcopper.copper_poisoning3.player": "%1$s choked on a copper nug when running from %2$s. Don't eat while running.",
+
+    "everythingcopper.subtitle.copper_chime.chime": "Chime ringing"
 }

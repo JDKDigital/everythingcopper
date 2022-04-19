@@ -1,3 +1,9 @@
+1.18.2-0.1.0.6
+
+-- Limited loot spawn
+-- Added some missing loot tables
+
+
 1.18.2-0.1.0.5
 
 -- Updated to Forge 40.0.18

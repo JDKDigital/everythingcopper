@@ -27,7 +27,7 @@ public class ModItems
 
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item((new Item.Properties().food(ModEffects.NUGGY)).tab(CreativeModeTab.TAB_MATERIALS)));
 //    public static final RegistryObject<Item> COPPER_BUCKET = ITEMS.register("copper_bucket", () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_MISC)));
-    public static final RegistryObject<Item> COPPER_SHEARS = ITEMS.register("copper_shears", () -> new CopperShearsItem((new Item.Properties()).stacksTo(16).tab(CreativeModeTab.TAB_TOOLS)));
+    public static final RegistryObject<Item> COPPER_SHEARS = ITEMS.register("copper_shears", () -> new CopperShearsItem((new Item.Properties()).durability(200).tab(CreativeModeTab.TAB_TOOLS)));
     public static final RegistryObject<Item> COPPER_HORSE_ARMOR = ITEMS.register("copper_horse_armor", () -> new CopperHorseArmorItem(5, "leather", (new Item.Properties()).stacksTo(1).tab(CreativeModeTab.TAB_MISC)));
 
     public static final RegistryObject<Item> COPPER_MINECART = ITEMS.register("copper_minecart", () -> new CopperMinecartItem(AbstractMinecart.Type.RIDEABLE, (new Item.Properties()).stacksTo(1).tab(null))); // CreativeModeTab.TAB_TRANSPORTATION
