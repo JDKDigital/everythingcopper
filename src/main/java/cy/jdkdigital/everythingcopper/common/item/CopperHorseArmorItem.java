@@ -1,7 +1,6 @@
 package cy.jdkdigital.everythingcopper.common.item;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DyeableHorseArmorItem;
 import net.minecraft.world.item.ItemStack;
@@ -21,7 +20,7 @@ public class CopperHorseArmorItem extends DyeableHorseArmorItem implements ICopp
     @Override
     public @NotNull Component getName(ItemStack stack) {
         String id = (ICopperItem.isWaxed(stack) ? "waxed_" : "") + ICopperItem.getAge(stack).toLowerCase() + "_copper_horse_armor";
-        return new TranslatableComponent(this.getDescriptionId(stack).replace("copper_horse_armor", id));
+        return Component.translatable(this.getDescriptionId(stack).replace("copper_horse_armor", id));
     }
 
     @Override

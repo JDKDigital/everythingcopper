@@ -10,7 +10,7 @@
             ]
         }
     ],
-    "type": "everythingcopper:copper_rail_loot",
+    "type": "everythingcopper:copper_rail",
     "addition": "everythingcopper:copper_rail",
     "count": 8
 }

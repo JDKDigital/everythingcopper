@@ -30,6 +30,6 @@
             ]
         }
     ],
-    "type": "everythingcopper:copper_pickaxe_loot",
+    "type": "everythingcopper:copper_pickaxe",
     "addition": "everythingcopper:copper_pickaxe"
 }

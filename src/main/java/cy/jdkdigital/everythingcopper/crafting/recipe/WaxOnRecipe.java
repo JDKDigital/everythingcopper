@@ -16,7 +16,6 @@ import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nonnull;
 
@@ -101,7 +100,7 @@ public class WaxOnRecipe implements CraftingRecipe
         return ModRecipeTypes.WAX_ON.get();
     }
 
-    public static class Serializer<T extends WaxOnRecipe> extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<T>
+    public static class Serializer<T extends WaxOnRecipe> implements RecipeSerializer<T>
     {
         final WaxOnRecipe.Serializer.IRecipeFactory<T> factory;
 

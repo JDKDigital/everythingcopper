@@ -2,6 +2,7 @@ package cy.jdkdigital.everythingcopper.event.loot;
 
 import com.google.gson.JsonObject;
 import cy.jdkdigital.everythingcopper.common.block.IWeatheringBlock;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -29,9 +30,8 @@ public class CopperBlockLootModifier extends LootModifier
         this.count = count;
     }
 
-    @NotNull
     @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         // Randomized tarnish level
         if (context.getRandom().nextBoolean() && addition instanceof BlockItem blockItem) {
             Block block = blockItem.getBlock();

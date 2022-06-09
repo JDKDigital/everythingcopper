@@ -15,7 +15,6 @@ import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nonnull;
 
@@ -97,7 +96,7 @@ public class ScrapeRecipe implements CraftingRecipe
         return ModRecipeTypes.SCRAPE.get();
     }
 
-    public static class Serializer<T extends ScrapeRecipe> extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<T>
+    public static class Serializer<T extends ScrapeRecipe> implements RecipeSerializer<T>
     {
         final ScrapeRecipe.Serializer.IRecipeFactory<T> factory;
 

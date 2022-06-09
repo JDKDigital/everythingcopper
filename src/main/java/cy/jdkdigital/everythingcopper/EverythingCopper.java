@@ -1,7 +1,7 @@
 package cy.jdkdigital.everythingcopper;
 
 import cy.jdkdigital.everythingcopper.client.render.blockentity.CopperChimeRenderer;
-import cy.jdkdigital.everythingcopper.common.block.entity.CopperChimeBlockEntity;
+import cy.jdkdigital.everythingcopper.client.render.item.CopperShieldRenderer;
 import cy.jdkdigital.everythingcopper.common.entity.CopperGolem;
 import cy.jdkdigital.everythingcopper.common.item.ICopperItem;
 import cy.jdkdigital.everythingcopper.event.EventHandler;
@@ -27,7 +27,9 @@ import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.BlockSnapshot;
+import net.minecraftforge.event.AddReloadListenerEvent;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -75,6 +77,8 @@ public class EverythingCopper
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> {
             modEventBus.addListener(EverythingCopper::registerBlockRendering);
         });
+
+        MinecraftForge.EVENT_BUS.addListener(this::onServerStarting);
     }
 
     public static void registerBlockRendering(final FMLClientSetupEvent event) {
@@ -209,5 +213,9 @@ public class EverythingCopper
         };
         DispenserBlock.registerBehavior(Items.CARVED_PUMPKIN, copperGolemAssemble);
         DispenserBlock.registerBehavior(Items.JACK_O_LANTERN, copperGolemAssemble);
+    }
+
+    public void onServerStarting(AddReloadListenerEvent event) {
+        event.addListener(CopperShieldRenderer.INSTANCE);
     }
 }

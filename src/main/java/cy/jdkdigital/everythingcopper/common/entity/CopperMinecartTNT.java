@@ -3,7 +3,6 @@ package cy.jdkdigital.everythingcopper.common.entity;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -35,7 +34,7 @@ public class CopperMinecartTNT extends MinecartTNT implements IWeatheringEntity
     @Override
     protected Component getTypeName() {
         String id = (isWaxed() ? "waxed_" : "") + getAge().name().toLowerCase() + "_tnt_copper_minecart";
-        return new TranslatableComponent(this.getType().getDescriptionId().replace("tnt_copper_minecart", id));
+        return Component.translatable(this.getType().getDescriptionId().replace("tnt_copper_minecart", id));
     }
 
     @Override

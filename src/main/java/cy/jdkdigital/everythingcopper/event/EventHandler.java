@@ -3,16 +3,12 @@ package cy.jdkdigital.everythingcopper.event;
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.IWeatheringBlock;
 import cy.jdkdigital.everythingcopper.common.entity.CopperGolem;
-import cy.jdkdigital.everythingcopper.event.loot.CopperBlockLootModifier;
-import cy.jdkdigital.everythingcopper.event.loot.CopperItemLootModifier;
 import cy.jdkdigital.everythingcopper.init.ModEntities;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.animal.IronGolem;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -22,8 +18,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -32,21 +26,6 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = EverythingCopper.MODID)
 public class EventHandler
 {
-    @SubscribeEvent
-    public static void onLootRegister(RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
-        event.getRegistry().registerAll(
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_boots")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_chestplate")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_helmet")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_horse_armor")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_leggings")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_pickaxe")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_shovel")),
-            new CopperItemLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_sword")),
-            new CopperBlockLootModifier.Serializer().setRegistryName(new ResourceLocation(EverythingCopper.MODID, "copper_rail"))
-        );
-    }
-
     @SubscribeEvent
     public static void placeCarvedPumpkin(BlockEvent.EntityPlaceEvent event) {
         if (event.getPlacedBlock().getBlock().equals(Blocks.CARVED_PUMPKIN) || event.getPlacedBlock().getBlock().equals(Blocks.JACK_O_LANTERN)) {
@@ -90,10 +69,9 @@ public class EventHandler
     }
 
     @SubscribeEvent
-    public static void toolInteract(BlockEvent.BlockToolInteractEvent event) {
+    public static void toolInteract(BlockEvent.BlockToolModificationEvent event) {
         Block block = event.getState().getBlock();
         LevelAccessor level = event.getWorld();
-        Player player = event.getPlayer();
 
         BlockState blockState = event.getState();
         if (event.getToolAction().equals(ToolActions.AXE_WAX_OFF)) {

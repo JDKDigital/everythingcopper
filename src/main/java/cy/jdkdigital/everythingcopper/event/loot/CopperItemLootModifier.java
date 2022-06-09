@@ -1,6 +1,7 @@
 package cy.jdkdigital.everythingcopper.event.loot;
 
 import com.google.gson.JsonObject;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -24,9 +25,8 @@ public class CopperItemLootModifier extends LootModifier
         this.addition = addition;
     }
 
-    @NotNull
     @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+    protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
         if (context.getRandom().nextBoolean()) {
             ItemStack loot = new ItemStack(addition, 1);
 

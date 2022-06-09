@@ -6,8 +6,6 @@ import cy.jdkdigital.everythingcopper.client.render.entity.CopperGolemRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.CopperMinecartRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.TntCopperMinecartRenderer;
 import cy.jdkdigital.everythingcopper.init.ModEntities;
-import cy.jdkdigital.productivebees.client.render.entity.ProductiveBeeRenderer;
-import cy.jdkdigital.productivebees.client.render.entity.model.ProductiveBeeModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -19,14 +17,6 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = EverythingCopper.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientSetup
 {
-    @SubscribeEvent
-    public static void registerItemColors(final ColorHandlerEvent.Item event) {
-    }
-
-    @SubscribeEvent
-    public static void registerBlockColors(final ColorHandlerEvent.Block event) {
-    }
-
     @SubscribeEvent
     public static void layerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(CopperChimeRenderer.COPPER_CHIME_MAIN_LAYER, CopperChimeRenderer::createBodyLayer);

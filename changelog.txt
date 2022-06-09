@@ -1,3 +1,11 @@
+1.19-0.1.0.7
+
+-- Ported to 1.19
+-- Fixed hoppers spilling inventory when oxidizing
+-- Added advancements for eating copper nugget
+-- Added advancements for building a copper golem
+
+
 1.18.2-0.1.0.6
 
 -- Limited loot spawn

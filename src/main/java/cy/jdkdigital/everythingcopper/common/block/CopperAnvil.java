@@ -7,8 +7,8 @@ import cy.jdkdigital.everythingcopper.init.ModBlocks;
 import cy.jdkdigital.everythingcopper.inventory.CopperAnvilMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -28,7 +28,7 @@ import java.util.function.Supplier;
 
 public class CopperAnvil extends AnvilBlock implements IWeatheringBlock
 {
-    private static final Component CONTAINER_TITLE = new TranslatableComponent("container.repair");
+    private static final Component CONTAINER_TITLE = Component.translatable("container.repair");
     private final WeatherState weatherState;
     public static Supplier<BiMap<Block, Block>> NEXT_BY_BLOCK;
 
@@ -95,7 +95,7 @@ public class CopperAnvil extends AnvilBlock implements IWeatheringBlock
     }
 
     @Override
-    public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, Random random) {
+    public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource random) {
         this.onRandomTick(blockState, level, blockPos, random);
     }
 

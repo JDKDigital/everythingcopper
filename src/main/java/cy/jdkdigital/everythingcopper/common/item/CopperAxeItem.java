@@ -1,7 +1,6 @@
 package cy.jdkdigital.everythingcopper.common.item;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
@@ -18,7 +17,7 @@ public class CopperAxeItem extends AxeItem implements ICopperItem
     @Override
     public @NotNull Component getName(ItemStack stack) {
         String id = (ICopperItem.isWaxed(stack) ? "waxed_" : "") + ICopperItem.getAge(stack).toLowerCase() + "_copper_axe";
-        return new TranslatableComponent(this.getDescriptionId(stack).replace("copper_axe", id));
+        return Component.translatable(this.getDescriptionId(stack).replace("copper_axe", id));
     }
 
     @Override

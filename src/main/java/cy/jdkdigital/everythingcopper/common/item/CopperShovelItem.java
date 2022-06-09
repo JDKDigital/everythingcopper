@@ -1,7 +1,6 @@
 package cy.jdkdigital.everythingcopper.common.item;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShovelItem;
@@ -18,7 +17,7 @@ public class CopperShovelItem extends ShovelItem implements ICopperItem
     @Override
     public @NotNull Component getName(ItemStack stack) {
         String id = (ICopperItem.isWaxed(stack) ? "waxed_" : "") + ICopperItem.getAge(stack).toLowerCase() + "_copper_shovel";
-        return new TranslatableComponent(this.getDescriptionId(stack).replace("copper_shovel", id));
+        return Component.translatable(this.getDescriptionId(stack).replace("copper_shovel", id));
     }
 
     @Override

@@ -9,6 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -89,7 +90,7 @@ public class CopperChime extends BellBlock implements IWeatheringBlock
 
             chimeBlockEntity.onHit(direction);
             level.playSound(null, pos, ModSounds.CHIME.get(), SoundSource.BLOCKS, 2.0F, 1.0F);
-            level.gameEvent(entity, GameEvent.RING_BELL, pos);
+            level.gameEvent(entity, GameEvent.BLOCK_CHANGE, pos);
             return true;
         } else {
             return false;
@@ -102,7 +103,7 @@ public class CopperChime extends BellBlock implements IWeatheringBlock
     }
 
     @Override
-    public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, Random random) {
+    public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource random) {
         this.onRandomTick(blockState, level, blockPos, random);
     }
 

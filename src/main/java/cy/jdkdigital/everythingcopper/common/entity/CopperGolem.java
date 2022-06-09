@@ -4,7 +4,6 @@ import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
@@ -48,7 +47,7 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
     @Override
     protected Component getTypeName() {
         String id = (isWaxed() ? "waxed_" : "") + getAge().name().toLowerCase() + "_copper_golem";
-        return new TranslatableComponent(this.getType().getDescriptionId().replace("copper_golem", id));
+        return Component.translatable(this.getType().getDescriptionId().replace("copper_golem", id));
     }
 
     @Override
@@ -62,15 +61,13 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
             } else {
                 float f1 = 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F;
                 this.playSound(SoundEvents.IRON_GOLEM_REPAIR, 1.0F, f1);
-                this.gameEvent(GameEvent.MOB_INTERACT, this.eyeBlockPosition());
                 if (!player.getAbilities().instabuild) {
                     itemStack.shrink(1);
                 }
                 return InteractionResult.sidedSuccess(this.level.isClientSide);
             }
-        } else {
-            return itemUse(level, itemStack, player, blockPosition());
         }
+        return InteractionResult.PASS;
     }
 
     @Override
