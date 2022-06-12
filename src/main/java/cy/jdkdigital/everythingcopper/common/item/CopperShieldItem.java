@@ -1,16 +1,12 @@
 package cy.jdkdigital.everythingcopper.common.item;
 
-import cy.jdkdigital.everythingcopper.client.render.item.CopperShieldRenderer;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.IItemRenderProperties;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.function.Consumer;
 
 public class CopperShieldItem extends ShieldItem implements ICopperItem
 {
@@ -31,16 +27,16 @@ public class CopperShieldItem extends ShieldItem implements ICopperItem
             weatheringTick(stack, level);
         }
     }
-
-    @Override
-    public void initializeClient(Consumer<IItemRenderProperties> consumer) {
-        consumer.accept(new IItemRenderProperties()
-        {
-            @Override
-            public BlockEntityWithoutLevelRenderer getItemStackRenderer()
-            {
-                return CopperShieldRenderer.INSTANCE;
-            }
-        });
-    }
+//
+//    @Override
+//    public void initializeClient(Consumer<IItemRenderProperties> consumer) {
+//        consumer.accept(new IItemRenderProperties()
+//        {
+//            @Override
+//            public BlockEntityWithoutLevelRenderer getItemStackRenderer()
+//            {
+//                return CopperShieldRenderer.INSTANCE;
+//            }
+//        });
+//    }
 }
