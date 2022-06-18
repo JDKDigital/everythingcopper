@@ -321,5 +321,10 @@
     "death.attack.everythingcopper.copper_poisoning3": "%1$s choked on a copper nug. Don't eat metal kids!",
     "death.attack.everythingcopper.copper_poisoning3.player": "%1$s choked on a copper nug when running from %2$s. Don't eat while running.",
 
-    "everythingcopper.subtitle.copper_chime.chime": "Chime ringing"
+    "everythingcopper.subtitle.copper_chime.chime": "Chime ringing",
+
+    "advancements.adventure.consume_copper_nugget.title": "Crack a tooth",
+    "advancements.adventure.consume_copper_nugget.description": "Eat a copper nugget, it's very good for your health.",
+    "advancements.adventure.summon_copper_golem.title": "Golem Palette",
+    "advancements.adventure.summon_copper_golem.description": "Summon a Copper Golem. Not for any particular reason other than having way too much copper on hand."
 }

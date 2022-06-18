@@ -35,7 +35,7 @@
             "item": "everythingcopper:copper_horse_armor"
         }
     ],
-    "result": "minecraft:iron_nugget",
+    "result": "everythingcopper:copper_nugget",
     "experience": 0.1,
     "cookingtime": 200
 }

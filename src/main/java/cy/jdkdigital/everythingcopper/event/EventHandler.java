@@ -93,7 +93,6 @@ public class EventHandler
     public static void toolInteract(BlockEvent.BlockToolInteractEvent event) {
         Block block = event.getState().getBlock();
         LevelAccessor level = event.getWorld();
-        Player player = event.getPlayer();
 
         BlockState blockState = event.getState();
         if (event.getToolAction().equals(ToolActions.AXE_WAX_OFF)) {
