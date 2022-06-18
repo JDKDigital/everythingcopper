@@ -6,10 +6,6 @@
                 {
                     "condition": "forge:loot_table_id",
                     "loot_table_id": "minecraft:chests/village/village_toolsmith"
-                },
-                {
-                    "condition": "forge:loot_table_id",
-                    "loot_table_id": "minecraft:chests/end_city_treasure"
                 }
             ]
         }
