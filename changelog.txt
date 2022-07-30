@@ -1,3 +1,8 @@
+1.18.2-0.1.0.7
+
+-- Added copper button. Holds a redstone signal longer the more oxidized it is.
+
+
 1.18.2-0.1.0.6
 
 -- Limited loot spawn
