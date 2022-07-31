@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class ModEntities
 {
-    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, EverythingCopper.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, EverythingCopper.MODID);
 
     public static final RegistryObject<EntityType<CopperGolem>> COPPER_GOLEM = createEntity("copper_golem", EntityType.Builder.of(CopperGolem::new, MobCategory.MISC).sized(1.4F, 2.7F).clientTrackingRange(10));
 

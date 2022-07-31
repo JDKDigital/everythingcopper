@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.WeightedPressurePlateBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.Random;
-
 public class CopperPressurePlate extends WeightedPressurePlateBlock implements IWeatheringBlock
 {
     private final WeatherState weatherState;

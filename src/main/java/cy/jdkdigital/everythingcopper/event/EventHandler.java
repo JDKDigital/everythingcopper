@@ -19,9 +19,10 @@ import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = EverythingCopper.MODID)
 public class EventHandler
@@ -29,25 +30,30 @@ public class EventHandler
     @SubscribeEvent
     public static void placeCarvedPumpkin(BlockEvent.EntityPlaceEvent event) {
         if (event.getPlacedBlock().getBlock().equals(Blocks.CARVED_PUMPKIN) || event.getPlacedBlock().getBlock().equals(Blocks.JACK_O_LANTERN)) {
-            LevelAccessor level = event.getWorld();
+            LevelAccessor level = event.getLevel();
 
             BlockPattern copperGolemPattern = CopperGolem.getOrCreateCopperGolemFull();
 
-            BlockPattern.BlockPatternMatch blockPatternMatch = copperGolemPattern.find(event.getWorld(), event.getPos());
+            BlockPattern.BlockPatternMatch blockPatternMatch = copperGolemPattern.find(event.getLevel(), event.getPos());
             if (blockPatternMatch != null) {
+                int waxed = 0;
                 for(int j = 0; j < copperGolemPattern.getWidth(); ++j) {
                     for(int k = 0; k < copperGolemPattern.getHeight(); ++k) {
                         BlockInWorld block = blockPatternMatch.getBlock(j, k, 0);
+                        if (ForgeRegistries.BLOCKS.getKey(block.getState().getBlock()).getPath().contains("waxed")) {
+                            waxed++;
+                        }
                         level.setBlock(block.getPos(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
                         level.levelEvent(2001, block.getPos(), Block.getId(block.getState()));
                     }
                 }
 
                 BlockPos blockpos = blockPatternMatch.getBlock(1, 2, 0).getPos();
-                IronGolem copperGolem = ModEntities.COPPER_GOLEM.get().create((Level) level);
+                CopperGolem copperGolem = ModEntities.COPPER_GOLEM.get().create((Level) level);
                 copperGolem.setPlayerCreated(true);
                 copperGolem.moveTo((double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.05D, (double)blockpos.getZ() + 0.5D, 0.0F, 0.0F);
                 level.addFreshEntity(copperGolem);
+                copperGolem.setWaxed(waxed == 4);
 
                 for(ServerPlayer serverplayer1 : level.getEntitiesOfClass(ServerPlayer.class, copperGolem.getBoundingBox().inflate(5.0D))) {
                     CriteriaTriggers.SUMMONED_ENTITY.trigger(serverplayer1, copperGolem);
@@ -71,7 +77,7 @@ public class EventHandler
     @SubscribeEvent
     public static void toolInteract(BlockEvent.BlockToolModificationEvent event) {
         Block block = event.getState().getBlock();
-        LevelAccessor level = event.getWorld();
+        LevelAccessor level = event.getLevel();
 
         BlockState blockState = event.getState();
         if (event.getToolAction().equals(ToolActions.AXE_WAX_OFF)) {

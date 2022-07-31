@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.CauldronBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.Random;
-
 public class CopperCauldron extends CauldronBlock implements IWeatheringBlock
 {
     private final WeatherState weatherState;

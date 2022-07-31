@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.Random;
-
 public class CopperTrapDoor extends TrapDoorBlock implements IWeatheringBlock
 {
     private final WeatherState weatherState;

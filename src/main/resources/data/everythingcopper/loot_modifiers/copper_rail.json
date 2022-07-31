@@ -10,7 +10,7 @@
             ]
         }
     ],
-    "type": "everythingcopper:copper_rail",
+    "type": "everythingcopper:copper_block",
     "addition": "everythingcopper:copper_rail",
     "count": 8
 }

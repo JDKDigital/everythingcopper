@@ -12,8 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.Random;
-
 public class CopperDoor extends DoorBlock implements IWeatheringBlock
 {
     private final WeatheringCopper.WeatherState weatherState;

@@ -22,6 +22,6 @@
             ]
         }
     ],
-    "type": "everythingcopper:copper_chestplate",
+    "type": "everythingcopper:copper_item",
     "addition": "everythingcopper:copper_chestplate"
 }

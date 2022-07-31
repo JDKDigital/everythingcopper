@@ -5,7 +5,6 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.entity.CopperChimeBlockEntity;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeListBuilder;
@@ -21,7 +20,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.level.block.WeatheringCopper;
 
 public class CopperChimeRenderer implements BlockEntityRenderer<CopperChimeBlockEntity> {
     public static final ModelLayerLocation COPPER_CHIME_MAIN_LAYER = new ModelLayerLocation(new ResourceLocation(EverythingCopper.MODID, "main"), "main");

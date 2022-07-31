@@ -11,8 +11,6 @@ import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.Random;
-
 public class CopperChain extends ChainBlock implements IWeatheringBlock
 {
     private final WeatherState weatherState;

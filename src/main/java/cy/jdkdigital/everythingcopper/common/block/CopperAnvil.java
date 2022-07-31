@@ -23,7 +23,6 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class CopperAnvil extends AnvilBlock implements IWeatheringBlock

@@ -7,7 +7,6 @@ import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-
 public class CopperShieldItem extends ShieldItem implements ICopperItem
 {
     public CopperShieldItem(Properties properties) {

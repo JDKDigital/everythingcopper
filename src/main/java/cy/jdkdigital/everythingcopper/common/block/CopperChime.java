@@ -1,13 +1,11 @@
 package cy.jdkdigital.everythingcopper.common.block;
 
-import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.entity.CopperChimeBlockEntity;
 import cy.jdkdigital.everythingcopper.init.ModBlockEntities;
 import cy.jdkdigital.everythingcopper.init.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -19,7 +17,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BellBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.WeatheringCopper;
-import net.minecraft.world.level.block.entity.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BellAttachType;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -28,8 +28,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-
-import java.util.Random;
 
 public class CopperChime extends BellBlock implements IWeatheringBlock
 {

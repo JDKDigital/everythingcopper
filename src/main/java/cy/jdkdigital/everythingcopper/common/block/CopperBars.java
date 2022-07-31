@@ -12,8 +12,6 @@ import net.minecraft.world.level.block.IronBarsBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
-import java.util.Random;
-
 public class CopperBars extends IronBarsBlock implements IWeatheringBlock
 {
     private final WeatherState weatherState;

@@ -1,26 +1,30 @@
 package cy.jdkdigital.everythingcopper.event.loot;
 
-import com.google.gson.JsonObject;
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import cy.jdkdigital.everythingcopper.common.block.IWeatheringBlock;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-
 public class CopperBlockLootModifier extends LootModifier
 {
+    public static final Supplier<Codec<CopperBlockLootModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst).and(
+            inst.group(
+                    ForgeRegistries.ITEMS.getCodec().fieldOf("addition").forGetter(m -> m.addition),
+                    Codec.INT.fieldOf("count").forGetter(m -> m.count)
+            )).apply(inst, CopperBlockLootModifier::new)));
+
     private final Item addition;
     private final int count;
 
@@ -45,20 +49,8 @@ public class CopperBlockLootModifier extends LootModifier
         return generatedLoot;
     }
 
-    public static class Serializer extends GlobalLootModifierSerializer<CopperBlockLootModifier>
-    {
-        @Override
-        public CopperBlockLootModifier read(ResourceLocation resourceLocation, JsonObject jsonObject, LootItemCondition[] lootItemConditions) {
-            Item addition = ForgeRegistries.ITEMS.getValue(new ResourceLocation((GsonHelper.getAsString(jsonObject, "addition"))));
-            return new CopperBlockLootModifier(lootItemConditions, addition, GsonHelper.getAsInt(jsonObject, "count", 1));
-        }
-
-        @Override
-        public JsonObject write(CopperBlockLootModifier instance) {
-            JsonObject json = makeConditions(instance.conditions);
-            json.addProperty("addition", ForgeRegistries.ITEMS.getKey(instance.addition).toString());
-            json.addProperty("count", instance.count);
-            return json;
-        }
+    @Override
+    public Codec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
     }
 }
