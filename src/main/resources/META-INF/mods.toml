@@ -1,5 +1,5 @@
 modLoader="javafml" #mandatory
-loaderVersion="[41,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[42,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license="All rights reserved"
 issueTrackerURL="https://github.com/JDKDigital/everythingcopper/issues" #optional
 [[mods]] #mandatory
@@ -14,12 +14,12 @@ Adds everything in copper
 [[dependencies.everythingcopper]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[41.0.1,)"
+    versionRange="[42.0.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.everythingcopper]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19,1.20)"
+    versionRange="[1.19.1,1.20)"
     ordering="NONE"
     side="BOTH"

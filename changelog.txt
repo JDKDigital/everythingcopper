@@ -1,3 +1,9 @@
+1.19.1-0.2.0.0
+
+-- Updated to 1.19.1
+-- Added copper button. Holds a redstone signal longer the more oxidized it is.
+
+
 1.19-0.1.0.10
 
 -- Updated to Forge 41.0.98
