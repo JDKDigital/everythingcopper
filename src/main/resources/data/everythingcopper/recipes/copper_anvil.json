@@ -1,19 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "III",
-        " i ",
-        "iii"
-    ],
-    "key": {
-        "I": {
-            "tag": "forge:storage_blocks/copper"
-        },
-        "i": {
-            "tag": "forge:ingots/copper"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "B": {
+      "tag": "forge:storage_blocks/copper"
     },
-    "result": {
-        "item": "everythingcopper:copper_anvil"
+    "i": {
+      "tag": "forge:ingots/copper"
     }
+  },
+  "pattern": [
+    "BBB",
+    " i ",
+    "iii"
+  ],
+  "result": {
+    "item": "everythingcopper:copper_anvil"
+  }
 }

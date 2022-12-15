@@ -67,34 +67,34 @@ public class EverythingCopper
     }
 
     public void onCommonSetup(FMLCommonSetupEvent event) {
-        DefaultDispenseItemBehavior copperGolemAssemble = new OptionalDispenseItemBehavior()
-        {
-            @Override
-            public @NotNull ItemStack execute(BlockSource source, ItemStack stack) {
-                Level level = source.getLevel();
-                Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
-                BlockPos blockpos = source.getPos().relative(direction);
-                CarvedPumpkinBlock carvedpumpkinblock = (CarvedPumpkinBlock) Blocks.CARVED_PUMPKIN;
-                 if (level.isEmptyBlock(blockpos) && stack.getItem() instanceof BlockItem blockItem && (carvedpumpkinblock.canSpawnGolem(level, blockpos) || CopperGolem.canSpawnGolem(level, blockpos))) {
-                    if (!level.isClientSide) {
-                        level.setBlock(blockpos, blockItem.getBlock().defaultBlockState(), Block.UPDATE_ALL);
-                        level.gameEvent(null, GameEvent.BLOCK_PLACE, blockpos);
-                        ForgeEventFactory.onBlockPlace(null, BlockSnapshot.create(level.dimension(), level, blockpos), direction);
-                    }
-
-                    stack.shrink(1);
-                    this.setSuccess(true);
-                } else {
-                    this.setSuccess(ArmorItem.dispenseArmor(source, stack));
-                }
-                return stack;
-            }
-        };
-        DispenserBlock.registerBehavior(Items.CARVED_PUMPKIN, copperGolemAssemble);
-        DispenserBlock.registerBehavior(Items.JACK_O_LANTERN, copperGolemAssemble);
+        DispenserBlock.registerBehavior(Items.CARVED_PUMPKIN, new CopperGolemDispenserBehavior());
+        DispenserBlock.registerBehavior(Items.JACK_O_LANTERN, new CopperGolemDispenserBehavior());
     }
 
     public void onServerStarting(AddReloadListenerEvent event) {
 //        event.addListener(CopperShieldRenderer.INSTANCE);
+    }
+
+    static class CopperGolemDispenserBehavior extends OptionalDispenseItemBehavior {
+        @Override
+        public @NotNull ItemStack execute(BlockSource source, ItemStack stack) {
+            Level level = source.getLevel();
+            Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
+            BlockPos blockpos = source.getPos().relative(direction);
+            CarvedPumpkinBlock carvedpumpkinblock = (CarvedPumpkinBlock) Blocks.CARVED_PUMPKIN;
+            if (level.isEmptyBlock(blockpos) && stack.getItem() instanceof BlockItem blockItem && (carvedpumpkinblock.canSpawnGolem(level, blockpos) || CopperGolem.canSpawnGolem(level, blockpos))) {
+                if (!level.isClientSide) {
+                    level.setBlock(blockpos, blockItem.getBlock().defaultBlockState(), Block.UPDATE_ALL);
+                    level.gameEvent(null, GameEvent.BLOCK_PLACE, blockpos);
+                    ForgeEventFactory.onBlockPlace(null, BlockSnapshot.create(level.dimension(), level, blockpos), direction);
+                }
+
+                stack.shrink(1);
+                this.setSuccess(true);
+            } else {
+                this.setSuccess(ArmorItem.dispenseArmor(source, stack));
+            }
+            return stack;
+        }
     }
 }

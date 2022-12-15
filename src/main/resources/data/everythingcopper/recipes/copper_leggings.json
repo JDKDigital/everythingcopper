@@ -1,16 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "XXX",
-        "X X",
-        "X X"
-    ],
-    "key": {
-        "X": {
-            "tag": "forge:ingots/copper"
-        }
-    },
-    "result": {
-        "item": "everythingcopper:copper_leggings"
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "i": {
+      "tag": "forge:ingots/copper"
     }
+  },
+  "pattern": [
+    "iii",
+    "i i",
+    "i i"
+  ],
+  "result": {
+    "item": "everythingcopper:copper_leggings"
+  }
 }

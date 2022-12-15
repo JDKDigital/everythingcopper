@@ -1,18 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "WoW",
-    "WWW",
-    " W "
-  ],
+  "group": "everythingcopper",
   "key": {
-    "W": {
-      "tag": "minecraft:planks"
+    "i": {
+      "tag": "forge:ingots/copper"
     },
-    "o": {
-      "item": "minecraft:copper_ingot"
+    "w": {
+      "tag": "minecraft:planks"
     }
   },
+  "pattern": [
+    "wiw",
+    "www",
+    " w "
+  ],
   "result": {
     "item": "everythingcopper:copper_shield"
   }

@@ -124,6 +124,15 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_CHAIN.get(),
                                     ModBlocks.OXIDIZED_COPPER_CHAIN.get()
+                            ).put(
+                                    ModBlocks.COPPER_BUTTON.get(),
+                                    ModBlocks.EXPOSED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_BUTTON.get(),
+                                    ModBlocks.WEATHERED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_BUTTON.get(),
+                                    ModBlocks.OXIDIZED_COPPER_BUTTON.get()
                             )
                             .build()
             );
@@ -266,6 +275,18 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_CHAIN.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_CHAIN.get()
+                            ).put(
+                                    ModBlocks.COPPER_BUTTON.get(),
+                                    ModBlocks.WAXED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_BUTTON.get(),
+                                    ModBlocks.WAXED_EXPOSED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_BUTTON.get(),
+                                    ModBlocks.WAXED_WEATHERED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.OXIDIZED_COPPER_BUTTON.get(),
+                                    ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON.get()
                             )
                             .build()
             );

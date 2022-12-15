@@ -1,17 +1,18 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "X X",
-        "XXX",
-        "X X"
-    ],
-    "key": {
-        "X": {
-            "item": "minecraft:copper_ingot"
-        }
-    },
-    "result": {
-        "item": "everythingcopper:copper_ladder",
-        "count": 16
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "i": {
+      "tag": "forge:ingots/copper"
     }
+  },
+  "pattern": [
+    "i i",
+    "iii",
+    "i i"
+  ],
+  "result": {
+    "count": 16,
+    "item": "everythingcopper:copper_ladder"
+  }
 }

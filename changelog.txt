@@ -1,71 +1,15 @@
+1.19.2-0.2.1.1
+
+-- Fixed crash when fastutils is installed
+
+
+1.19.2-0.2.1.0
+
+-- Updated to latest Forge 1.19.2
+-- Added recipe unlock advancements
+
+
 1.19.1-0.2.0.0
 
 -- Updated to 1.19.1
 -- Added copper button. Holds a redstone signal longer the more oxidized it is.
-
-
-1.19-0.1.0.10
-
--- Updated to Forge 41.0.98
--- Waxed copper blocks can be used to create the golem
-
-
-1.19-0.1.0.9
-
--- Fixed an occasional client load error
-
-
-1.19-0.1.0.8
-
--- Fix a server crash  on load
-
-
-1.19-0.1.0.7
-
--- Ported to 1.19
--- Fixed hoppers spilling inventory when oxidizing
--- Added advancements for eating copper nugget
--- Added advancements for building a copper golem
-
-
-1.18.2-0.1.0.6
-
--- Limited loot spawn
--- Added some missing loot tables
-
-
-1.18.2-0.1.0.5
-
--- Updated to Forge 40.0.18
-
-
-1.18.2-0.1.0.4
-
--- Armor and tools are now repaired with copper, not iron
--- Armor and tools have changed stats, no longer just iron copies
-
-
-1.18.2-0.1.0.3
-
--- Added copper ladders
-
-
-1.18.2-0.1.0.2
-
--- Ported to 1.18.2
-
-
-1.18.1-0.1.0.2
-
--- Fixed crash when building the copper golem
--- Added model compatibility with Additional Bars
-
-
-1.18.1-0.1.0.1
-
--- Now with anvils, hoppers and rails
-
-
-1.18.1-0.1.0.0
-
--- Initial copper investment

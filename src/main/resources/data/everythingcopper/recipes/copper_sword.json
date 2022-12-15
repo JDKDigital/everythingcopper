@@ -1,19 +1,20 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "X",
-        "X",
-        "#"
-    ],
-    "key": {
-        "#": {
-            "item": "minecraft:stick"
-        },
-        "X": {
-            "tag": "forge:ingots/copper"
-        }
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "i": {
+      "tag": "forge:ingots/copper"
     },
-    "result": {
-        "item": "everythingcopper:copper_sword"
+    "s": {
+      "tag": "forge:rods/wooden"
     }
+  },
+  "pattern": [
+    "i",
+    "i",
+    "s"
+  ],
+  "result": {
+    "item": "everythingcopper:copper_sword"
+  }
 }

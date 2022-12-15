@@ -1,17 +1,18 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern": [
-        "##",
-        "##",
-        "##"
-    ],
-    "key": {
-        "#": {
-            "tag": "forge:ingots/copper"
-        }
-    },
-    "result": {
-        "item": "everythingcopper:copper_door",
-        "count": 3
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "i": {
+      "tag": "forge:ingots/copper"
     }
+  },
+  "pattern": [
+    "ii",
+    "ii",
+    "ii"
+  ],
+  "result": {
+    "count": 3,
+    "item": "everythingcopper:copper_door"
+  }
 }
