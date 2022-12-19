@@ -2,6 +2,7 @@ package cy.jdkdigital.everythingcopper.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -17,7 +18,7 @@ public class CopperDoor extends DoorBlock implements IWeatheringBlock
     private final WeatheringCopper.WeatherState weatherState;
 
     public CopperDoor(WeatheringCopper.WeatherState state, Properties properties) {
-        super(properties);
+        super(properties, SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN);
         weatherState = state;
     }
 

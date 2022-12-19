@@ -2,7 +2,6 @@ package cy.jdkdigital.everythingcopper.datagen;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.datagen.recipes.CopperRecipeProvider;
-import cy.jdkdigital.productivebees.ProductiveBees;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -17,8 +16,7 @@ public class DataProvider
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
-        ProductiveBees.LOGGER.info("Generating data");
         DataGenerator gen = event.getGenerator();
-        gen.addProvider(event.includeServer(), new CopperRecipeProvider(gen));
+        gen.addProvider(event.includeServer(), new CopperRecipeProvider(gen.getPackOutput()));
     }
 }

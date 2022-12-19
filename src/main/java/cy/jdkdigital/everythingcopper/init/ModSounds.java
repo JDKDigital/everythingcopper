@@ -11,5 +11,5 @@ public class ModSounds
 {
     public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, EverythingCopper.MODID);
 
-    public static final RegistryObject<SoundEvent> CHIME = SOUNDS.register("block.copper_chime.chime", () -> new SoundEvent(new ResourceLocation(EverythingCopper.MODID, "block.copper_chime.chime")));
+    public static final RegistryObject<SoundEvent> CHIME = SOUNDS.register("block.copper_chime.chime", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(EverythingCopper.MODID, "block.copper_chime.chime")));
 }

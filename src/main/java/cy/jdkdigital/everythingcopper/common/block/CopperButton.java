@@ -20,7 +20,7 @@ public class CopperButton extends ButtonBlock implements IWeatheringBlock
     private final WeatherState weatherState;
 
     public CopperButton(WeatherState state, Properties properties) {
-        super(false, properties);
+        super(properties, getPressDuration(state), false, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundEvents.STONE_BUTTON_CLICK_ON);
         weatherState = state;
     }
 
@@ -45,14 +45,8 @@ public class CopperButton extends ButtonBlock implements IWeatheringBlock
         return res.equals(InteractionResult.PASS) ? super.use(blockState, level, blockpos, player, hand, hitResult) : res;
     }
 
-    @Override
-    protected SoundEvent getSound(boolean stateOn) {
-        return stateOn ? SoundEvents.STONE_BUTTON_CLICK_ON : SoundEvents.STONE_BUTTON_CLICK_OFF;
-    }
-
-    @Override
-    public int getPressDuration() {
-        return switch (getAge()) {
+    private static int getPressDuration(WeatherState state) {
+        return switch (state) {
             case OXIDIZED -> 45;
             case WEATHERED -> 40;
             case EXPOSED -> 35;

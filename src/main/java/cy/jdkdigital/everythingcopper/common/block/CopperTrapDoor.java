@@ -2,6 +2,7 @@ package cy.jdkdigital.everythingcopper.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -16,7 +17,7 @@ public class CopperTrapDoor extends TrapDoorBlock implements IWeatheringBlock
     private final WeatherState weatherState;
 
     public CopperTrapDoor(WeatherState state, Properties properties) {
-        super(properties);
+        super(properties, SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN);
         weatherState = state;
     }
 
