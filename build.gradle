@@ -88,6 +88,9 @@ dependencies {
     implementation fg.deobf("curse.maven:jade-324717:3872400")
     implementation fg.deobf("curse.maven:jei-238222:3905244")
     implementation fg.deobf("curse.maven:productivebees-377897:3905786")
+    implementation fg.deobf("curse.maven:terrablender-563928:4205732")
+    implementation fg.deobf("curse.maven:oh-the-biomes-youll-go-247560:4027228")
+    implementation fg.deobf("curse.maven:actually-useful-smithing-table-398252:4074788")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

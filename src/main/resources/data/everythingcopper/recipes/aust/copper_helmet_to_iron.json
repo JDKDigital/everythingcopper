@@ -1,0 +1,18 @@
+{
+  "type": "actuallyusefulsmithingtable:smithing_table",
+  "base": {
+    "item": "everythingcopper:copper_helmet"
+  },
+  "addition": {
+    "item": "minecraft:iron_ingot"
+  },
+  "result": {
+    "item": "minecraft:iron_helmet"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "actuallyusefulsmithingtable"
+    }
+  ]
+}
