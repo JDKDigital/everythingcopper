@@ -19,6 +19,8 @@ public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, EverythingCopper.MODID);
 
+    public static final RegistryObject<Block> WEATHERING_STATION = createBlock("weathering_station", () -> new WeatheringStation(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE)), CreativeModeTab.TAB_DECORATIONS);
+
     public static final RegistryObject<Block> COPPER_DOOR = createBlock("copper_door", () -> new CopperDoor(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Block> EXPOSED_COPPER_DOOR = createBlock("exposed_copper_door", () -> new CopperDoor(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Block> WEATHERED_COPPER_DOOR = createBlock("weathered_copper_door", () -> new CopperDoor(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);
@@ -113,6 +115,11 @@ public class ModBlocks
     public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = createBlock("exposed_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = createBlock("weathered_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = createBlock("oxidized_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+
+//    public static final RegistryObject<Block> CONDUCTIVE_ROD = createBlock("conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+//    public static final RegistryObject<Block> EXPOSED_CONDUCTIVE_ROD = createBlock("exposed_conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+//    public static final RegistryObject<Block> WEATHERED_CONDUCTIVE_ROD = createBlock("weathered_conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+//    public static final RegistryObject<Block> OXIDIZED_CONDUCTIVE_ROD = createBlock("oxidized_conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
 
     public static final RegistryObject<Block> WAXED_COPPER_DOOR = createBlock("waxed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_DOOR = createBlock("waxed_exposed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);

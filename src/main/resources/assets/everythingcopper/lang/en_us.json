@@ -72,6 +72,7 @@
     "entity.everythingcopper.waxed_weathered_command_block_copper_minecart": "Waxed Weathered Copper Minecart with Command Block",
     "entity.everythingcopper.waxed_oxidized_command_block_copper_minecart": "Waxed Oxidized Copper Minecart with Command Block",
 
+    "block.everythingcopper.weathering_station": "Weathering Station",
     "block.everythingcopper.copper_anvil": "Copper Anvil",
     "block.everythingcopper.exposed_copper_anvil": "Exposed Copper Anvil",
     "block.everythingcopper.weathered_copper_anvil": "Weathered Copper Anvil",
@@ -323,6 +324,11 @@
     "item.everythingcopper.chest_copper_minecart": "Copper Minecart with Chest",
     "item.everythingcopper.furnace_copper_minecart": "Copper Minecart with Furnace",
     "item.everythingcopper.hopper_copper_minecart": "Copper Minecart with Hopper",
+
+    "everythingcopper.recipe.weathering": "Weathering",
+    "everythingcopper.screen.empty": "Empty",
+    "everythingcopper.screen.fluid_level": "%s: %s",
+    "everythingcopper.screen.fuel_time": "Remaining time: %s",
 
     "death.attack.everythingcopper.copper_poisoning": "%1$s was killed by copper poisoning",
     "death.attack.everythingcopper.copper_poisoning.player": "%1$s was killed by copper poisoning while playing with %2$s",

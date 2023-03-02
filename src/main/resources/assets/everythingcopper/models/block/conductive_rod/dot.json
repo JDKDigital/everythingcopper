@@ -1,0 +1,58 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "copper": "minecraft:block/copper_block",
+    "particle": "minecraft:block/copper_block",
+    "dust": "minecraft:block/redstone_dust_overlay"
+  },
+  "elements": [
+    {
+      "from": [7, 0, 0],
+      "to": [9, 2, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 2, 2], "texture": "#copper", "tintindex": 0},
+        "east": {"uv": [0, 0, 10, 2], "texture": "#copper", "tintindex": 0},
+        "south": {"uv": [0, 0, 2, 2], "texture": "#copper", "tintindex": 0},
+        "west": {"uv": [0, 0, 10, 2], "texture": "#copper", "tintindex": 0},
+        "up": {"uv": [0, 0, 2, 10], "texture": "#copper", "tintindex": 0},
+        "down": {"uv": [0, 0, 2, 10], "texture": "#copper", "tintindex": 0}
+      }
+    },
+    {
+      "from": [0, 0, 7],
+      "to": [16, 1.99, 9],
+      "faces": {
+        "north": {"uv": [0, 0, 10, 1.99], "texture": "#copper", "tintindex": 0},
+        "east": {"uv": [0, 0, 2, 1.99], "texture": "#copper", "tintindex": 0},
+        "south": {"uv": [0, 0, 10, 1.99], "texture": "#copper", "tintindex": 0},
+        "west": {"uv": [0, 0, 2, 1.99], "texture": "#copper", "tintindex": 0},
+        "up": {"uv": [0, 0, 10, 2], "texture": "#copper", "tintindex": 0},
+        "down": {"uv": [0, 0, 10, 2], "texture": "#copper", "tintindex": 0}
+      }
+    },
+    {
+      "from": [7, 0, 0],
+      "to": [9, 2, 16],
+      "faces": {
+        "north": {"uv": [0, 0, 2, 2], "texture": "#dust", "tintindex": 1},
+        "east": {"uv": [0, 0, 10, 2], "texture": "#dust", "tintindex": 1},
+        "south": {"uv": [0, 0, 2, 2], "texture": "#dust", "tintindex": 1},
+        "west": {"uv": [0, 0, 10, 2], "texture": "#dust", "tintindex": 1},
+        "up": {"uv": [0, 0, 2, 10], "texture": "#dust", "tintindex": 1},
+        "down": {"uv": [0, 0, 2, 10], "texture": "#dust", "tintindex": 1}
+      }
+    },
+    {
+      "from": [0, 0, 7],
+      "to": [16, 1.99, 9],
+      "faces": {
+        "north": {"uv": [0, 0, 10, 1.99], "texture": "#dust", "tintindex": 1},
+        "east": {"uv": [0, 0, 2, 1.99], "texture": "#dust", "tintindex": 1},
+        "south": {"uv": [0, 0, 10, 1.99], "texture": "#dust", "tintindex": 1},
+        "west": {"uv": [0, 0, 2, 1.99], "texture": "#dust", "tintindex": 1},
+        "up": {"uv": [0, 0, 10, 2], "texture": "#dust", "tintindex": 1},
+        "down": {"uv": [0, 0, 10, 2], "texture": "#dust", "tintindex": 1}
+      }
+    }
+  ]
+}

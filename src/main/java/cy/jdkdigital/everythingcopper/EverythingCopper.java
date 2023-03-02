@@ -6,7 +6,6 @@ import cy.jdkdigital.everythingcopper.init.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
-import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;

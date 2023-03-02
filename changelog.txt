@@ -1,3 +1,10 @@
+1.19.2-0.2.2.0
+
+-- Added Weathering Station which can quickly weather copper stuff
+-- Added new textures for chipped and damaged anvils
+-- Fixed chipped and damaged anvils not weathering
+
+
 1.19.2-0.2.1.2
 
 -- Added compat recipes for Actually Useful Smithing Table

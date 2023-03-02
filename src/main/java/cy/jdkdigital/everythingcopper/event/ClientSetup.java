@@ -2,6 +2,7 @@ package cy.jdkdigital.everythingcopper.event;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.client.render.blockentity.CopperChimeRenderer;
+import cy.jdkdigital.everythingcopper.client.render.blockentity.WeatheringStationRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.CopperGolemRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.CopperMinecartRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.TntCopperMinecartRenderer;
@@ -16,8 +17,15 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import cy.jdkdigital.everythingcopper.init.ModBlockEntities;
+import cy.jdkdigital.everythingcopper.init.ModBlocks;
+import cy.jdkdigital.everythingcopper.init.ModEntities;
+import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -133,8 +141,18 @@ public class ClientSetup
     }
 
     @SubscribeEvent
+    public static void registerBlockColors(final RegisterColorHandlersEvent.Block event) {
+        event.register((state, tintGetter, blockPos, i) -> tintGetter != null && blockPos != null ? BiomeColors.getAverageWaterColor(tintGetter, blockPos) : -1, ModBlocks.WEATHERING_STATION.get());
+    }
+
+    @SubscribeEvent
     public static void layerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(CopperChimeRenderer.COPPER_CHIME_MAIN_LAYER, CopperChimeRenderer::createBodyLayer);
+    }
+
+    @SubscribeEvent
+    public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.WEATHERING_STATION.get(), WeatheringStationRenderer::new);
     }
 
     @SubscribeEvent
