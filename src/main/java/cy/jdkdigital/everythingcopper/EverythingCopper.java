@@ -6,7 +6,6 @@ import cy.jdkdigital.everythingcopper.init.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
-import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
 import net.minecraft.core.dispenser.OptionalDispenseItemBehavior;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
@@ -126,6 +125,7 @@ public class EverythingCopper
             event.accept(ModBlocks.OXIDIZED_COPPER_RAIL.get());
         }
         if (event.getTab().equals(CreativeModeTabs.FUNCTIONAL_BLOCKS)) {
+            event.accept(ModBlocks.WEATHERING_STATION.get());
             event.accept(ModBlocks.COPPER_LANTERN.get());
             event.accept(ModBlocks.EXPOSED_COPPER_LANTERN.get());
             event.accept(ModBlocks.WEATHERED_COPPER_LANTERN.get());

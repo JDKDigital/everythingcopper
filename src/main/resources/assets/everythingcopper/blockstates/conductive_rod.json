@@ -1,0 +1,57 @@
+{
+  "variants": {
+    "face=ceiling,facing=east": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=north": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=south": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 180
+    },
+    "face=ceiling,facing=west": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 180,
+      "y": 90
+    },
+    "face=floor,facing=east": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "y": 90
+    },
+    "face=floor,facing=north": {
+      "model": "everythingcopper:block/conductive_rod/dot"
+    },
+    "face=floor,facing=south": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "y": 270
+    },
+    "face=wall,facing=east": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=north": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 90
+    },
+    "face=wall,facing=south": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=west": {
+      "model": "everythingcopper:block/conductive_rod/dot",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

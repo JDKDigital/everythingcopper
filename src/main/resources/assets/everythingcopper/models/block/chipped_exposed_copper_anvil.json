@@ -3,6 +3,6 @@
     "textures": {
         "particle": "everythingcopper:block/exposed_copper_anvil",
         "body": "everythingcopper:block/exposed_copper_anvil",
-        "top": "everythingcopper:block/exposed_copper_anvil_top"
+        "top": "everythingcopper:block/chipped_exposed_copper_anvil_top"
     }
 }

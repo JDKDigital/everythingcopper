@@ -85,8 +85,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${forgeversion}"
 
-//    implementation fg.deobf("curse.maven:jade-324717:3872400")
-//    implementation fg.deobf("curse.maven:jei-238222:3905244")
+    implementation fg.deobf("curse.maven:jade-324717:4330163")
+    implementation fg.deobf("curse.maven:jei-238222:4413695")
 //    implementation fg.deobf("curse.maven:productivebees-377897:3905786")
 }
 

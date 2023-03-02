@@ -1,0 +1,18 @@
+{
+  "type": "actuallyusefulsmithingtable:smithing_table",
+  "base": {
+    "item": "everythingcopper:copper_pickaxe"
+  },
+  "addition": {
+    "item": "minecraft:obsidian"
+  },
+  "result": {
+    "item": "actuallyusefulsmithingtable:obsidian_plated_copper_pickaxe"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "actuallyusefulsmithingtable"
+    }
+  ]
+}

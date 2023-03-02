@@ -3,6 +3,6 @@
     "textures": {
         "particle": "everythingcopper:block/weathered_copper_anvil",
         "body": "everythingcopper:block/weathered_copper_anvil",
-        "top": "everythingcopper:block/weathered_copper_anvil_top"
+        "top": "everythingcopper:block/damaged_weathered_copper_anvil_top"
     }
 }

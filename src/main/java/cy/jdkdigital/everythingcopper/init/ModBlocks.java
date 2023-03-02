@@ -20,6 +20,8 @@ public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, EverythingCopper.MODID);
 
+    public static final RegistryObject<Block> WEATHERING_STATION = createBlock("weathering_station", () -> new WeatheringStation(BlockBehaviour.Properties.copy(Blocks.SMITHING_TABLE)));
+
     public static final RegistryObject<Block> COPPER_DOOR = createBlock("copper_door", () -> new CopperDoor(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)));
     public static final RegistryObject<Block> EXPOSED_COPPER_DOOR = createBlock("exposed_copper_door", () -> new CopperDoor(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)));
     public static final RegistryObject<Block> WEATHERED_COPPER_DOOR = createBlock("weathered_copper_door", () -> new CopperDoor(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)));
@@ -44,11 +46,6 @@ public class ModBlocks
     public static final RegistryObject<Block> EXPOSED_COPPER_HOPPER = createBlock("exposed_copper_hopper", () -> new CopperHopper(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 4.8F).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> WEATHERED_COPPER_HOPPER = createBlock("weathered_copper_hopper", () -> new CopperHopper(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 4.8F).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> OXIDIZED_COPPER_HOPPER = createBlock("oxidized_copper_hopper", () -> new CopperHopper(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 4.8F).sound(SoundType.METAL).noOcclusion()));
-
-//    public static final RegistryObject<Block> COPPER_CAULDRON = createBlock("copper_cauldron", () -> new CopperCauldron(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.CAULDRON)), CreativeModeTab.TAB_MISC);
-//    public static final RegistryObject<Block> EXPOSED_COPPER_CAULDRON = createBlock("exposed_copper_cauldron", () -> new CopperCauldron(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.CAULDRON)), CreativeModeTab.TAB_MISC);
-//    public static final RegistryObject<Block> WEATHERED_COPPER_CAULDRON = createBlock("weathered_copper_cauldron", () -> new CopperCauldron(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.CAULDRON)), CreativeModeTab.TAB_MISC);
-//    public static final RegistryObject<Block> OXIDIZED_COPPER_CAULDRON = createBlock("oxidized_copper_cauldron", () -> new CopperCauldron(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.CAULDRON)), CreativeModeTab.TAB_MISC);
 
     public static final RegistryObject<Block> COPPER_LANTERN = createBlock("copper_lantern", () -> new CopperLantern(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5F).sound(SoundType.LANTERN).lightLevel((blockState) -> 15).noOcclusion()));
     public static final RegistryObject<Block> EXPOSED_COPPER_LANTERN = createBlock("exposed_copper_lantern", () -> new CopperLantern(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(3.5F).sound(SoundType.LANTERN).lightLevel((blockState) -> 15).noOcclusion()));
