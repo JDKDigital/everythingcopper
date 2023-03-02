@@ -1,11 +1,12 @@
 package cy.jdkdigital.everythingcopper;
 
 import cy.jdkdigital.everythingcopper.client.render.blockentity.CopperChimeRenderer;
-import cy.jdkdigital.everythingcopper.common.block.entity.CopperChimeBlockEntity;
+import cy.jdkdigital.everythingcopper.common.container.WeatheringStationScreen;
 import cy.jdkdigital.everythingcopper.common.entity.CopperGolem;
 import cy.jdkdigital.everythingcopper.common.item.ICopperItem;
 import cy.jdkdigital.everythingcopper.event.EventHandler;
 import cy.jdkdigital.everythingcopper.init.*;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
@@ -65,6 +66,7 @@ public class EverythingCopper
         ModBlocks.BLOCKS.register(modEventBus);
         ModEntities.ENTITIES.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModContainerTypes.CONTAINER_TYPES.register(modEventBus);
         ModLootModifiers.LOOT_SERIALIZERS.register(modEventBus);
         ModRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
         ModSounds.SOUNDS.register(modEventBus);
@@ -78,6 +80,10 @@ public class EverythingCopper
     }
 
     public static void registerBlockRendering(final FMLClientSetupEvent event) {
+        event.enqueueWork(() -> {
+            MenuScreens.register(ModContainerTypes.WEATHERING_STATION.get(), WeatheringStationScreen::new);
+        });
+
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXPOSED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_DOOR.get(), RenderType.cutout());

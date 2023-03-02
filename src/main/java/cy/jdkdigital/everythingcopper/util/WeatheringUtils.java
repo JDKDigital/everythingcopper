@@ -116,6 +116,24 @@ public class WeatheringUtils
                                     ModBlocks.WEATHERED_COPPER_ANVIL.get(),
                                     ModBlocks.OXIDIZED_COPPER_ANVIL.get()
                             ).put(
+                                    ModBlocks.CHIPPED_COPPER_ANVIL.get(),
+                                    ModBlocks.CHIPPED_EXPOSED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.CHIPPED_EXPOSED_COPPER_ANVIL.get(),
+                                    ModBlocks.CHIPPED_WEATHERED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.CHIPPED_WEATHERED_COPPER_ANVIL.get(),
+                                    ModBlocks.CHIPPED_OXIDIZED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_COPPER_ANVIL.get(),
+                                    ModBlocks.DAMAGED_EXPOSED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_EXPOSED_COPPER_ANVIL.get(),
+                                    ModBlocks.DAMAGED_WEATHERED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_WEATHERED_COPPER_ANVIL.get(),
+                                    ModBlocks.DAMAGED_OXIDIZED_COPPER_ANVIL.get()
+                            ).put(
                                     ModBlocks.COPPER_CHAIN.get(),
                                     ModBlocks.EXPOSED_COPPER_CHAIN.get()
                             ).put(
@@ -263,6 +281,30 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_ANVIL.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.CHIPPED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_CHIPPED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.CHIPPED_EXPOSED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_CHIPPED_EXPOSED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.CHIPPED_WEATHERED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_CHIPPED_WEATHERED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.CHIPPED_OXIDIZED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_CHIPPED_OXIDIZED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_DAMAGED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_EXPOSED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_DAMAGED_EXPOSED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_WEATHERED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_DAMAGED_WEATHERED_COPPER_ANVIL.get()
+                            ).put(
+                                    ModBlocks.DAMAGED_OXIDIZED_COPPER_ANVIL.get(),
+                                    ModBlocks.WAXED_DAMAGED_OXIDIZED_COPPER_ANVIL.get()
                             ).put(
                                     ModBlocks.COPPER_CHAIN.get(),
                                     ModBlocks.WAXED_COPPER_CHAIN.get()

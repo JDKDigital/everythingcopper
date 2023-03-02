@@ -1,3 +1,15 @@
+1.18.2-0.1.1.0
+
+-- Added Weathering Station which can quickly weather copper stuff
+-- Added new textures for chipped and damaged anvils
+-- Fixed chipped and damaged anvils not weathering
+
+
+1.18.2-0.1.0.10
+
+-- Fixed copper hopper item textures
+
+
 1.18.2-0.1.0.9
 
 -- Now with button recipe

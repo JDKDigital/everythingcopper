@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "wet=true": {
+      "model": "everythingcopper:block/weathering_station"
+    },
+    "wet=false": {
+      "model": "everythingcopper:block/weathering_station_dry"
+    }
+  }
+}

@@ -138,9 +138,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:jade-324717:3681449")
     implementation fg.deobf("curse.maven:jei-238222:3698910")
-    implementation fg.deobf("curse.maven:productivebees-377897:3697505")
-    implementation fg.deobf("curse.maven:placebo-283644:3781199")
-    implementation fg.deobf("curse.maven:apotheosis-313970:3781524")
+    implementation fg.deobf("curse.maven:productivebees-377897:4257307")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

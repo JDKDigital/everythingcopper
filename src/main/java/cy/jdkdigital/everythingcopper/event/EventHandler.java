@@ -90,7 +90,7 @@ public class EventHandler
     }
 
     @SubscribeEvent
-    public static void toolInteract(BlockEvent.BlockToolInteractEvent event) {
+    public static void toolInteract(BlockEvent.BlockToolModificationEvent event) {
         Block block = event.getState().getBlock();
         LevelAccessor level = event.getWorld();
 

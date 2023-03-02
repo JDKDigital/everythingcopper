@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WCW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "tag": "everythingcopper:waxing_items"
+    },
+    "C": {
+      "item": "minecraft:composter"
+    }
+  },
+  "result": {
+    "item": "everythingcopper:weathering_station"
+  }
+}
