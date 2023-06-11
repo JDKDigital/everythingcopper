@@ -13,7 +13,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.19.3'
+    mappings channel: 'official', version: '1.19.4'
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -85,8 +85,8 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${forgeversion}"
 
-    implementation fg.deobf("curse.maven:jade-324717:4330163")
-    implementation fg.deobf("curse.maven:jei-238222:4413695")
+    implementation fg.deobf("curse.maven:jade-324717:4439089")
+    implementation fg.deobf("curse.maven:jei-238222:4455246")
 //    implementation fg.deobf("curse.maven:productivebees-377897:3905786")
 }
 

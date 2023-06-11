@@ -1,9 +1,10 @@
 {
-    "parent": "block/iron_bars_post",
-    "textures": {
-        "texture": "everythingcopper:block/exposed_copper_bars",
-        "particle": "everythingcopper:block/exposed_copper_bars",
-        "bars": "everythingcopper:block/exposed_copper_bars",
-        "edge": "everythingcopper:block/exposed_copper_bars"
-    }
+  "parent": "block/iron_bars_post",
+  "render_type": "cutout",
+  "textures": {
+    "texture": "everythingcopper:block/exposed_copper_bars",
+    "particle": "everythingcopper:block/exposed_copper_bars",
+    "bars": "everythingcopper:block/exposed_copper_bars",
+    "edge": "everythingcopper:block/exposed_copper_bars"
+  }
 }

@@ -1,9 +1,10 @@
 {
-    "parent": "block/iron_bars_side_alt",
-    "textures": {
-        "texture": "everythingcopper:block/copper_bars",
-        "particle": "everythingcopper:block/copper_bars",
-        "bars": "everythingcopper:block/copper_bars",
-        "edge": "everythingcopper:block/copper_bars"
-    }
+  "parent": "block/iron_bars_side_alt",
+  "render_type": "cutout",
+  "textures": {
+    "texture": "everythingcopper:block/copper_bars",
+    "particle": "everythingcopper:block/copper_bars",
+    "bars": "everythingcopper:block/copper_bars",
+    "edge": "everythingcopper:block/copper_bars"
+  }
 }

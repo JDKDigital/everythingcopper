@@ -2,9 +2,8 @@ package cy.jdkdigital.everythingcopper.init;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.item.*;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,10 +19,10 @@ public class ModItems
     public static final RegistryObject<Item> COPPER_AXE = ITEMS.register("copper_axe", () -> new CopperAxeItem(ICopperItem.COPPER_TIER, 6.0F, -3.1F, (new Item.Properties())));
     public static final RegistryObject<Item> COPPER_HOE = ITEMS.register("copper_hoe", () -> new CopperHoeItem(ICopperItem.COPPER_TIER, -2, -1.0F, (new Item.Properties())));
 
-    public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, EquipmentSlot.HEAD, (new Item.Properties())));
-    public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, EquipmentSlot.CHEST, (new Item.Properties())));
-    public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, EquipmentSlot.LEGS, (new Item.Properties())));
-    public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, EquipmentSlot.FEET, (new Item.Properties())));
+    public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, ArmorItem.Type.HELMET, (new Item.Properties())));
+    public static final RegistryObject<Item> COPPER_CHESTPLATE = ITEMS.register("copper_chestplate", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, ArmorItem.Type.CHESTPLATE, (new Item.Properties())));
+    public static final RegistryObject<Item> COPPER_LEGGINGS = ITEMS.register("copper_leggings", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, ArmorItem.Type.LEGGINGS, (new Item.Properties())));
+    public static final RegistryObject<Item> COPPER_BOOTS = ITEMS.register("copper_boots", () -> new CopperArmorItem(ICopperItem.COPPER_MATERIAL, ArmorItem.Type.BOOTS, (new Item.Properties())));
 
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget", () -> new Item((new Item.Properties().food(ModEffects.NUGGY))));
 //    public static final RegistryObject<Item> COPPER_BUCKET = ITEMS.register("copper_bucket", () -> new BucketItem(() -> Fluids.EMPTY, (new Item.Properties()).stacksTo(16)));

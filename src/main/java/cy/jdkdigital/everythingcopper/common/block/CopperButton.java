@@ -2,8 +2,6 @@ package cy.jdkdigital.everythingcopper.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -11,16 +9,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.phys.BlockHitResult;
-
-import java.util.Random;
 
 public class CopperButton extends ButtonBlock implements IWeatheringBlock
 {
     private final WeatherState weatherState;
 
     public CopperButton(WeatherState state, Properties properties) {
-        super(properties, getPressDuration(state), false, SoundEvents.STONE_BUTTON_CLICK_OFF, SoundEvents.STONE_BUTTON_CLICK_ON);
+        super(properties, BlockSetType.IRON, getPressDuration(state), false);
         weatherState = state;
     }
 

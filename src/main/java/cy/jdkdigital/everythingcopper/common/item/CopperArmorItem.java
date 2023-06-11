@@ -14,8 +14,8 @@ import javax.annotation.Nullable;
 
 public class CopperArmorItem extends ArmorItem implements ICopperItem
 {
-    public CopperArmorItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
-        super(material, slot, properties);
+    public CopperArmorItem(ArmorMaterial material, ArmorItem.Type type, Properties properties) {
+        super(material, type, properties);
     }
 
     @Override

@@ -2,7 +2,6 @@ package cy.jdkdigital.everythingcopper.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -10,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class CopperTrapDoor extends TrapDoorBlock implements IWeatheringBlock
@@ -17,7 +17,7 @@ public class CopperTrapDoor extends TrapDoorBlock implements IWeatheringBlock
     private final WeatherState weatherState;
 
     public CopperTrapDoor(WeatherState state, Properties properties) {
-        super(properties, SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN);
+        super(properties, BlockSetType.IRON);
         weatherState = state;
     }
 

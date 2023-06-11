@@ -1,6 +1,7 @@
 {
-	"parent": "everythingcopper:block/copper_chime_between_walls",
-	"textures": {
-		"2": "block/weathered_copper"
-	}
+  "parent": "everythingcopper:block/copper_chime_between_walls",
+  "render_type": "cutout",
+  "textures": {
+  "2": "block/weathered_copper"
+  }
 }

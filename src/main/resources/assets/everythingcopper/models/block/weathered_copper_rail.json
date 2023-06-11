@@ -1,6 +1,7 @@
 {
-    "parent": "minecraft:block/rail_flat",
-    "textures": {
-        "rail": "everythingcopper:block/weathered_copper_rail"
-    }
+  "parent": "minecraft:block/rail_flat",
+  "render_type": "cutout",
+  "textures": {
+    "rail": "everythingcopper:block/weathered_copper_rail"
+  }
 }

@@ -1,6 +1,7 @@
 {
-    "parent": "minecraft:block/template_rail_raised_sw",
-    "textures": {
-        "rail": "everythingcopper:block/copper_rail"
-    }
+  "render_type": "cutout",
+  "parent": "minecraft:block/template_rail_raised_sw",
+  "textures": {
+  "rail": "everythingcopper:block/copper_rail"
+  }
 }

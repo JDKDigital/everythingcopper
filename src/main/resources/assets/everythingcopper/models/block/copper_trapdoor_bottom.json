@@ -1,6 +1,7 @@
 {
-    "parent": "minecraft:block/template_trapdoor_bottom",
-    "textures": {
-        "texture": "everythingcopper:block/copper_trapdoor"
-    }
+  "parent": "minecraft:block/template_trapdoor_bottom",
+  "render_type": "cutout",
+  "textures": {
+    "texture": "everythingcopper:block/copper_trapdoor"
+  }
 }

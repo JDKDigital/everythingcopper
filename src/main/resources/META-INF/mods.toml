@@ -1,25 +1,25 @@
 modLoader="javafml" #mandatory
-loaderVersion="[43,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+loaderVersion="[45,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 license="All rights reserved"
 issueTrackerURL="https://github.com/JDKDigital/everythingcopper/issues" #optional
 [[mods]] #mandatory
 modId="everythingcopper" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Everything is Copper" #mandatory
-credits="" #optional
+credits="me" #optional
 authors="LobsterJonn" #optional
 description='''
-Adds everything in copper
+Adds everything in copper to make some use of that absurdly abundant ore
 '''
 [[dependencies.everythingcopper]] #optional
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[43.1.1,)"
+    versionRange="[45,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.everythingcopper]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.2,1.20)"
+    versionRange="[1.19.4,1.20)"
     ordering="NONE"
     side="BOTH"

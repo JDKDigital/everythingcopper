@@ -5,11 +5,12 @@ import com.mojang.math.Axis;
 import cy.jdkdigital.everythingcopper.common.block.entity.WeatheringStationBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.client.model.data.ModelData;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 
@@ -25,15 +26,15 @@ public class WeatheringStationRenderer implements BlockEntityRenderer<Weathering
             ItemStack output = itemHandler.getStackInSlot(WeatheringStationBlockEntity.SLOT_OUTPUT);
 
             if (!input.isEmpty()) {
-                renderItem(input, true, !output.isEmpty(), poseStack, bufferSource, light, overlay);
+                renderItem(blockEntity.getLevel(), input, true, !output.isEmpty(), poseStack, bufferSource, light, overlay);
             }
             if (!output.isEmpty()) {
-                renderItem(output, false, !input.isEmpty(), poseStack, bufferSource, light, overlay);
+                renderItem(blockEntity.getLevel(), output, false, !input.isEmpty(), poseStack, bufferSource, light, overlay);
             }
         });
     }
 
-    private void renderItem(ItemStack output, boolean isInput, boolean multiItems, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
+    private void renderItem(Level level, ItemStack output, boolean isInput, boolean multiItems, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
         poseStack.pushPose();
         if (output.getItem() instanceof BlockItem blockItem) {
             if (multiItems) {
@@ -59,7 +60,7 @@ public class WeatheringStationRenderer implements BlockEntityRenderer<Weathering
                 poseStack.translate(0.5D, 0.6375D, 0.5D);
                 poseStack.scale(0.7F, 0.7F, 0.7F);
             }
-            Minecraft.getInstance().getItemRenderer().renderStatic(output, ItemTransforms.TransformType.FIXED, light, overlay, poseStack, bufferSource, 0);
+            Minecraft.getInstance().getItemRenderer().renderStatic(output, ItemDisplayContext.FIXED, light, overlay, poseStack, bufferSource, level, 0);
         }
         poseStack.popPose();
     }

@@ -4,13 +4,13 @@ import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public interface ICopperItem
 {
@@ -48,15 +48,25 @@ public interface ICopperItem
 
     ArmorMaterial COPPER_MATERIAL = new ArmorMaterial() {
         @Override
-        public int getDurabilityForSlot(EquipmentSlot slot) {
-            int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
-            return HEALTH_PER_SLOT[slot.getIndex()] * 12;
+        public int getDurabilityForType(ArmorItem.Type type) {
+            Map<ArmorItem.Type, Integer> HEALTH = new HashMap<>() {{
+                put(ArmorItem.Type.BOOTS, 13);
+                put(ArmorItem.Type.LEGGINGS, 15);
+                put(ArmorItem.Type.CHESTPLATE, 16);
+                put(ArmorItem.Type.HELMET, 11);
+            }};
+            return HEALTH.get(type) * 12;
         }
 
         @Override
-        public int getDefenseForSlot(EquipmentSlot slot) {
-            int[] def = new int[]{2, 4, 5, 2};
-            return def[slot.getIndex()];
+        public int getDefenseForType(ArmorItem.Type type) {
+            Map<ArmorItem.Type, Integer> DEFENSE = new HashMap<>() {{
+                put(ArmorItem.Type.BOOTS, 2);
+                put(ArmorItem.Type.LEGGINGS, 4);
+                put(ArmorItem.Type.CHESTPLATE, 5);
+                put(ArmorItem.Type.HELMET, 2);
+            }};
+            return DEFENSE.get(type);
         }
 
         @Override
@@ -65,17 +75,17 @@ public interface ICopperItem
         }
 
         @Override
-        public SoundEvent getEquipSound() {
+        public @NotNull SoundEvent getEquipSound() {
             return SoundEvents.ARMOR_EQUIP_IRON;
         }
 
         @Override
-        public Ingredient getRepairIngredient() {
+        public @NotNull Ingredient getRepairIngredient() {
             return Ingredient.of(Items.COPPER_INGOT);
         }
 
         @Override
-        public String getName() {
+        public @NotNull String getName() {
             return "copper";
         }
 

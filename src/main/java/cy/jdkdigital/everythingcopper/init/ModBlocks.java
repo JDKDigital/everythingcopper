@@ -2,12 +2,11 @@ package cy.jdkdigital.everythingcopper.init;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.*;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
@@ -97,25 +96,25 @@ public class ModBlocks
     public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = createBlock("weathered_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()));
     public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = createBlock("oxidized_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()));
 
-    public static final RegistryObject<Block> WAXED_COPPER_DOOR = createBlock("waxed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN));
-    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_DOOR = createBlock("waxed_exposed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN));
-    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_DOOR = createBlock("waxed_weathered_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN));
-    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_DOOR = createBlock("waxed_oxidized_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), SoundEvents.IRON_DOOR_CLOSE, SoundEvents.IRON_DOOR_OPEN));
+    public static final RegistryObject<Block> WAXED_COPPER_DOOR = createBlock("waxed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_DOOR = createBlock("waxed_exposed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_DOOR = createBlock("waxed_weathered_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_DOOR = createBlock("waxed_oxidized_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR), BlockSetType.IRON));
 
     public static final RegistryObject<Block> WAXED_COPPER_BARS = createBlock("waxed_copper_bars", () -> new CopperBars(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
     public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BARS = createBlock("waxed_exposed_copper_bars", () -> new CopperBars(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
     public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BARS = createBlock("waxed_weathered_copper_bars", () -> new CopperBars(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
     public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BARS = createBlock("waxed_oxidized_copper_bars", () -> new CopperBars(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.IRON_BARS)));
 
-    public static final RegistryObject<Block> WAXED_COPPER_TRAPDOOR = createBlock("waxed_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN));
-    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_TRAPDOOR = createBlock("waxed_exposed_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN));
-    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_TRAPDOOR = createBlock("waxed_weathered_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN));
-    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_TRAPDOOR = createBlock("waxed_oxidized_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), SoundEvents.IRON_TRAPDOOR_CLOSE, SoundEvents.IRON_TRAPDOOR_OPEN));
+    public static final RegistryObject<Block> WAXED_COPPER_TRAPDOOR = createBlock("waxed_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_TRAPDOOR = createBlock("waxed_exposed_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_TRAPDOOR = createBlock("waxed_weathered_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_TRAPDOOR = createBlock("waxed_oxidized_copper_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_TRAPDOOR), BlockSetType.IRON));
 
-    public static final RegistryObject<Block> WAXED_COPPER_PRESSURE_PLATE = createBlock("waxed_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON));
-    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_PRESSURE_PLATE = createBlock("waxed_exposed_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON));
-    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_PRESSURE_PLATE = createBlock("waxed_weathered_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON));
-    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_PRESSURE_PLATE = createBlock("waxed_oxidized_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON));
+    public static final RegistryObject<Block> WAXED_COPPER_PRESSURE_PLATE = createBlock("waxed_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_PRESSURE_PLATE = createBlock("waxed_exposed_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_PRESSURE_PLATE = createBlock("waxed_weathered_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), BlockSetType.IRON));
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_PRESSURE_PLATE = createBlock("waxed_oxidized_copper_pressure_plate", () -> new WeightedPressurePlateBlock(15, BlockBehaviour.Properties.copy(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE), BlockSetType.IRON));
 
     public static final RegistryObject<Block> WAXED_COPPER_HOPPER = createBlock("waxed_copper_hopper", () -> new CopperHopper(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 4.8F).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_HOPPER = createBlock("waxed_exposed_copper_hopper", () -> new CopperHopper(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.STONE).requiresCorrectToolForDrops().strength(3.0F, 4.8F).sound(SoundType.METAL).noOcclusion()));

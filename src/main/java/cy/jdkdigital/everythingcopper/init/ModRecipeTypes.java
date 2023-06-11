@@ -4,7 +4,6 @@ import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.crafting.recipe.ScrapeRecipe;
 import cy.jdkdigital.everythingcopper.crafting.recipe.WaxOnRecipe;
 import cy.jdkdigital.everythingcopper.crafting.recipe.WeatheringRecipe;
-import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;

@@ -5,7 +5,6 @@ import cy.jdkdigital.everythingcopper.init.ModBlocks;
 import cy.jdkdigital.everythingcopper.init.ModItems;
 import cy.jdkdigital.everythingcopper.init.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.ItemTags;

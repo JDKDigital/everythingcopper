@@ -1,6 +1,7 @@
 {
-    "parent": "minecraft:block/rail_curved",
-    "textures": {
-        "rail": "everythingcopper:block/exposed_copper_rail_corner"
-    }
+  "parent": "minecraft:block/rail_curved",
+  "render_type": "cutout",
+  "textures": {
+    "rail": "everythingcopper:block/exposed_copper_rail_corner"
+  }
 }

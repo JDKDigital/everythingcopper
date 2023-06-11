@@ -2,7 +2,6 @@ package cy.jdkdigital.everythingcopper.common.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -10,6 +9,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.WeightedPressurePlateBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class CopperPressurePlate extends WeightedPressurePlateBlock implements IWeatheringBlock
@@ -17,7 +17,7 @@ public class CopperPressurePlate extends WeightedPressurePlateBlock implements I
     private final WeatherState weatherState;
 
     public CopperPressurePlate(WeatherState state, int maxWeight, Properties properties) {
-        super(maxWeight, properties, SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF, SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON);
+        super(maxWeight, properties, BlockSetType.IRON);
         weatherState = state;
     }
 

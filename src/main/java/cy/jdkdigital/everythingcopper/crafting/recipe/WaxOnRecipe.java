@@ -6,6 +6,7 @@ import cy.jdkdigital.everythingcopper.common.item.ICopperItem;
 import cy.jdkdigital.everythingcopper.init.ModRecipeTypes;
 import cy.jdkdigital.everythingcopper.init.ModTags;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -53,7 +54,7 @@ public class WaxOnRecipe implements CraftingRecipe
 
     @Nonnull
     @Override
-    public ItemStack assemble(CraftingContainer inv) {
+    public ItemStack assemble(CraftingContainer inv, RegistryAccess registryAccess) {
         ItemStack outputItem = ItemStack.EMPTY;
         for (int j = 0; j < inv.getContainerSize(); ++j) {
             ItemStack itemStack = inv.getItem(j);
@@ -74,7 +75,7 @@ public class WaxOnRecipe implements CraftingRecipe
 
     @Nonnull
     @Override
-    public ItemStack getResultItem() {
+    public ItemStack getResultItem(RegistryAccess registryAccess) {
         return this.input.getItems().length > 0 ? this.input.getItems()[0] : ItemStack.EMPTY;
     }
 
