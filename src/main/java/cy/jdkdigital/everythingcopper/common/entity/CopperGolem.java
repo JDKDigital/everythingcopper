@@ -16,12 +16,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CarvedPumpkinBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.minecraft.world.level.block.state.pattern.BlockPatternBuilder;
-import net.minecraft.world.level.block.state.predicate.BlockMaterialPredicate;
-import net.minecraft.world.level.material.Material;
 
 public class CopperGolem extends IronGolem implements IWeatheringEntity
 {
@@ -63,7 +62,7 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
                 if (!player.getAbilities().instabuild) {
                     itemStack.shrink(1);
                 }
-                return InteractionResult.sidedSuccess(this.level.isClientSide);
+                return InteractionResult.sidedSuccess(this.level().isClientSide);
             }
         }
         return InteractionResult.PASS;
@@ -71,7 +70,7 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
 
     @Override
     public void tick() {
-        if (tickCount%369 == 0 && canAge() && level.random.nextFloat() < 0.005688889F) {
+        if (tickCount%369 == 0 && canAge() && this.level().random.nextFloat() < 0.005688889F) {
             setAge(WeatheringUtils.nextState(getAge()));
         }
         super.tick();
@@ -102,9 +101,13 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
 
     private static BlockPattern getOrCreateCopperGolemBase() {
         if (patternBase == null) {
-            patternBase = BlockPatternBuilder.start().aisle("~ ~", "###", "~#~").where('#', BlockInWorld.hasState((state) -> {
-                return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER) || state.is(Blocks.WAXED_COPPER_BLOCK) || state.is(Blocks.WAXED_EXPOSED_COPPER) || state.is(Blocks.WAXED_WEATHERED_COPPER) || state.is(Blocks.WAXED_OXIDIZED_COPPER));
-            })).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+            patternBase = BlockPatternBuilder.start().aisle("~ ~", "###", "~#~")
+                    .where('#', BlockInWorld.hasState((state) -> {
+                        return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER) || state.is(Blocks.WAXED_COPPER_BLOCK) || state.is(Blocks.WAXED_EXPOSED_COPPER) || state.is(Blocks.WAXED_WEATHERED_COPPER) || state.is(Blocks.WAXED_OXIDIZED_COPPER));
+                    }))
+                    .where('~', (state) -> {
+                        return state.getState().isAir();
+                    }).build();
         }
 
         return patternBase;
@@ -112,12 +115,16 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
 
     public static BlockPattern getOrCreateCopperGolemFull() {
         if (patternFull == null) {
-            patternFull = BlockPatternBuilder.start().aisle("~^~", "###", "~#~").where('^', BlockInWorld.hasState((state) -> {
-                return state != null && (state.is(Blocks.CARVED_PUMPKIN) || state.is(Blocks.JACK_O_LANTERN));
-            })).where('#', BlockInWorld.hasState((state) -> {
-                return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER) || state.is(Blocks.WAXED_COPPER_BLOCK) || state.is(Blocks.WAXED_EXPOSED_COPPER) || state.is(Blocks.WAXED_WEATHERED_COPPER) || state.is(Blocks.WAXED_OXIDIZED_COPPER));
-            })).where('~', BlockInWorld.hasState(BlockMaterialPredicate.forMaterial(Material.AIR))).build();
+            patternFull = BlockPatternBuilder.start().aisle("~^~", "###", "~#~")
+                    .where('^', BlockInWorld.hasState(CarvedPumpkinBlock.PUMPKINS_PREDICATE))
+                    .where('#', BlockInWorld.hasState((state) -> {
+                        return state != null && (state.is(Blocks.COPPER_BLOCK) || state.is(Blocks.EXPOSED_COPPER) || state.is(Blocks.WEATHERED_COPPER) || state.is(Blocks.OXIDIZED_COPPER) || state.is(Blocks.WAXED_COPPER_BLOCK) || state.is(Blocks.WAXED_EXPOSED_COPPER) || state.is(Blocks.WAXED_WEATHERED_COPPER) || state.is(Blocks.WAXED_OXIDIZED_COPPER));
+                    }))
+                    .where('~', (block) -> {
+                        return block.getState().isAir();
+                    }).build();
         }
+
         return patternFull;
     }
 }

@@ -39,7 +39,7 @@ public class CopperMinecartChest extends MinecartChest implements IWeatheringEnt
 
     @Override
     public InteractionResult interact(Player player, InteractionHand hand) {
-        InteractionResult res = itemUse(level, player.getItemInHand(hand), player, blockPosition());
+        InteractionResult res = itemUse(this.level(), player.getItemInHand(hand), player, blockPosition());
         if (res.equals(InteractionResult.PASS)) {
             return super.interact(player, hand);
         }
@@ -48,7 +48,7 @@ public class CopperMinecartChest extends MinecartChest implements IWeatheringEnt
 
     @Override
     public void tick() {
-        if (tickCount%369 == 0 && canAge() && level.random.nextFloat() < 0.005688889F) {
+        if (tickCount%369 == 0 && canAge() && this.level().random.nextFloat() < 0.005688889F) {
             setAge(WeatheringUtils.nextState(getAge()));
         }
         super.tick();

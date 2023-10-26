@@ -1,33 +1,15 @@
-1.19.4-0.2.2.0
+1.20.1-2.3.0
 
-- Port to 1.19.4
-
-
-1.19.3-0.2.2.0
-
-- Added Weathering Station which can quickly weather copper stuff
-- Added new textures for chipped and damaged anvils
-- Fixed chipped and damaged anvils not weathering
+- Added Copper Bulb
+- Added Copper Grate
+- Copper armor now supports trims
 
 
-1.19.2-0.2.1.2
+1.20.1-2.2.1
 
-- Added compat recipes for Actually Useful Smithing Table
-- Added items to armor and tool Forge tags
-
-
-1.19.2-0.2.1.1
-
-- Fixed crash when fastutils is installed
+- Fixes broken pickaxe mineable tag
 
 
-1.19.2-0.2.1.0
+1.20.0-2.2.0
 
-- Updated to latest Forge 1.19.2
-- Added recipe unlock advancements
-
-
-1.19.1-0.2.0.0
-
-- Updated to 1.19.1
-- Added copper button. Holds a redstone signal longer the more oxidized it is.
+- Port to 1.20.0

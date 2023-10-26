@@ -1,31 +1,31 @@
 plugins {
+    id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
 }
 
-version = "${version}"
-group = 'cy.jdkdigital.everythingcopper' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'everythingcopper'
+version = mod_version
+group = mod_group_id
 
-// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+base {
+    archivesName = mod_id
+}
+
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 minecraft {
-    mappings channel: 'official', version: '1.19.4'
-
+    mappings channel: mapping_channel, version: mapping_version
+    copyIdeResources = true
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
-
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             mods {
                 everythingcopper {
@@ -51,7 +51,6 @@ minecraft {
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
 
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'everythingcopper', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
@@ -67,39 +66,55 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
-
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    // flatDir {
-    //     dir 'libs'
-    // }
-}
-
-repositories {
     maven {
         url "https://www.cursemaven.com"
+    }
+    maven {
+        url 'https://maven.blamejared.com'
     }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${forgeversion}"
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("curse.maven:jade-324717:4439089")
-    implementation fg.deobf("curse.maven:jei-238222:4455246")
-//    implementation fg.deobf("curse.maven:productivebees-377897:3905786")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+
+    implementation fg.deobf("curse.maven:jade-324717:4573193")
+    implementation fg.deobf("curse.maven:jei-238222:4579419")
+
+    implementation fg.deobf("curse.maven:jonns-trophies-510170:4576169")
+    implementation fg.deobf("curse.maven:productivebees-377897:4813483")
+}
+
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [
+        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+        forge_version: forge_version, forge_version_range: forge_version_range,
+        loader_version_range: loader_version_range,
+        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+        mod_authors: mod_authors, mod_description: mod_description
+]
+processResources {
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
+    }
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "Everything is Copper",
-                "Specification-Vendor"    : "everythingcopper",
+                "Specification-Title"     : "${mod_name}",
+                "Specification-Vendor"    : "JDK Digital",
                 "Specification-Version"   : "1", // We are version 1 of ourselves
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "jdkdigital",
+                "Implementation-Vendor"   : "JDK Digital",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -122,4 +137,8 @@ publishing {
             url "file://${project.projectDir}/mcmodsrepo"
         }
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }

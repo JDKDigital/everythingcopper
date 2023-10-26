@@ -109,7 +109,7 @@ public class WeatheringStation extends BaseEntityBlock
                             inputItem.setCount(0);
                             hasInteracted.set(true);
                         }
-                    } else if (ItemStack.isSame(heldItem, outputItem)) {
+                    } else if (ItemStack.isSameItemSameTags(heldItem, outputItem)) {
                         // Grab output into existing held stack
                         int grabbedCount = Math.min(heldItem.getMaxStackSize() - heldItem.getCount(), outputItem.getCount());
                         heldItem.grow(grabbedCount);

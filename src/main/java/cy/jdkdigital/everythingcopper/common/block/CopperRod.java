@@ -19,8 +19,8 @@ public class CopperRod extends RodBlock implements SimpleWaterloggedBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.UP).setValue(WATERLOGGED, false).setValue(POWERED, false));
     }
 
-    @Overwrite
-    public FluidState getFluidState(BlockState blockState) {
-        return blockState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
-    }
+//    @Overwrite
+//    public FluidState getFluidState(BlockState blockState) {
+//        return blockState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
+//    }
 }

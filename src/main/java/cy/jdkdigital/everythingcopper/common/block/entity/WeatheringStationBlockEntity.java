@@ -151,7 +151,7 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
                         if (outputItem.isEmpty()) {
                             items.setStackInSlot(SLOT_OUTPUT, newItem);
                             hasFinished.set(true);
-                        } else if (ItemStack.isSame(newItem, outputItem) && outputItem.getCount() < outputItem.getMaxStackSize()) {
+                        } else if (ItemStack.isSameItemSameTags(newItem, outputItem) && outputItem.getCount() < outputItem.getMaxStackSize()) {
                             outputItem.grow(1);
                             hasFinished.set(true);
                         }
