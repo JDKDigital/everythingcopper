@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "everythingcopper:block/copper_lamp/oxidized_powered"
+  }
+}

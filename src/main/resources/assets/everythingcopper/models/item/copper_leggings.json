@@ -1,26 +1,309 @@
 {
-    "parent": "minecraft:item/generated",
-    "textures": {
-        "layer0": "everythingcopper:item/copper_leggings"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "everythingcopper:item/copper_leggings"
+  },
+  "overrides": [
+    {
+      "model": "everythingcopper:item/copper_leggings_quartz_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.1
+      }
     },
-    "overrides": [
-        {
-            "predicate": {
-                "state": 1.0
-            },
-            "model": "everythingcopper:item/exposed_copper_leggings"
-        },
-        {
-            "predicate": {
-                "state": 2.0
-            },
-            "model": "everythingcopper:item/weathered_copper_leggings"
-        },
-        {
-            "predicate": {
-                "state": 3.0
-            },
-            "model": "everythingcopper:item/oxidized_copper_leggings"
-        }
-    ]
+    {
+      "model": "everythingcopper:item/copper_leggings_iron_darker_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.2
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_netherite_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.3
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_redstone_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.4
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_copper_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.5
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_gold_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.6
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_emerald_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.7
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_diamond_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.8
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_lapis_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 0.9
+      }
+    },
+    {
+      "model": "everythingcopper:item/copper_leggings_amethyst_trim",
+      "predicate": {
+        "state": 0.0,
+        "trim_type": 1.0
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.0
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_quartz_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.1
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_iron_darker_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.2
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_netherite_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.3
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_redstone_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.4
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_copper_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.5
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_gold_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.6
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_emerald_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.7
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_diamond_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.8
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_lapis_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 0.9
+      }
+    },
+    {
+      "model": "everythingcopper:item/exposed_copper_leggings_amethyst_trim",
+      "predicate": {
+        "state": 1.0,
+        "trim_type": 1.0
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.0
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_quartz_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.1
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_iron_darker_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.2
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_netherite_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.3
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_redstone_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.4
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_copper_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.5
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_gold_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.6
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_emerald_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.7
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_diamond_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.8
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_lapis_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 0.9
+      }
+    },
+    {
+      "model": "everythingcopper:item/weathered_copper_leggings_amethyst_trim",
+      "predicate": {
+        "state": 2.0,
+        "trim_type": 1.0
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.0
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_quartz_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.1
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_iron_darker_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.2
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_netherite_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.3
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_redstone_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.4
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_copper_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.5
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_gold_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.6
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_emerald_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.7
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_diamond_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.8
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_lapis_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 0.9
+      }
+    },
+    {
+      "model": "everythingcopper:item/oxidized_copper_leggings_amethyst_trim",
+      "predicate": {
+        "state": 3.0,
+        "trim_type": 1.0
+      }
+    }
+  ]
 }

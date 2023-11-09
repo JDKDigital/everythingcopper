@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,powered=false": {
+      "model": "everythingcopper:block/oxidized_copper_lamp"
+    },
+    "lit=false,powered=true": {
+      "model": "everythingcopper:block/oxidized_copper_lamp_powered"
+    },
+    "lit=true,powered=false": {
+      "model": "everythingcopper:block/oxidized_copper_lamp_on"
+    },
+    "lit=true,powered=true": {
+      "model": "everythingcopper:block/oxidized_copper_lamp_on_powered"
+    }
+  }
+}

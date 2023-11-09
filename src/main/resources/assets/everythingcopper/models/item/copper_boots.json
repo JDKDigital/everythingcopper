@@ -5,22 +5,305 @@
     },
     "overrides": [
         {
+            "model": "everythingcopper:item/copper_boots_quartz_trim",
             "predicate": {
-                "state": 1.0
-            },
-            "model": "everythingcopper:item/exposed_copper_boots"
+                "state": 0.0,
+                "trim_type": 0.1
+            }
         },
         {
+            "model": "everythingcopper:item/copper_boots_iron_darker_trim",
             "predicate": {
-                "state": 2.0
-            },
-            "model": "everythingcopper:item/weathered_copper_boots"
+                "state": 0.0,
+                "trim_type": 0.2
+            }
         },
         {
+            "model": "everythingcopper:item/copper_boots_netherite_trim",
             "predicate": {
-                "state": 3.0
-            },
-            "model": "everythingcopper:item/oxidized_copper_boots"
+                "state": 0.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_redstone_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_copper_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_gold_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_emerald_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_diamond_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_lapis_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_boots_amethyst_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 1.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_quartz_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.1
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_iron_darker_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.2
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_netherite_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_redstone_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_copper_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_gold_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_emerald_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_diamond_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_lapis_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_boots_amethyst_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 1.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_quartz_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.1
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_iron_darker_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.2
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_netherite_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_redstone_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_copper_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_gold_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_emerald_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_diamond_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_lapis_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_boots_amethyst_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 1.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_quartz_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.1
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_iron_darker_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.2
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_netherite_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_redstone_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_copper_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_gold_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_emerald_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_diamond_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_lapis_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_boots_amethyst_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 1.0
+            }
         }
     ]
 }

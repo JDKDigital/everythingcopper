@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "everythingcopper:weathered_copper_lamp"
+        },
+        {
+            "tag": "everythingcopper:waxing_items"
+        }
+    ],
+    "result": {
+        "item": "everythingcopper:waxed_weathered_copper_lamp"
+    }
+}

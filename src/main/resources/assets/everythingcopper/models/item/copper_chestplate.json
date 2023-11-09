@@ -5,22 +5,305 @@
     },
     "overrides": [
         {
+            "model": "everythingcopper:item/copper_chestplate_quartz_trim",
             "predicate": {
-                "state": 1.0
-            },
-            "model": "everythingcopper:item/exposed_copper_chestplate"
+                "state": 0.0,
+                "trim_type": 0.1
+            }
         },
         {
+            "model": "everythingcopper:item/copper_chestplate_iron_darker_trim",
             "predicate": {
-                "state": 2.0
-            },
-            "model": "everythingcopper:item/weathered_copper_chestplate"
+                "state": 0.0,
+                "trim_type": 0.2
+            }
         },
         {
+            "model": "everythingcopper:item/copper_chestplate_netherite_trim",
             "predicate": {
-                "state": 3.0
-            },
-            "model": "everythingcopper:item/oxidized_copper_chestplate"
+                "state": 0.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_redstone_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_copper_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_gold_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_emerald_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_diamond_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_lapis_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/copper_chestplate_amethyst_trim",
+            "predicate": {
+                "state": 0.0,
+                "trim_type": 1.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_quartz_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.1
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_iron_darker_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.2
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_netherite_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_redstone_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_copper_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_gold_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_emerald_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_diamond_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_lapis_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/exposed_copper_chestplate_amethyst_trim",
+            "predicate": {
+                "state": 1.0,
+                "trim_type": 1.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_quartz_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.1
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_iron_darker_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.2
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_netherite_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_redstone_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_copper_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_gold_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_emerald_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_diamond_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_lapis_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/weathered_copper_chestplate_amethyst_trim",
+            "predicate": {
+                "state": 2.0,
+                "trim_type": 1.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.0
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_quartz_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.1
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_iron_darker_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.2
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_netherite_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.3
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_redstone_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.4
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_copper_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.5
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_gold_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.6
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_emerald_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.7
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_diamond_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.8
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_lapis_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 0.9
+            }
+        },
+        {
+            "model": "everythingcopper:item/oxidized_copper_chestplate_amethyst_trim",
+            "predicate": {
+                "state": 3.0,
+                "trim_type": 1.0
+            }
         }
     ]
 }

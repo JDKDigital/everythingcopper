@@ -17,7 +17,7 @@ public interface ICopperItem
     Tier COPPER_TIER = new Tier() {
         @Override
         public int getUses() {
-            return 200;
+            return 180;
         }
 
         @Override
@@ -37,7 +37,7 @@ public interface ICopperItem
 
         @Override
         public int getEnchantmentValue() {
-            return 17;
+            return 18;
         }
 
         @Override
@@ -50,10 +50,10 @@ public interface ICopperItem
         @Override
         public int getDurabilityForType(ArmorItem.Type type) {
             Map<ArmorItem.Type, Integer> HEALTH = new HashMap<>() {{
-                put(ArmorItem.Type.BOOTS, 13);
-                put(ArmorItem.Type.LEGGINGS, 15);
-                put(ArmorItem.Type.CHESTPLATE, 16);
-                put(ArmorItem.Type.HELMET, 11);
+                put(ArmorItem.Type.BOOTS, 12);
+                put(ArmorItem.Type.LEGGINGS, 14);
+                put(ArmorItem.Type.CHESTPLATE, 15);
+                put(ArmorItem.Type.HELMET, 10);
             }};
             return HEALTH.get(type) * 12;
         }
@@ -71,7 +71,7 @@ public interface ICopperItem
 
         @Override
         public int getEnchantmentValue() {
-            return 10;
+            return 12;
         }
 
         @Override

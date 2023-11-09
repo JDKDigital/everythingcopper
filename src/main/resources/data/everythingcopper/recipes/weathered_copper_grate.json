@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "i": {
+      "item": "minecraft:weathered_copper"
+    }
+  },
+  "pattern": [
+    " i ",
+    "i i",
+    " i "
+  ],
+  "result": {
+    "item": "everythingcopper:weathered_copper_grate",
+    "count": 4
+  }
+}

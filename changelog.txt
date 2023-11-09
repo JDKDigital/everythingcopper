@@ -1,3 +1,16 @@
+1.20.1-2.3.2
+
+- Fixed copper anvils not lasting
+
+
+1.20.1-2.3.1
+
+- Aligned behavior and looks for bulbs and grates with 1.21
+- Added chiseled copper from 1.21
+- Added tools to the vanilla tool item tags
+- Lowered the armor and tool durability slightly and increased enchantability
+
+
 1.20.1-2.3.0
 
 - Added Copper Bulb

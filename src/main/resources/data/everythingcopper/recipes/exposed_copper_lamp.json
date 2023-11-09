@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "r": {
+      "tag": "forge:dusts/redstone"
+    },
+    "b": {
+      "tag": "forge:rods/blaze"
+    },
+    "i": {
+      "item": "minecraft:exposed_copper"
+    }
+  },
+  "pattern": [
+    " i ",
+    "ibi",
+    " r "
+  ],
+  "result": {
+    "item": "everythingcopper:exposed_copper_lamp",
+    "count": 4
+  }
+}
