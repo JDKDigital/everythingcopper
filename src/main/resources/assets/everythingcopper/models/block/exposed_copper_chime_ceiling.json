@@ -1,6 +1,0 @@
-{
-	"parent": "everythingcopper:block/copper_chime_ceiling",
-	"textures": {
-		"2": "block/exposed_copper"
-	}
-}

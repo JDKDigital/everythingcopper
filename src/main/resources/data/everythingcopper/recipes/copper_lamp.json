@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "everythingcopper",
+  "key": {
+    "r": {
+      "tag": "forge:dusts/redstone"
+    },
+    "b": {
+      "tag": "forge:rods/blaze"
+    },
+    "i": {
+      "tag": "forge:storage_blocks/copper"
+    }
+  },
+  "pattern": [
+    " i ",
+    "ibi",
+    " r "
+  ],
+  "result": {
+    "item": "everythingcopper:copper_lamp",
+    "count": 4
+  }
+}

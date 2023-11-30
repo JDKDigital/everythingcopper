@@ -46,7 +46,6 @@ public class EverythingCopper
         // less noise on rails
         // outline waxed copper blocks when holding wax
         // kiln for smelting non-blast and non-smoker items
-        // wind chime?
         // lightning rod extension
         // depth meter
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -57,7 +56,6 @@ public class EverythingCopper
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
         ModLootModifiers.LOOT_SERIALIZERS.register(modEventBus);
         ModRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
-        ModSounds.SOUNDS.register(modEventBus);
 
         modEventBus.addListener(EventHandler::onEntityAttributeCreate);
         modEventBus.addListener(this::onCommonSetup);

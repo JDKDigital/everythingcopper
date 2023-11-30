@@ -2,11 +2,15 @@ package cy.jdkdigital.everythingcopper.init;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.block.*;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
@@ -106,20 +110,25 @@ public class ModBlocks
     public static final RegistryObject<Block> WEATHERED_COPPER_LADDER = createBlock("weathered_copper_ladder", () -> new CopperLadder(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion().randomTicks()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> OXIDIZED_COPPER_LADDER = createBlock("oxidized_copper_ladder", () -> new CopperLadder(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion().randomTicks()), CreativeModeTab.TAB_DECORATIONS);
 
-    public static final RegistryObject<Block> COPPER_CHIME = createBlock("copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-    public static final RegistryObject<Block> EXPOSED_COPPER_CHIME = createBlock("exposed_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-    public static final RegistryObject<Block> WEATHERED_COPPER_CHIME = createBlock("weathered_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-    public static final RegistryObject<Block> OXIDIZED_COPPER_CHIME = createBlock("oxidized_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-
     public static final RegistryObject<Block> COPPER_BUTTON = createBlock("copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> EXPOSED_COPPER_BUTTON = createBlock("exposed_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> WEATHERED_COPPER_BUTTON = createBlock("weathered_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> OXIDIZED_COPPER_BUTTON = createBlock("oxidized_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
 
-//    public static final RegistryObject<Block> CONDUCTIVE_ROD = createBlock("conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
-//    public static final RegistryObject<Block> EXPOSED_CONDUCTIVE_ROD = createBlock("exposed_conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
-//    public static final RegistryObject<Block> WEATHERED_CONDUCTIVE_ROD = createBlock("weathered_conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
-//    public static final RegistryObject<Block> OXIDIZED_CONDUCTIVE_ROD = createBlock("oxidized_conductive_rod", () -> new ConductiveRod(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+    public static final RegistryObject<Block> COPPER_LAMP = createBlock("copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 15))), CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Block> EXPOSED_COPPER_LAMP = createBlock("exposed_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 12))), CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Block> WEATHERED_COPPER_LAMP = createBlock("weathered_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 8))), CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Block> OXIDIZED_COPPER_LAMP = createBlock("oxidized_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 4))), CreativeModeTab.TAB_REDSTONE);
+
+    public static final RegistryObject<Block> COPPER_GRATE = createBlock("copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> EXPOSED_COPPER_GRATE = createBlock("exposed_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WEATHERED_COPPER_GRATE = createBlock("weathered_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> OXIDIZED_COPPER_GRATE = createBlock("oxidized_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static final RegistryObject<Block> CHISELED_COPPER = createBlock("chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)), CreativeModeTab.TAB_DECORATIONS);
+    public static final RegistryObject<Block> EXPOSED_CHISELED_COPPER = createBlock("exposed_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)), CreativeModeTab.TAB_DECORATIONS);
+    public static final RegistryObject<Block> WEATHERED_CHISELED_COPPER = createBlock("weathered_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)), CreativeModeTab.TAB_DECORATIONS);
+    public static final RegistryObject<Block> OXIDIZED_CHISELED_COPPER = createBlock("oxidized_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)), CreativeModeTab.TAB_DECORATIONS);
 
     public static final RegistryObject<Block> WAXED_COPPER_DOOR = createBlock("waxed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);
     public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_DOOR = createBlock("waxed_exposed_copper_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR)), CreativeModeTab.TAB_REDSTONE);
@@ -186,15 +195,25 @@ public class ModBlocks
     public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_LADDER = createBlock("waxed_weathered_copper_ladder", () -> new CopperLadder(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion().randomTicks()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_LADDER = createBlock("waxed_oxidized_copper_ladder", () -> new CopperLadder(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.4F).sound(SoundType.LADDER).noOcclusion().randomTicks()), CreativeModeTab.TAB_DECORATIONS);
 
-    public static final RegistryObject<Block> WAXED_COPPER_CHIME = createBlock("waxed_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_CHIME = createBlock("waxed_exposed_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_CHIME = createBlock("waxed_weathered_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_CHIME = createBlock("waxed_oxidized_copper_chime", () -> new CopperChime(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.ANVIL)), CreativeModeTab.TAB_DECORATIONS);
-
     public static final RegistryObject<Block> WAXED_COPPER_BUTTON = createBlock("waxed_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_BUTTON = createBlock("waxed_exposed_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_BUTTON = createBlock("waxed_weathered_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
     public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_BUTTON = createBlock("waxed_oxidized_copper_button", () -> new CopperButton(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.of(Material.DECORATION).strength(0.5F).noOcclusion()), CreativeModeTab.TAB_DECORATIONS);
+
+    public static final RegistryObject<Block> WAXED_COPPER_LAMP = createBlock("waxed_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 15))), CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_LAMP = createBlock("waxed_exposed_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 12))), CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_LAMP = createBlock("waxed_weathered_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 8))), CreativeModeTab.TAB_REDSTONE);
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_LAMP = createBlock("waxed_oxidized_copper_lamp", () -> new CopperLamp(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.LANTERN).lightLevel((state) -> CopperLamp.lightLevel(state, 4))), CreativeModeTab.TAB_REDSTONE);
+
+    public static final RegistryObject<Block> WAXED_COPPER_GRATE = createBlock("waxed_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WAXED_EXPOSED_COPPER_GRATE = createBlock("waxed_exposed_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WAXED_WEATHERED_COPPER_GRATE = createBlock("waxed_weathered_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WAXED_OXIDIZED_COPPER_GRATE = createBlock("waxed_oxidized_copper_grate", () -> new CopperGrate(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER).noOcclusion().isValidSpawn(ModBlocks::never).isRedstoneConductor(ModBlocks::never).isSuffocating(ModBlocks::never).isViewBlocking(ModBlocks::never)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+
+    public static final RegistryObject<Block> WAXED_CHISELED_COPPER = createBlock("waxed_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.UNAFFECTED, BlockBehaviour.Properties.copy(Blocks.COPPER_BLOCK)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WAXED_EXPOSED_CHISELED_COPPER = createBlock("waxed_exposed_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.EXPOSED, BlockBehaviour.Properties.copy(Blocks.EXPOSED_COPPER)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WAXED_WEATHERED_CHISELED_COPPER = createBlock("waxed_weathered_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.WEATHERED, BlockBehaviour.Properties.copy(Blocks.WEATHERED_COPPER)), CreativeModeTab.TAB_BUILDING_BLOCKS);
+    public static final RegistryObject<Block> WAXED_OXIDIZED_CHISELED_COPPER = createBlock("waxed_oxidized_chiseled_copper", () -> new GenericCopperBlock(WeatheringCopper.WeatherState.OXIDIZED, BlockBehaviour.Properties.copy(Blocks.OXIDIZED_COPPER)), CreativeModeTab.TAB_BUILDING_BLOCKS);
 
     public static <B extends Block> RegistryObject<B> createBlock(String name, Supplier<? extends B> supplier, CreativeModeTab itemGroup) {
         return createBlock(name, supplier, itemGroup, true);
@@ -207,5 +226,13 @@ public class ModBlocks
             ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
         }
         return block;
+    }
+
+    private static boolean never(BlockState blockState, BlockGetter level, BlockPos pos) {
+        return false;
+    }
+
+    protected static Boolean never(BlockState blockState, BlockGetter level, BlockPos pos, EntityType<?> entityType) {
+        return false;
     }
 }

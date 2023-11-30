@@ -17,7 +17,7 @@ public interface ICopperItem
     Tier COPPER_TIER = new Tier() {
         @Override
         public int getUses() {
-            return 200;
+            return 180;
         }
 
         @Override
@@ -37,7 +37,7 @@ public interface ICopperItem
 
         @Override
         public int getEnchantmentValue() {
-            return 17;
+            return 18;
         }
 
         @Override
@@ -49,7 +49,7 @@ public interface ICopperItem
     ArmorMaterial COPPER_MATERIAL = new ArmorMaterial() {
         @Override
         public int getDurabilityForSlot(EquipmentSlot slot) {
-            int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
+            int[] HEALTH_PER_SLOT = new int[]{12, 14, 15, 10};
             return HEALTH_PER_SLOT[slot.getIndex()] * 12;
         }
 
@@ -61,7 +61,7 @@ public interface ICopperItem
 
         @Override
         public int getEnchantmentValue() {
-            return 10;
+            return 12;
         }
 
         @Override

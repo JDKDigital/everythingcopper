@@ -1,7 +1,6 @@
 package cy.jdkdigital.everythingcopper.event;
 
 import cy.jdkdigital.everythingcopper.EverythingCopper;
-import cy.jdkdigital.everythingcopper.client.render.blockentity.CopperChimeRenderer;
 import cy.jdkdigital.everythingcopper.client.render.blockentity.WeatheringStationRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.CopperGolemRenderer;
 import cy.jdkdigital.everythingcopper.client.render.entity.CopperMinecartRenderer;
@@ -12,17 +11,11 @@ import cy.jdkdigital.everythingcopper.init.ModBlocks;
 import cy.jdkdigital.everythingcopper.init.ModEntities;
 import cy.jdkdigital.everythingcopper.init.ModItems;
 import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import cy.jdkdigital.everythingcopper.init.ModBlockEntities;
-import cy.jdkdigital.everythingcopper.init.ModBlocks;
-import cy.jdkdigital.everythingcopper.init.ModEntities;
-import net.minecraft.client.model.geom.ModelLayers;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -75,11 +68,6 @@ public class ClientSetup
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_LADDER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_LADDER.get(), RenderType.cutout());
 
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.COPPER_CHIME.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.EXPOSED_COPPER_CHIME.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WEATHERED_COPPER_CHIME.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.OXIDIZED_COPPER_CHIME.get(), RenderType.cutout());
-
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_DOOR.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_DOOR.get(), RenderType.cutout());
@@ -120,13 +108,6 @@ public class ClientSetup
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_LADDER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_OXIDIZED_COPPER_LADDER.get(), RenderType.cutout());
 
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_COPPER_CHIME.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_EXPOSED_COPPER_CHIME.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_WEATHERED_COPPER_CHIME.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WAXED_OXIDIZED_COPPER_CHIME.get(), RenderType.cutout());
-
-        BlockEntityRenderers.register(ModBlockEntities.COPPER_CHIME.get(), CopperChimeRenderer::new);
-
         ItemProperties.register(ModItems.COPPER_SWORD.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
         ItemProperties.register(ModItems.COPPER_SHOVEL.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
         ItemProperties.register(ModItems.COPPER_PICKAXE.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
@@ -146,17 +127,9 @@ public class ClientSetup
     }
 
     @SubscribeEvent
-    public static void layerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(CopperChimeRenderer.COPPER_CHIME_MAIN_LAYER, CopperChimeRenderer::createBodyLayer);
-    }
-
-    @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(ModBlockEntities.WEATHERING_STATION.get(), WeatheringStationRenderer::new);
-    }
 
-    @SubscribeEvent
-    public static void registerEntityRendering(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.COPPER_GOLEM.get(), CopperGolemRenderer::new);
         event.registerEntityRenderer(ModEntities.COPPER_MINECART.get(), (context) -> new CopperMinecartRenderer(context, ModelLayers.MINECART));
         event.registerEntityRenderer(ModEntities.CHEST_COPPER_MINECART.get(), (context) -> new CopperMinecartRenderer(context, ModelLayers.CHEST_MINECART));

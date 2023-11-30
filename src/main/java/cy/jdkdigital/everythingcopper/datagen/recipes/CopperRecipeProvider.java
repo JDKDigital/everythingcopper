@@ -65,18 +65,6 @@ public class CopperRecipeProvider extends RecipeProvider
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_NUGGET.get(), Items.COPPER_INGOT))
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(ModBlocks.COPPER_CHIME.get(), 1)
-                .pattern("lll")
-                .pattern("isi")
-                .pattern("ibi")
-                .define('l', Items.DARK_OAK_PLANKS)
-                .define('i', Tags.Items.INGOTS_COPPER)
-                .define('s', Tags.Items.STRING)
-                .define('b', Items.DARK_OAK_BUTTON)
-                .group(EverythingCopper.MODID)
-                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DARK_OAK_PLANKS, Items.COPPER_INGOT, Items.STRING))
-                .save(consumer);
-
         ShapedRecipeBuilder.shaped(ModBlocks.COPPER_DOOR.get(), 3)
                 .pattern("ii")
                 .pattern("ii")

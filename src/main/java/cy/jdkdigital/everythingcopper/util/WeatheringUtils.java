@@ -151,6 +151,33 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_BUTTON.get(),
                                     ModBlocks.OXIDIZED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.COPPER_LAMP.get(),
+                                    ModBlocks.EXPOSED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_LAMP.get(),
+                                    ModBlocks.WEATHERED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_LAMP.get(),
+                                    ModBlocks.OXIDIZED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.COPPER_GRATE.get(),
+                                    ModBlocks.EXPOSED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_GRATE.get(),
+                                    ModBlocks.WEATHERED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_GRATE.get(),
+                                    ModBlocks.OXIDIZED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.CHISELED_COPPER.get(),
+                                    ModBlocks.EXPOSED_CHISELED_COPPER.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_CHISELED_COPPER.get(),
+                                    ModBlocks.WEATHERED_CHISELED_COPPER.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_CHISELED_COPPER.get(),
+                                    ModBlocks.OXIDIZED_CHISELED_COPPER.get()
                             )
                             .build()
             );
@@ -329,6 +356,42 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_BUTTON.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON.get()
+                            ).put(
+                                    ModBlocks.COPPER_LAMP.get(),
+                                    ModBlocks.WAXED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_LAMP.get(),
+                                    ModBlocks.WAXED_EXPOSED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_LAMP.get(),
+                                    ModBlocks.WAXED_WEATHERED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.OXIDIZED_COPPER_LAMP.get(),
+                                    ModBlocks.WAXED_OXIDIZED_COPPER_LAMP.get()
+                            ).put(
+                                    ModBlocks.COPPER_GRATE.get(),
+                                    ModBlocks.WAXED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_COPPER_GRATE.get(),
+                                    ModBlocks.WAXED_EXPOSED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_COPPER_GRATE.get(),
+                                    ModBlocks.WAXED_WEATHERED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.OXIDIZED_COPPER_GRATE.get(),
+                                    ModBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()
+                            ).put(
+                                    ModBlocks.CHISELED_COPPER.get(),
+                                    ModBlocks.WAXED_CHISELED_COPPER.get()
+                            ).put(
+                                    ModBlocks.EXPOSED_CHISELED_COPPER.get(),
+                                    ModBlocks.WAXED_EXPOSED_CHISELED_COPPER.get()
+                            ).put(
+                                    ModBlocks.WEATHERED_CHISELED_COPPER.get(),
+                                    ModBlocks.WAXED_WEATHERED_CHISELED_COPPER.get()
+                            ).put(
+                                    ModBlocks.OXIDIZED_CHISELED_COPPER.get(),
+                                    ModBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get()
                             )
                             .build()
             );
