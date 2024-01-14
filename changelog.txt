@@ -1,3 +1,8 @@
+1.19.2-2.3.4
+
+- Removed log spam from copper bulbs
+
+
 1.19.2-2.3.3
 
 - Fixed copper anvils breaking too fast

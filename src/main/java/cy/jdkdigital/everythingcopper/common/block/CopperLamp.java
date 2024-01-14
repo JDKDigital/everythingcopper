@@ -97,7 +97,6 @@ public class CopperLamp extends RedstoneLampBlock implements IWeatheringBlock
             boolean hasSignalFrom = level.hasSignal(fromPos, getDirection(blockpos, fromPos));
             boolean hadSignalBefore = blockState.getValue(BlockStateProperties.POWERED);
 
-            EverythingCopper.LOGGER.info("neighborChanged hasSignal:" + hasSignal + " hasFromDir:" + hasSignalFrom + " hadSignalBefore:" + hadSignalBefore);
             level.setBlockAndUpdate(blockpos, blockState.setValue(BlockStateProperties.POWERED, hasSignal));
             if (!hadSignalBefore && hasSignalFrom) {
                 level.scheduleTick(blockpos, this, 4);
