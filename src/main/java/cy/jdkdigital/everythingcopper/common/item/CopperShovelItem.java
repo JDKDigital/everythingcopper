@@ -10,8 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class CopperShovelItem extends ShovelItem implements ICopperItem
 {
-    public CopperShovelItem(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
-        super(tier, attackDamage, attackSpeed, properties);
+    public CopperShovelItem(Tier tier, Properties properties) {
+        super(tier, properties);
     }
 
     @Override

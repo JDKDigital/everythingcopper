@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.WeatheringCopper;
 
 public class CopperMinecart extends Minecart implements IWeatheringEntity
 {
@@ -27,9 +28,11 @@ public class CopperMinecart extends Minecart implements IWeatheringEntity
         return super.getEntityData();
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        defineData();
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
+        pBuilder.define(DATA_WAXED, false);
     }
 
     @Override

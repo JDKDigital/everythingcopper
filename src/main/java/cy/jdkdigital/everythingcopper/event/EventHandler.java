@@ -9,6 +9,7 @@ import cy.jdkdigital.everythingcopper.init.ModItems;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -20,15 +21,15 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.pattern.BlockInWorld;
 import net.minecraft.world.level.block.state.pattern.BlockPattern;
-import net.minecraftforge.common.ToolActions;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.level.BlockEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.level.BlockEvent;
 
-@Mod.EventBusSubscriber(modid = EverythingCopper.MODID)
+@EventBusSubscriber(modid = EverythingCopper.MODID)
 public class EventHandler
 {
     @SubscribeEvent
@@ -44,7 +45,7 @@ public class EventHandler
                 for(int j = 0; j < copperGolemPattern.getWidth(); ++j) {
                     for(int k = 0; k < copperGolemPattern.getHeight(); ++k) {
                         BlockInWorld block = blockPatternMatch.getBlock(j, k, 0);
-                        if (ForgeRegistries.BLOCKS.getKey(block.getState().getBlock()).getPath().contains("waxed")) {
+                        if (BuiltInRegistries.BLOCK.getKey(block.getState().getBlock()).getPath().contains("waxed")) {
                             waxed++;
                         }
                         level.setBlock(block.getPos(), Blocks.AIR.defaultBlockState(), Block.UPDATE_CLIENTS);
@@ -79,7 +80,7 @@ public class EventHandler
         LevelAccessor level = event.getLevel();
 
         BlockState blockState = event.getState();
-        if (event.getToolAction().equals(ToolActions.AXE_WAX_OFF)) {
+        if (event.getItemAbility().equals(ItemAbilities.AXE_WAX_OFF)) {
             // Replace the opposite half of double blocks
             if (blockState.hasProperty(DoorBlock.HALF)) {
                 IWeatheringBlock.getUnwaxed(blockState).ifPresent((unWaxedBlockState) -> {
@@ -89,7 +90,7 @@ public class EventHandler
             } else {
                 IWeatheringBlock.getUnwaxed(blockState).ifPresent(event::setFinalState);
             }
-        } else if (event.getToolAction().equals(ToolActions.AXE_SCRAPE) && block instanceof IWeatheringBlock) {
+        } else if (event.getItemAbility().equals(ItemAbilities.AXE_SCRAPE) && block instanceof IWeatheringBlock) {
             // Replace the opposite half of double blocks
             if (blockState.hasProperty(DoorBlock.HALF)) {
                 IWeatheringBlock.getPrevious(blockState).ifPresent((nextBlockState) -> {
@@ -109,7 +110,6 @@ public class EventHandler
     public static void buildContents(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey().equals(CreativeModeTabs.COMBAT)) {
             event.accept(ModItems.COPPER_SWORD.get());
-//            event.accept(ModItems.COPPER_SHIELD.get());
             event.accept(ModItems.COPPER_HELMET.get());
             event.accept(ModItems.COPPER_CHESTPLATE.get());
             event.accept(ModItems.COPPER_LEGGINGS.get());
@@ -127,14 +127,6 @@ public class EventHandler
             event.accept(ModItems.COPPER_NUGGET.get());
         }
         if (event.getTabKey().equals(CreativeModeTabs.BUILDING_BLOCKS)) {
-            event.accept(ModBlocks.COPPER_DOOR.get());
-            event.accept(ModBlocks.EXPOSED_COPPER_DOOR.get());
-            event.accept(ModBlocks.WEATHERED_COPPER_DOOR.get());
-            event.accept(ModBlocks.OXIDIZED_COPPER_DOOR.get());
-            event.accept(ModBlocks.COPPER_TRAPDOOR.get());
-            event.accept(ModBlocks.EXPOSED_COPPER_TRAPDOOR.get());
-            event.accept(ModBlocks.WEATHERED_COPPER_TRAPDOOR.get());
-            event.accept(ModBlocks.OXIDIZED_COPPER_TRAPDOOR.get());
             event.accept(ModBlocks.COPPER_PRESSURE_PLATE.get());
             event.accept(ModBlocks.EXPOSED_COPPER_PRESSURE_PLATE.get());
             event.accept(ModBlocks.WEATHERED_COPPER_PRESSURE_PLATE.get());
@@ -151,23 +143,7 @@ public class EventHandler
             event.accept(ModBlocks.EXPOSED_COPPER_BUTTON.get());
             event.accept(ModBlocks.WEATHERED_COPPER_BUTTON.get());
             event.accept(ModBlocks.OXIDIZED_COPPER_BUTTON.get());
-            event.accept(ModBlocks.COPPER_GRATE.get());
-            event.accept(ModBlocks.EXPOSED_COPPER_GRATE.get());
-            event.accept(ModBlocks.WEATHERED_COPPER_GRATE.get());
-            event.accept(ModBlocks.OXIDIZED_COPPER_GRATE.get());
-            event.accept(ModBlocks.CHISELED_COPPER.get());
-            event.accept(ModBlocks.EXPOSED_CHISELED_COPPER.get());
-            event.accept(ModBlocks.WEATHERED_CHISELED_COPPER.get());
-            event.accept(ModBlocks.OXIDIZED_CHISELED_COPPER.get());
 
-            event.accept(ModBlocks.WAXED_COPPER_DOOR.get());
-            event.accept(ModBlocks.WAXED_EXPOSED_COPPER_DOOR.get());
-            event.accept(ModBlocks.WAXED_WEATHERED_COPPER_DOOR.get());
-            event.accept(ModBlocks.WAXED_OXIDIZED_COPPER_DOOR.get());
-            event.accept(ModBlocks.WAXED_COPPER_TRAPDOOR.get());
-            event.accept(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get());
-            event.accept(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get());
-            event.accept(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get());
             event.accept(ModBlocks.WAXED_COPPER_PRESSURE_PLATE.get());
             event.accept(ModBlocks.WAXED_EXPOSED_COPPER_PRESSURE_PLATE.get());
             event.accept(ModBlocks.WAXED_WEATHERED_COPPER_PRESSURE_PLATE.get());
@@ -184,14 +160,6 @@ public class EventHandler
             event.accept(ModBlocks.WAXED_EXPOSED_COPPER_BUTTON.get());
             event.accept(ModBlocks.WAXED_WEATHERED_COPPER_BUTTON.get());
             event.accept(ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON.get());
-            event.accept(ModBlocks.WAXED_COPPER_GRATE.get());
-            event.accept(ModBlocks.WAXED_EXPOSED_COPPER_GRATE.get());
-            event.accept(ModBlocks.WAXED_WEATHERED_COPPER_GRATE.get());
-            event.accept(ModBlocks.WAXED_OXIDIZED_COPPER_GRATE.get());
-            event.accept(ModBlocks.WAXED_CHISELED_COPPER.get());
-            event.accept(ModBlocks.WAXED_EXPOSED_CHISELED_COPPER.get());
-            event.accept(ModBlocks.WAXED_WEATHERED_CHISELED_COPPER.get());
-            event.accept(ModBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get());
         }
         if (event.getTabKey().equals(CreativeModeTabs.REDSTONE_BLOCKS)) {
             event.accept(ModBlocks.COPPER_HOPPER.get());
@@ -238,10 +206,6 @@ public class EventHandler
             event.accept(ModBlocks.EXPOSED_COPPER_LADDER.get());
             event.accept(ModBlocks.WEATHERED_COPPER_LADDER.get());
             event.accept(ModBlocks.OXIDIZED_COPPER_LADDER.get());
-            event.accept(ModBlocks.COPPER_LAMP.get());
-            event.accept(ModBlocks.EXPOSED_COPPER_LAMP.get());
-            event.accept(ModBlocks.WEATHERED_COPPER_LAMP.get());
-            event.accept(ModBlocks.OXIDIZED_COPPER_LAMP.get());
 
             event.accept(ModBlocks.WAXED_COPPER_LANTERN.get());
             event.accept(ModBlocks.WAXED_EXPOSED_COPPER_LANTERN.get());
@@ -267,10 +231,6 @@ public class EventHandler
             event.accept(ModBlocks.WAXED_EXPOSED_COPPER_LADDER.get());
             event.accept(ModBlocks.WAXED_WEATHERED_COPPER_LADDER.get());
             event.accept(ModBlocks.WAXED_OXIDIZED_COPPER_LADDER.get());
-            event.accept(ModBlocks.WAXED_COPPER_LAMP.get());
-            event.accept(ModBlocks.WAXED_EXPOSED_COPPER_LAMP.get());
-            event.accept(ModBlocks.WAXED_WEATHERED_COPPER_LAMP.get());
-            event.accept(ModBlocks.WAXED_OXIDIZED_COPPER_LAMP.get());
         }
     }
 }

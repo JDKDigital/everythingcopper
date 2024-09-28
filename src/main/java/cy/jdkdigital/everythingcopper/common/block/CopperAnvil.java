@@ -9,12 +9,10 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AnvilBlock;
 import net.minecraft.world.level.block.Block;
@@ -95,7 +93,7 @@ public class CopperAnvil extends AnvilBlock implements IWeatheringBlock
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource random) {
-        this.onRandomTick(blockState, level, blockPos, random);
+        this.changeOverTime(blockState, level, blockPos, random);
     }
 
     @Override
@@ -109,9 +107,11 @@ public class CopperAnvil extends AnvilBlock implements IWeatheringBlock
     }
 
     @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockpos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        InteractionResult res = applyWax(blockState, level, blockpos, player, hand);
-        return res.equals(InteractionResult.PASS) ? super.use(blockState, level, blockpos, player, hand, hitResult) : res;
+    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+        if (!applyWax(pState, pLevel, pPos, pPlayer, pHand).equals(ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION)) {
+            return ItemInteractionResult.SUCCESS;
+        }
+        return super.useItemOn(pStack, pState, pLevel, pPos, pPlayer, pHand, pHitResult);
     }
 
     @Nullable

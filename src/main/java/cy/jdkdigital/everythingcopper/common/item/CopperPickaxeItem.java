@@ -10,8 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class CopperPickaxeItem extends PickaxeItem implements ICopperItem
 {
-    public CopperPickaxeItem(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
-        super(tier, attackDamage, attackSpeed, properties);
+    public CopperPickaxeItem(Tier tier, Properties properties) {
+        super(tier, properties);
     }
 
     @Override

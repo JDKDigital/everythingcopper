@@ -23,11 +23,6 @@ public interface IWeatheringEntity
 
     SynchedEntityData getSyncData();
 
-    default void defineData() {
-        getSyncData().define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
-        getSyncData().define(DATA_WAXED, false);
-    }
-
     default WeatheringCopper.WeatherState getAge() {
         return WeatheringCopper.WeatherState.valueOf(getSyncData().get(DATA_WEATHER_STATE));
     }

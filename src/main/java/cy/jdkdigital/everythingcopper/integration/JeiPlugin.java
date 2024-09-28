@@ -12,10 +12,10 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.WeatheringCopper;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 @mezz.jei.api.JeiPlugin
 public class JeiPlugin implements IModPlugin
 {
-    private static final ResourceLocation pluginId = new ResourceLocation(EverythingCopper.MODID, EverythingCopper.MODID);
+    private static final ResourceLocation pluginId = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, EverythingCopper.MODID);
 
     public static RecipeType<WeatheringRecipe> WEATHERING_RECIPE_TYPE = RecipeType.create(EverythingCopper.MODID, "weathering", WeatheringRecipe.class);
 
@@ -48,22 +48,22 @@ public class JeiPlugin implements IModPlugin
     public void registerRecipes(IRecipeRegistration registration) {
         // Find all weathering blocks
         var weatheringRecipes = new ArrayList<WeatheringRecipe>();
-        ForgeRegistries.BLOCKS.getValues().forEach(block -> {
+        BuiltInRegistries.BLOCK.forEach(block -> {
             if (block instanceof WeatheringCopper weatheringBlock) {
                 weatheringBlock.getNext(block.defaultBlockState()).ifPresent(newState -> {
-                    var key = ForgeRegistries.BLOCKS.getKey(block);
-                    weatheringRecipes.add(new WeatheringRecipe(new ResourceLocation(EverythingCopper.MODID, "weathering_" + key.getPath()), new ItemStack(block), new ItemStack(newState.getBlock())));
+                    var key = BuiltInRegistries.BLOCK.getKey(block);
+                    weatheringRecipes.add(new WeatheringRecipe(ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "weathering_" + key.getPath()), new ItemStack(block), new ItemStack(newState.getBlock())));
                 });
             }
         });
-        ForgeRegistries.ITEMS.getValues().forEach(item -> {
+        BuiltInRegistries.ITEM.forEach(item -> {
             if (item instanceof ICopperItem) {
-                var key = ForgeRegistries.ITEMS.getKey(item);
+                var key = BuiltInRegistries.ITEM.getKey(item);
                 ItemStack sourceItem = new ItemStack(item);
                 ItemStack newItem = new ItemStack(item);
                 while (ICopperItem.canAge(newItem)) {
                     ICopperItem.setAge(newItem, WeatheringUtils.nextState(ICopperItem.getAge(newItem)));
-                    weatheringRecipes.add(new WeatheringRecipe(new ResourceLocation(EverythingCopper.MODID, "weathering_" + key.getPath()), sourceItem, newItem.copy()));
+                    weatheringRecipes.add(new WeatheringRecipe(ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "weathering_" + key.getPath()), sourceItem, newItem.copy()));
                     sourceItem = newItem.copy();
                 }
             }

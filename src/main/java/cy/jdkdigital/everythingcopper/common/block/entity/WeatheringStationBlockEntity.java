@@ -9,6 +9,7 @@ import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.Connection;
@@ -25,15 +26,12 @@ import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.FluidUtil;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.ItemStackHandler;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.FluidUtil;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
+import net.neoforged.neoforge.items.IItemHandlerModifiable;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -49,7 +47,7 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
     public int fluidId = 0;
     public int progress = 0;
 
-    private LazyOptional<IItemHandlerModifiable> inventoryHandler = LazyOptional.of(() -> new ManualItemHandler(3)
+    public IItemHandlerModifiable inventoryHandler = new ManualItemHandler(3)
     {
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
@@ -75,9 +73,9 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
                 progress = 0;
             }
         }
-    });
+    };
 
-    private final LazyOptional<IFluidHandler> fluidInventory = LazyOptional.of(() -> new FluidTank(10000) {
+    public final IFluidHandler fluidInventory = new FluidTank(10000) {
         @Override
         public boolean isFluidValid(FluidStack stack) {
             return super.isFluidValid(stack);
@@ -95,7 +93,7 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
                 }
             }
         }
-    });
+    };
 
     public WeatheringStationBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.WEATHERING_STATION.get(), blockPos, blockState);
@@ -112,75 +110,69 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
     public static void tick(Level level, BlockPos pos, BlockState blockState, WeatheringStationBlockEntity blockEntity) {
         blockEntity.tickCounter++;
 
-        blockEntity.inventoryHandler.ifPresent(items -> {
-            if (blockEntity.tickCounter % 5 == 0) {
-                // Consume input fluid item
-                blockEntity.fluidInventory.ifPresent(fluid -> {
-                    int availableFluidSpace = fluid.getTankCapacity(0) - fluid.getFluidInTank(0).getAmount();
-                    ItemStack fuelStack = items.getStackInSlot(SLOT_FUEL);
-                    if (!fuelStack.isEmpty()) {
-                        if (fuelStack.is(Items.WATER_BUCKET) && availableFluidSpace >= 1000) {
-                            items.setStackInSlot(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
-                            fluid.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
-                        } else {
-                            var fuelContainer = FluidUtil.getFluidHandler(fuelStack);
-                            fuelContainer.ifPresent(iFluidHandlerItem -> {
-                                var fuel = fuelContainer.map(handler -> handler.drain(Integer.MAX_VALUE, IFluidHandler.FluidAction.SIMULATE));
-                                if (fuel.isPresent() && fuel.get().getAmount() > 0 && fuel.get().getFluid().isSame(Fluids.WATER)) {
-                                    int transferAmount = Math.min(fuel.get().getAmount(), availableFluidSpace);
-                                    FluidUtil.tryFluidTransfer(fluid, iFluidHandlerItem, transferAmount, true);
-                                }
-                            });
-                        }
-                    }
-                });
-            }
-
-            if (blockEntity.isRunning) {
-                blockEntity.progress++;
-            }
-
-            if (blockEntity.isRunning && blockEntity.progress >= 200) {
-                // finish processing
-                AtomicBoolean hasFinished = new AtomicBoolean(false);
-                ItemStack inputItem = items.getStackInSlot(SLOT_INPUT);
-                ItemStack outputItem = items.getStackInSlot(SLOT_OUTPUT);
-                if (inputItem.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof WeatheringCopper weatheringBlock) {
-                    weatheringBlock.getNext(blockItem.getBlock().defaultBlockState()).ifPresent(newState -> {
-                        var newItem = new ItemStack(newState.getBlock().asItem());
-                        if (outputItem.isEmpty()) {
-                            items.setStackInSlot(SLOT_OUTPUT, newItem);
-                            hasFinished.set(true);
-                        } else if (ItemStack.isSameItemSameTags(newItem, outputItem) && outputItem.getCount() < outputItem.getMaxStackSize()) {
-                            outputItem.grow(1);
-                            hasFinished.set(true);
+        if (blockEntity.tickCounter % 5 == 0) {
+            // Consume input fluid item
+            int availableFluidSpace = blockEntity.fluidInventory.getTankCapacity(0) - blockEntity.fluidInventory.getFluidInTank(0).getAmount();
+            ItemStack fuelStack = blockEntity.inventoryHandler.getStackInSlot(SLOT_FUEL);
+            if (!fuelStack.isEmpty()) {
+                if (fuelStack.is(Items.WATER_BUCKET) && availableFluidSpace >= 1000) {
+                    blockEntity.inventoryHandler.setStackInSlot(SLOT_FUEL, fuelStack.getCraftingRemainingItem());
+                    blockEntity.fluidInventory.fill(new FluidStack(Fluids.WATER, 1000), IFluidHandler.FluidAction.EXECUTE);
+                } else {
+                    var fuelContainer = FluidUtil.getFluidHandler(fuelStack);
+                    fuelContainer.ifPresent(iFluidHandlerItem -> {
+                        var fuel = fuelContainer.map(handler -> handler.drain(Integer.MAX_VALUE, IFluidHandler.FluidAction.SIMULATE));
+                        if (fuel.isPresent() && fuel.get().getAmount() > 0 && fuel.get().getFluid().isSame(Fluids.WATER)) {
+                            int transferAmount = Math.min(fuel.get().getAmount(), availableFluidSpace);
+                            FluidUtil.tryFluidTransfer(blockEntity.fluidInventory, iFluidHandlerItem, transferAmount, true);
                         }
                     });
-                } else if (outputItem.isEmpty() && inputItem.getItem() instanceof ICopperItem && ICopperItem.canAge(inputItem)) {
-                    ItemStack newItem = inputItem.copy();
-                    ICopperItem.setAge(newItem, WeatheringUtils.nextState(ICopperItem.getAge(newItem)));
-                    items.setStackInSlot(SLOT_OUTPUT, newItem);
-                    hasFinished.set(true);
-                }
-
-                if (hasFinished.get()) {
-                    inputItem.shrink(1);
-                    blockEntity.isRunning = false;
-                    blockEntity.progress = 0;
                 }
             }
+        }
 
-            if (!blockEntity.isRunning) {
-                blockEntity.fluidInventory.ifPresent(fluid -> {
-                    ItemStack inputItem = items.getStackInSlot(SLOT_INPUT);
-                    if (!inputItem.isEmpty() && fluid.getFluidInTank(0).getAmount() >= 100) {
-                        fluid.drain(100, IFluidHandler.FluidAction.EXECUTE);
-                        blockEntity.isRunning = true;
-                        blockEntity.progress = 0;
+        if (blockEntity.isRunning) {
+            blockEntity.progress++;
+        }
+
+        if (blockEntity.isRunning && blockEntity.progress >= 200) {
+            // finish processing
+            AtomicBoolean hasFinished = new AtomicBoolean(false);
+            ItemStack inputItem = blockEntity.inventoryHandler.getStackInSlot(SLOT_INPUT);
+            ItemStack outputItem = blockEntity.inventoryHandler.getStackInSlot(SLOT_OUTPUT);
+            if (inputItem.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof WeatheringCopper weatheringBlock) {
+                weatheringBlock.getNext(blockItem.getBlock().defaultBlockState()).ifPresent(newState -> {
+                    var newItem = new ItemStack(newState.getBlock().asItem());
+                    if (outputItem.isEmpty()) {
+                        blockEntity.inventoryHandler.setStackInSlot(SLOT_OUTPUT, newItem);
+                        hasFinished.set(true);
+                    } else if (ItemStack.isSameItemSameComponents(newItem, outputItem) && outputItem.getCount() < outputItem.getMaxStackSize()) {
+                        outputItem.grow(1);
+                        hasFinished.set(true);
                     }
                 });
+            } else if (outputItem.isEmpty() && inputItem.getItem() instanceof ICopperItem && ICopperItem.canAge(inputItem)) {
+                ItemStack newItem = inputItem.copy();
+                ICopperItem.setAge(newItem, WeatheringUtils.nextState(ICopperItem.getAge(newItem)));
+                blockEntity.inventoryHandler.setStackInSlot(SLOT_OUTPUT, newItem);
+                hasFinished.set(true);
             }
-        });
+
+            if (hasFinished.get()) {
+                inputItem.shrink(1);
+                blockEntity.isRunning = false;
+                blockEntity.progress = 0;
+            }
+        }
+
+        if (!blockEntity.isRunning) {
+            ItemStack inputItem = blockEntity.inventoryHandler.getStackInSlot(SLOT_INPUT);
+            if (!inputItem.isEmpty() && blockEntity.fluidInventory.getFluidInTank(0).getAmount() >= 100) {
+                blockEntity.fluidInventory.drain(100, IFluidHandler.FluidAction.EXECUTE);
+                blockEntity.isRunning = true;
+                blockEntity.progress = 0;
+            }
+        }
     }
 
     @Override
@@ -193,32 +185,21 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
         return Component.translatable("block." + EverythingCopper.MODID + ".weathering_station");
     }
 
-    @NotNull
     @Override
-    public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
-        if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            return inventoryHandler.cast();
-        } else if (cap == ForgeCapabilities.FLUID_HANDLER) {
-            return fluidInventory.cast();
-        }
-        return super.getCapability(cap, side);
+    protected void loadAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+        super.loadAdditional(pTag, pRegistries);
+        this.loadPacketNBT(pTag, pRegistries);
     }
 
     @Override
-    public void load(CompoundTag tag) {
-        super.load(tag);
-        this.loadPacketNBT(tag);
+    protected void saveAdditional(CompoundTag pTag, HolderLookup.Provider pRegistries) {
+        super.saveAdditional(pTag, pRegistries);
+        this.savePacketNBT(pTag, pRegistries);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag) {
-        super.saveAdditional(tag);
-        this.savePacketNBT(tag);
-    }
-
-    @Override
-    public @NotNull CompoundTag getUpdateTag() {
-        return saveWithId();
+    public CompoundTag getUpdateTag(HolderLookup.Provider pRegistries) {
+        return saveWithId(pRegistries);
     }
 
     @Override
@@ -227,38 +208,32 @@ public class WeatheringStationBlockEntity extends BlockEntity implements Nameabl
     }
 
     @Override
-    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
-        super.onDataPacket(net, pkt);
-        this.loadPacketNBT(pkt.getTag());
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt, HolderLookup.Provider lookupProvider) {
+        super.onDataPacket(net, pkt, lookupProvider);
+        this.loadPacketNBT(pkt.getTag(), lookupProvider);
         if (level instanceof ClientLevel) {
             level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 0);
         }
     }
 
-    public void savePacketNBT(CompoundTag tag) {
-        getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(inv -> {
-            CompoundTag compound = ((ItemStackHandler) inv).serializeNBT();
-            tag.put("inv", compound);
-        });
+    public void savePacketNBT(CompoundTag tag, HolderLookup.Provider pRegistries) {
+        CompoundTag compound = ((ItemStackHandler) inventoryHandler).serializeNBT(pRegistries);
+        tag.put("inv", compound);
 
-        getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(fluid -> {
-            CompoundTag nbt = new CompoundTag();
-            ((FluidTank) fluid).writeToNBT(nbt);
-            tag.put("fluid", nbt);
-        });
+        CompoundTag nbt = new CompoundTag();
+        ((FluidTank) fluidInventory).writeToNBT(pRegistries, nbt);
+        tag.put("fluid", nbt);
 
         tag.putInt("progress", progress);
     }
 
-    public void loadPacketNBT(CompoundTag tag) {
+    public void loadPacketNBT(CompoundTag tag, HolderLookup.Provider pRegistries) {
         if (tag.contains("inv")) {
-            getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(inv -> ((ItemStackHandler) inv).deserializeNBT(tag.getCompound("inv")));
+            ((ItemStackHandler) inventoryHandler).deserializeNBT(pRegistries, tag.getCompound("inv"));
         }
 
         if (tag.contains("fluid")) {
-            getCapability(ForgeCapabilities.FLUID_HANDLER).ifPresent(fluid -> {
-                ((FluidTank) fluid).readFromNBT(tag.getCompound("fluid"));
-            });
+            ((FluidTank) fluidInventory).readFromNBT(pRegistries, tag.getCompound("fluid"));
         }
 
         progress = tag.getInt("progress");

@@ -10,10 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class CopperGolemRenderer extends IronGolemRenderer
 {
-    private static final ResourceLocation TEXTURE_UNAFFECTED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_golem/unaffected.png");
-    private static final ResourceLocation TEXTURE_EXPOSED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_golem/exposed.png");
-    private static final ResourceLocation TEXTURE_WEATHERED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_golem/weathered.png");
-    private static final ResourceLocation TEXTURE_OXIDIZED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_golem/oxidized.png");
+    private static final ResourceLocation TEXTURE_UNAFFECTED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_golem/unaffected.png");
+    private static final ResourceLocation TEXTURE_EXPOSED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_golem/exposed.png");
+    private static final ResourceLocation TEXTURE_WEATHERED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_golem/weathered.png");
+    private static final ResourceLocation TEXTURE_OXIDIZED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_golem/oxidized.png");
 
     public CopperGolemRenderer(EntityRendererProvider.Context context) {
         super(context);

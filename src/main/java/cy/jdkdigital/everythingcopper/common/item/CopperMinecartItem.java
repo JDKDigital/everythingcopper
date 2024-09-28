@@ -2,6 +2,7 @@ package cy.jdkdigital.everythingcopper.common.item;
 
 import cy.jdkdigital.everythingcopper.common.entity.CopperMinecart;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.vehicle.AbstractMinecart;
@@ -38,7 +39,7 @@ public class CopperMinecartItem extends Item
                 }
 
                 AbstractMinecart abstractminecart = CopperMinecart.createMinecart(level, (double)blockpos.getX() + 0.5D, (double)blockpos.getY() + 0.0625D + d0, (double)blockpos.getZ() + 0.5D, this.type);
-                if (itemstack.hasCustomHoverName()) {
+                if (itemstack.has(DataComponents.CUSTOM_NAME)) {
                     abstractminecart.setCustomName(itemstack.getHoverName());
                 }
 

@@ -1,0 +1,23 @@
+{
+  "type": "productivebees:block_conversion",
+  "bees": [
+    "productivebees:copper"
+  ],
+  "from": {
+    "Name": "everythingcopper:waxed_damaged_oxidized_copper_anvil"
+  },
+  "to": {
+    "Name": "everythingcopper:waxed_chipped_oxidized_copper_anvil"
+  },
+  "chance": 70,
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "productivebees"
+    },
+    {
+      "type": "productivebees:bee_exists",
+      "bee": "productivebees:copper"
+    }
+  ]
+}

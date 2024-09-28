@@ -8,7 +8,7 @@ import net.minecraft.world.inventory.AnvilMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.ForgeHooks;
+import net.neoforged.neoforge.common.CommonHooks;
 
 public class CopperAnvilMenu extends AnvilMenu
 {
@@ -22,7 +22,7 @@ public class CopperAnvilMenu extends AnvilMenu
             player.giveExperienceLevels(-this.cost.get());
         }
 
-        float breakChance = ForgeHooks.onAnvilRepair(player, stack, CopperAnvilMenu.this.inputSlots.getItem(0), CopperAnvilMenu.this.inputSlots.getItem(1));
+        float breakChance = CommonHooks.onAnvilRepair(player, stack, CopperAnvilMenu.this.inputSlots.getItem(0), CopperAnvilMenu.this.inputSlots.getItem(1));
 
         this.inputSlots.setItem(0, ItemStack.EMPTY);
         if (this.repairItemCountCost > 0) {

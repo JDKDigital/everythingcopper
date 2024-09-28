@@ -1,44 +1,38 @@
 package cy.jdkdigital.everythingcopper.crafting.recipe;
 
-import com.google.gson.JsonObject;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import cy.jdkdigital.everythingcopper.EverythingCopper;
 import cy.jdkdigital.everythingcopper.common.item.ICopperItem;
 import cy.jdkdigital.everythingcopper.init.ModRecipeTypes;
 import cy.jdkdigital.everythingcopper.init.ModTags;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.core.RegistryAccess;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.world.inventory.CraftingContainer;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CraftingBookCategory;
-import net.minecraft.world.item.crafting.CraftingRecipe;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nonnull;
 
 public class WaxOnRecipe implements CraftingRecipe
 {
-    public final ResourceLocation id;
     public final Ingredient input;
     public final Ingredient wax;
 
-    public WaxOnRecipe(ResourceLocation id, Ingredient input, Ingredient wax) {
-        this.id = id;
+    public WaxOnRecipe(Ingredient input, Ingredient wax) {
         this.input = input;
         this.wax = wax;
     }
 
     @Override
-    public boolean matches(CraftingContainer inv, Level worldIn) {
+    public boolean matches(CraftingInput pInput, Level pLevel) {
         boolean hasWaxItem = false;
         boolean hasWaxableItem = false;
-        for (int j = 0; j < inv.getContainerSize(); ++j) {
-            ItemStack itemStack = inv.getItem(j);
+        for (int j = 0; j < pInput.size(); ++j) {
+            ItemStack itemStack = pInput.getItem(j);
             if (!itemStack.isEmpty()) {
                 if (itemStack.is(ModTags.WAXING_ITEMS)) {
                     hasWaxItem = true;
@@ -54,10 +48,10 @@ public class WaxOnRecipe implements CraftingRecipe
 
     @Nonnull
     @Override
-    public ItemStack assemble(CraftingContainer inv, RegistryAccess registryAccess) {
+    public ItemStack assemble(CraftingInput pInput, HolderLookup.Provider pRegistries) {
         ItemStack outputItem = ItemStack.EMPTY;
-        for (int j = 0; j < inv.getContainerSize(); ++j) {
-            ItemStack itemStack = inv.getItem(j);
+        for (int j = 0; j < pInput.size(); ++j) {
+            ItemStack itemStack = pInput.getItem(j);
             if (!itemStack.isEmpty() && input.test(itemStack)) {
                 outputItem = itemStack.copy();
             }
@@ -75,7 +69,7 @@ public class WaxOnRecipe implements CraftingRecipe
 
     @Nonnull
     @Override
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
+    public ItemStack getResultItem(HolderLookup.Provider pRegistries) {
         return this.input.getItems().length > 0 ? this.input.getItems()[0] : ItemStack.EMPTY;
     }
 
@@ -92,12 +86,6 @@ public class WaxOnRecipe implements CraftingRecipe
 
     @Nonnull
     @Override
-    public ResourceLocation getId() {
-        return this.id;
-    }
-
-    @Nonnull
-    @Override
     public RecipeSerializer<?> getSerializer() {
         return ModRecipeTypes.WAX_ON.get();
     }
@@ -107,53 +95,47 @@ public class WaxOnRecipe implements CraftingRecipe
         return CraftingBookCategory.MISC;
     }
 
-    public static class Serializer<T extends WaxOnRecipe> implements RecipeSerializer<T>
+    public static class Serializer implements RecipeSerializer<WaxOnRecipe>
     {
-        final WaxOnRecipe.Serializer.IRecipeFactory<T> factory;
+        private static final MapCodec<WaxOnRecipe> CODEC = RecordCodecBuilder.mapCodec(
+                builder -> builder.group(
+                                Ingredient.CODEC.fieldOf("item").forGetter(recipe -> recipe.input),
+                                Ingredient.CODEC.fieldOf("wax").forGetter(recipe -> recipe.input)
+                        )
+                        .apply(builder, WaxOnRecipe::new)
+        );
 
-        public Serializer(WaxOnRecipe.Serializer.IRecipeFactory<T> factory) {
-            this.factory = factory;
+        public static final StreamCodec<RegistryFriendlyByteBuf, WaxOnRecipe> STREAM_CODEC = StreamCodec.of(
+                WaxOnRecipe.Serializer::toNetwork, WaxOnRecipe.Serializer::fromNetwork
+        );
+
+        @Override
+        public MapCodec<WaxOnRecipe> codec() {
+            return CODEC;
         }
 
         @Override
-        public T fromJson(ResourceLocation id, JsonObject json) {
-            Ingredient input;
-            if (GsonHelper.isArrayNode(json, "item")) {
-                input = Ingredient.fromJson(GsonHelper.getAsJsonArray(json, "item"));
-            } else {
-                input = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "item"));
-            }
-            Ingredient wax;
-            if (GsonHelper.isArrayNode(json, "wax")) {
-                wax = Ingredient.fromJson(GsonHelper.getAsJsonArray(json, "wax"));
-            } else {
-                wax = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "wax"));
-            }
-            return this.factory.create(id, input, wax);
+        public StreamCodec<RegistryFriendlyByteBuf, WaxOnRecipe> streamCodec() {
+            return STREAM_CODEC;
         }
 
-        public T fromNetwork(@Nonnull ResourceLocation id, @Nonnull FriendlyByteBuf buffer) {
+        public static WaxOnRecipe fromNetwork(@Nonnull RegistryFriendlyByteBuf buffer) {
             try {
-                return this.factory.create(id, Ingredient.fromNetwork(buffer), Ingredient.fromNetwork(buffer));
+                return new WaxOnRecipe(Ingredient.CONTENTS_STREAM_CODEC.decode(buffer), Ingredient.CONTENTS_STREAM_CODEC.decode(buffer));
             } catch (Exception e) {
-                EverythingCopper.LOGGER.error("Error reading waxing recipe from packet. " + id, e);
+                EverythingCopper.LOGGER.error("Error reading waxing recipe from packet. ", e);
                 throw e;
             }
         }
 
-        public void toNetwork(@Nonnull FriendlyByteBuf buffer, T recipe) {
+        public static void toNetwork(@Nonnull RegistryFriendlyByteBuf buffer, WaxOnRecipe recipe) {
             try {
-                recipe.input.toNetwork(buffer);
-                recipe.wax.toNetwork(buffer);
+                Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, recipe.input);
+                Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, recipe.wax);
             } catch (Exception e) {
-                EverythingCopper.LOGGER.error("Error writing waxing recipe to packet. " + recipe.getId(), e);
+                EverythingCopper.LOGGER.error("Error writing waxing recipe to packet. ", e);
                 throw e;
             }
-        }
-
-        public interface IRecipeFactory<T extends WaxOnRecipe>
-        {
-            T create(ResourceLocation id, Ingredient input, Ingredient wax);
         }
     }
 }

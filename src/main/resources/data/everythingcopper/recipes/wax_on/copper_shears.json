@@ -1,9 +1,0 @@
-{
-    "type": "everythingcopper:wax_on",
-    "item": {
-        "item": "everythingcopper:copper_shears"
-    },
-    "wax": {
-        "tag": "everythingcopper:waxing_items"
-    }
-}

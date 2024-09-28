@@ -1,0 +1,12 @@
+/gamemode survival
+/give dev minecraft:cobweb
+/gamemode creative
+/gamemode survival
+/give Dev minecraft:iron_pickaxe
+/game cre
+/gamemode creative
+/difficulty peaceful
+/gamerule randomTickSpeed 5000
+/time set day
+/gamerule randomTickSpeed 1
+/gamemode survival

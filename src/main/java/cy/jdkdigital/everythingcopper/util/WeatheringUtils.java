@@ -26,15 +26,6 @@ public class WeatheringUtils
         if (NEXT_BY_BLOCK == null) {
             NEXT_BY_BLOCK = Suppliers.memoize(() ->
                     ImmutableBiMap.<Block, Block>builder().put(
-                                    ModBlocks.COPPER_DOOR.get(),
-                                    ModBlocks.EXPOSED_COPPER_DOOR.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_DOOR.get(),
-                                    ModBlocks.WEATHERED_COPPER_DOOR.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_DOOR.get(),
-                                    ModBlocks.OXIDIZED_COPPER_DOOR.get()
-                            ).put(
                                     ModBlocks.COPPER_BARS.get(),
                                     ModBlocks.EXPOSED_COPPER_BARS.get()
                             ).put(
@@ -43,15 +34,6 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_BARS.get(),
                                     ModBlocks.OXIDIZED_COPPER_BARS.get()
-                            ).put(
-                                    ModBlocks.COPPER_TRAPDOOR.get(),
-                                    ModBlocks.EXPOSED_COPPER_TRAPDOOR.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_TRAPDOOR.get(),
-                                    ModBlocks.WEATHERED_COPPER_TRAPDOOR.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_TRAPDOOR.get(),
-                                    ModBlocks.OXIDIZED_COPPER_TRAPDOOR.get()
                             ).put(
                                     ModBlocks.COPPER_PRESSURE_PLATE.get(),
                                     ModBlocks.EXPOSED_COPPER_PRESSURE_PLATE.get()
@@ -151,35 +133,7 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.WEATHERED_COPPER_BUTTON.get(),
                                     ModBlocks.OXIDIZED_COPPER_BUTTON.get()
-                            ).put(
-                                    ModBlocks.COPPER_LAMP.get(),
-                                    ModBlocks.EXPOSED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_LAMP.get(),
-                                    ModBlocks.WEATHERED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_LAMP.get(),
-                                    ModBlocks.OXIDIZED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.COPPER_GRATE.get(),
-                                    ModBlocks.EXPOSED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_GRATE.get(),
-                                    ModBlocks.WEATHERED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_GRATE.get(),
-                                    ModBlocks.OXIDIZED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.CHISELED_COPPER.get(),
-                                    ModBlocks.EXPOSED_CHISELED_COPPER.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_CHISELED_COPPER.get(),
-                                    ModBlocks.WEATHERED_CHISELED_COPPER.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_CHISELED_COPPER.get(),
-                                    ModBlocks.OXIDIZED_CHISELED_COPPER.get()
-                            )
-                            .build()
+                            ).build()
             );
             PREVIOUS_BY_BLOCK = Suppliers.memoize(() -> NEXT_BY_BLOCK.get().inverse());
         }
@@ -189,18 +143,6 @@ public class WeatheringUtils
         if (WAX_ON_BY_BLOCK == null) {
             WAX_ON_BY_BLOCK = Suppliers.memoize(() ->
                     ImmutableBiMap.<Block, Block>builder().put(
-                                    ModBlocks.COPPER_DOOR.get(),
-                                    ModBlocks.WAXED_COPPER_DOOR.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_DOOR.get(),
-                                    ModBlocks.WAXED_EXPOSED_COPPER_DOOR.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_DOOR.get(),
-                                    ModBlocks.WAXED_WEATHERED_COPPER_DOOR.get()
-                            ).put(
-                                    ModBlocks.OXIDIZED_COPPER_DOOR.get(),
-                                    ModBlocks.WAXED_OXIDIZED_COPPER_DOOR.get()
-                            ).put(
                                     ModBlocks.COPPER_BARS.get(),
                                     ModBlocks.WAXED_COPPER_BARS.get()
                             ).put(
@@ -212,18 +154,6 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_BARS.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_BARS.get()
-                            ).put(
-                                    ModBlocks.COPPER_TRAPDOOR.get(),
-                                    ModBlocks.WAXED_COPPER_TRAPDOOR.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_TRAPDOOR.get(),
-                                    ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_TRAPDOOR.get(),
-                                    ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.get()
-                            ).put(
-                                    ModBlocks.OXIDIZED_COPPER_TRAPDOOR.get(),
-                                    ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.get()
                             ).put(
                                     ModBlocks.COPPER_PRESSURE_PLATE.get(),
                                     ModBlocks.WAXED_COPPER_PRESSURE_PLATE.get()
@@ -356,44 +286,7 @@ public class WeatheringUtils
                             ).put(
                                     ModBlocks.OXIDIZED_COPPER_BUTTON.get(),
                                     ModBlocks.WAXED_OXIDIZED_COPPER_BUTTON.get()
-                            ).put(
-                                    ModBlocks.COPPER_LAMP.get(),
-                                    ModBlocks.WAXED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_LAMP.get(),
-                                    ModBlocks.WAXED_EXPOSED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_LAMP.get(),
-                                    ModBlocks.WAXED_WEATHERED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.OXIDIZED_COPPER_LAMP.get(),
-                                    ModBlocks.WAXED_OXIDIZED_COPPER_LAMP.get()
-                            ).put(
-                                    ModBlocks.COPPER_GRATE.get(),
-                                    ModBlocks.WAXED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_COPPER_GRATE.get(),
-                                    ModBlocks.WAXED_EXPOSED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_COPPER_GRATE.get(),
-                                    ModBlocks.WAXED_WEATHERED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.OXIDIZED_COPPER_GRATE.get(),
-                                    ModBlocks.WAXED_OXIDIZED_COPPER_GRATE.get()
-                            ).put(
-                                    ModBlocks.CHISELED_COPPER.get(),
-                                    ModBlocks.WAXED_CHISELED_COPPER.get()
-                            ).put(
-                                    ModBlocks.EXPOSED_CHISELED_COPPER.get(),
-                                    ModBlocks.WAXED_EXPOSED_CHISELED_COPPER.get()
-                            ).put(
-                                    ModBlocks.WEATHERED_CHISELED_COPPER.get(),
-                                    ModBlocks.WAXED_WEATHERED_CHISELED_COPPER.get()
-                            ).put(
-                                    ModBlocks.OXIDIZED_CHISELED_COPPER.get(),
-                                    ModBlocks.WAXED_OXIDIZED_CHISELED_COPPER.get()
-                            )
-                            .build()
+                            ).build()
             );
             WAX_OFF_BY_BLOCK = Suppliers.memoize(() -> WAX_ON_BY_BLOCK.get().inverse());
         }

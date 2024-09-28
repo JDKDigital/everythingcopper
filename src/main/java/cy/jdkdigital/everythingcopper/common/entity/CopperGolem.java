@@ -36,10 +36,11 @@ public class CopperGolem extends IronGolem implements IWeatheringEntity
         return super.getEntityData();
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        getSyncData().define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
-        getSyncData().define(DATA_WAXED, false);
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
+        pBuilder.define(DATA_WAXED, false);
     }
 
     @Override

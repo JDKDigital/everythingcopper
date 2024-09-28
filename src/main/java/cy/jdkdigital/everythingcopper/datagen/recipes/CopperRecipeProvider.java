@@ -5,22 +5,22 @@ import cy.jdkdigital.everythingcopper.init.ModBlocks;
 import cy.jdkdigital.everythingcopper.init.ModItems;
 import cy.jdkdigital.everythingcopper.init.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
-import net.minecraftforge.common.Tags;
+import net.neoforged.neoforge.common.Tags;
 
-import java.util.function.Consumer;
+import java.util.concurrent.CompletableFuture;
 
 public class CopperRecipeProvider extends RecipeProvider
 {
-    public CopperRecipeProvider(PackOutput generatorIn) {
-        super(generatorIn);
+    public CopperRecipeProvider(PackOutput generatorIn, CompletableFuture<HolderLookup.Provider> pRegistries) {
+        super(generatorIn, pRegistries);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(RecipeOutput pRecipeOutput) {
         // Blocks
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_ANVIL.get(), 1)
                 .pattern("BBB")
@@ -30,7 +30,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_BLOCK, Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_BARS.get(), 16)
                 .pattern("iii")
@@ -38,7 +38,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_BUTTON.get(), 1)
                 .pattern("nnn")
@@ -46,7 +46,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('n', ModTags.COPPER_NUGGET)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_NUGGET.get()))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_CHAIN.get(), 1)
                 .pattern("n")
@@ -56,16 +56,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('n', ModTags.COPPER_NUGGET)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_NUGGET.get(), Items.COPPER_INGOT))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_DOOR.get(), 3)
-                .pattern("ii")
-                .pattern("ii")
-                .pattern("ii")
-                .define('i', Tags.Items.INGOTS_COPPER)
-                .group(EverythingCopper.MODID)
-                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_HOPPER.get(), 1)
                 .pattern("i i")
@@ -75,7 +66,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('C', Tags.Items.CHESTS)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_LADDER.get(), 16)
                 .pattern("i i")
@@ -84,7 +75,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_LANTERN.get(), 1)
                 .pattern("nnn")
@@ -94,14 +85,14 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('n', ModTags.COPPER_NUGGET)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_NUGGET.get(), Items.TORCH))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_PRESSURE_PLATE.get())
                 .pattern("ii")
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_RAIL.get(), 16)
                 .pattern("i i")
@@ -111,7 +102,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_SOUL_LANTERN.get(), 1)
                 .pattern("nnn")
@@ -121,15 +112,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('n', ModTags.COPPER_NUGGET)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_NUGGET.get(), Items.SOUL_TORCH))
-                .save(consumer);
-
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COPPER_TRAPDOOR.get())
-                .pattern("ii")
-                .pattern("ii")
-                .define('i', Tags.Items.INGOTS_COPPER)
-                .group(EverythingCopper.MODID)
-                .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         // Items
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_AXE.get())
@@ -140,7 +123,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_SWORD.get())
                 .pattern("i")
@@ -150,7 +133,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_SHOVEL.get())
                 .pattern("i")
@@ -160,7 +143,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_PICKAXE.get())
                 .pattern("iii")
@@ -170,7 +153,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_HOE.get())
                 .pattern("ii")
@@ -180,7 +163,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_SHEARS.get())
                 .pattern("i ")
@@ -188,7 +171,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_HELMET.get())
                 .pattern("iii")
@@ -196,7 +179,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_CHESTPLATE.get())
                 .pattern("i i")
@@ -205,7 +188,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_LEGGINGS.get())
                 .pattern("iii")
@@ -214,7 +197,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_BOOTS.get())
                 .pattern("i i")
@@ -222,7 +205,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.COPPER_MINECART.get())
                 .pattern("i i")
@@ -230,7 +213,7 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('i', Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.COPPER_INGOT)
                 .pattern("nnn")
@@ -239,13 +222,13 @@ public class CopperRecipeProvider extends RecipeProvider
                 .define('n', ModTags.COPPER_NUGGET)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_NUGGET.get()))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.COPPER_NUGGET.get(), 9)
                 .requires(Tags.Items.INGOTS_COPPER)
                 .group(EverythingCopper.MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .save(consumer);
+                .save(pRecipeOutput);
 
         // Waxing
         /// I'm too bored for that

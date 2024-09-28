@@ -8,10 +8,10 @@ import org.jetbrains.annotations.NotNull;
 
 public interface ICopperMinecartRenderer
 {
-    ResourceLocation TEXTURE_UNAFFECTED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_minecart/unaffected.png");
-    ResourceLocation TEXTURE_EXPOSED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_minecart/exposed.png");
-    ResourceLocation TEXTURE_WEATHERED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_minecart/weathered.png");
-    ResourceLocation TEXTURE_OXIDIZED = new ResourceLocation(EverythingCopper.MODID, "textures/entity/copper_minecart/oxidized.png");
+    ResourceLocation TEXTURE_UNAFFECTED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_minecart/unaffected.png");
+    ResourceLocation TEXTURE_EXPOSED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_minecart/exposed.png");
+    ResourceLocation TEXTURE_WEATHERED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_minecart/weathered.png");
+    ResourceLocation TEXTURE_OXIDIZED = ResourceLocation.fromNamespaceAndPath(EverythingCopper.MODID, "textures/entity/copper_minecart/oxidized.png");
 
     default ResourceLocation textureLocation(@NotNull AbstractMinecart minecart) {
         if (minecart instanceof IWeatheringEntity weatherableMinecart) {

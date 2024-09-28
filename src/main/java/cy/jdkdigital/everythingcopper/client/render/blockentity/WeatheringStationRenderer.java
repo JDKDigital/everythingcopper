@@ -11,8 +11,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.model.data.ModelData;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.neoforged.neoforge.client.model.data.ModelData;
 
 public class WeatheringStationRenderer implements BlockEntityRenderer<WeatheringStationBlockEntity> {
 
@@ -21,17 +20,15 @@ public class WeatheringStationRenderer implements BlockEntityRenderer<Weathering
 
     @Override
     public void render(WeatheringStationBlockEntity blockEntity, float partialTicks, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {
-        blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(itemHandler -> {
-            ItemStack input = itemHandler.getStackInSlot(WeatheringStationBlockEntity.SLOT_INPUT);
-            ItemStack output = itemHandler.getStackInSlot(WeatheringStationBlockEntity.SLOT_OUTPUT);
+        ItemStack input = blockEntity.inventoryHandler.getStackInSlot(WeatheringStationBlockEntity.SLOT_INPUT);
+        ItemStack output = blockEntity.inventoryHandler.getStackInSlot(WeatheringStationBlockEntity.SLOT_OUTPUT);
 
-            if (!input.isEmpty()) {
-                renderItem(blockEntity.getLevel(), input, true, !output.isEmpty(), poseStack, bufferSource, light, overlay);
-            }
-            if (!output.isEmpty()) {
-                renderItem(blockEntity.getLevel(), output, false, !input.isEmpty(), poseStack, bufferSource, light, overlay);
-            }
-        });
+        if (!input.isEmpty()) {
+            renderItem(blockEntity.getLevel(), input, true, !output.isEmpty(), poseStack, bufferSource, light, overlay);
+        }
+        if (!output.isEmpty()) {
+            renderItem(blockEntity.getLevel(), output, false, !input.isEmpty(), poseStack, bufferSource, light, overlay);
+        }
     }
 
     private void renderItem(Level level, ItemStack output, boolean isInput, boolean multiItems, PoseStack poseStack, MultiBufferSource bufferSource, int light, int overlay) {

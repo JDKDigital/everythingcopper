@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoneycombItem;
 import net.minecraft.world.item.ItemStack;
@@ -51,7 +52,7 @@ public interface IWeatheringBlock extends WeatheringCopper
         return getPrevious(state.getBlock()).map((block) -> block.withPropertiesOf(state));
     }
 
-    default InteractionResult applyWax(BlockState blockState, Level level, BlockPos blockpos, Player player, InteractionHand hand) {
+    default ItemInteractionResult applyWax(BlockState blockState, Level level, BlockPos blockpos, Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
         if (itemstack.getItem() instanceof HoneycombItem) {
             return IWeatheringBlock.getWaxed(blockState).map((waxedBlockState) -> {
@@ -77,9 +78,9 @@ public interface IWeatheringBlock extends WeatheringCopper
                     level.setBlock(blockpos, waxedBlockState, Block.UPDATE_ALL_IMMEDIATE);
                     level.levelEvent(player, 3003, blockpos, 0);
                 }
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            }).orElse(InteractionResult.PASS);
+                return ItemInteractionResult.sidedSuccess(level.isClientSide);
+            }).orElse(ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION);
         }
-        return InteractionResult.PASS;
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 }

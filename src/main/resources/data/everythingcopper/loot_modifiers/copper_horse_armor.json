@@ -4,36 +4,38 @@
             "condition": "minecraft:any_of",
             "terms": [
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/village/village_weaponsmith"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/nether_bridge"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/simple_dungeon"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/jungle_temple"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/stronghold_corridor"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/desert_pyramid"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/end_city_treasure"
                 }
             ]
         }
     ],
     "type": "everythingcopper:copper_item",
-    "addition": "everythingcopper:copper_horse_armor"
+    "addition": {
+        "id": "everythingcopper:copper_horse_armor"
+    }
 }

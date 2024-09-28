@@ -1,38 +1,15 @@
-1.20.1-2.3.4
+1.21.0-2.3.6
 
-- Fixed tool tier registration
-
-
-1.20.1-2.3.3
-
-- Removed log spam from copper bulbs
+- Fixed tool tier tags
 
 
-1.20.1-2.3.2
+1.21.0-2.3.5
 
-- Fixed copper anvils not lasting
-
-
-1.20.1-2.3.1
-
-- Aligned behavior and looks for bulbs and grates with 1.21
-- Added chiseled copper from 1.21
-- Added tools to the vanilla tool item tags
-- Lowered the armor and tool durability slightly and increased enchantability
+- Fixed nugget tag reference
+- Fixed tag references in recipes
+- Fixed loot modifiers
 
 
-1.20.1-2.3.0
+1.21.0-2.3.4
 
-- Added Copper Bulb
-- Added Copper Grate
-- Copper armor now supports trims
-
-
-1.20.1-2.2.1
-
-- Fixes broken pickaxe mineable tag
-
-
-1.20.0-2.2.0
-
-- Port to 1.20.0
+- Ported to 1.21

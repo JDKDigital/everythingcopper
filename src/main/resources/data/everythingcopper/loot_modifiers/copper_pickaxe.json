@@ -4,28 +4,30 @@
             "condition": "minecraft:any_of",
             "terms": [
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/village/village_toolsmith"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/village/village_weaponsmith"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/stronghold_corridor"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/stronghold_crossing"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/abandoned_mineshaft"
                 }
             ]
         }
     ],
     "type": "everythingcopper:copper_item",
-    "addition": "everythingcopper:copper_pickaxe"
+    "addition": {
+        "id": "everythingcopper:copper_pickaxe"
+    }
 }

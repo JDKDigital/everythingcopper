@@ -1,9 +1,10 @@
 package cy.jdkdigital.everythingcopper.common.item;
 
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
@@ -14,8 +15,8 @@ import javax.annotation.Nullable;
 
 public class CopperArmorItem extends ArmorItem implements ICopperItem
 {
-    public CopperArmorItem(ArmorMaterial material, ArmorItem.Type type, Properties properties) {
-        super(material, type, properties);
+    public CopperArmorItem(Holder<ArmorMaterial> pMaterial, ArmorItem.Type type, Properties properties) {
+        super(pMaterial, type, properties);
     }
 
     @Override
@@ -25,16 +26,17 @@ public class CopperArmorItem extends ArmorItem implements ICopperItem
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level level, Player player) {
-        super.onArmorTick(stack, level, player);
-        weatheringTick(stack, level);
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
+        if (pSlotId >= 36 && pSlotId <= 39) {
+            weatheringTick(pStack, pLevel);
+        }
     }
 
-    @Nullable
     @Override
-    public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+    public @Nullable ResourceLocation getArmorTexture(ItemStack stack, Entity entity, net.minecraft.world.entity.EquipmentSlot slot, ArmorMaterial.Layer layer, boolean innerModel) {
         String id = ICopperItem.getAge(stack).toLowerCase() + "_copper_";
-        int layer = slot.equals(EquipmentSlot.LEGS) ? 2 : 1;
-        return String.format("everythingcopper:textures/models/armor/%slayer_%d.png", id, layer);
+        int layerNum = slot.equals(EquipmentSlot.LEGS) ? 2 : 1;
+        return ResourceLocation.parse(String.format("everythingcopper:textures/models/armor/%slayer_%d.png", id, layerNum));
     }
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "i": {
+      "tag": "c:ingots/copper"
+    },
+    "s": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "i i",
+    "isi",
+    "i i"
+  ],
+  "result": {
+    "count": 16,
+    "id": "everythingcopper:copper_rail"
+  }
+}

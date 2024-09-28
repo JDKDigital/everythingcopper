@@ -10,8 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class CopperSwordItem extends SwordItem implements ICopperItem
 {
-    public CopperSwordItem(Tier tier, int attackDamage, float attackSpeed, Properties properties) {
-        super(tier, attackDamage, attackSpeed, properties);
+    public CopperSwordItem(Tier tier, Properties properties) {
+        super(tier, properties);
     }
 
     @Override

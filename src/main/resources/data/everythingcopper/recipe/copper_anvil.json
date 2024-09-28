@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "c:storage_blocks/copper"
+    },
+    "i": {
+      "tag": "c:ingots/copper"
+    }
+  },
+  "pattern": [
+    "BBB",
+    " i ",
+    "iii"
+  ],
+  "result": {
+    "id": "everythingcopper:copper_anvil"
+  }
+}

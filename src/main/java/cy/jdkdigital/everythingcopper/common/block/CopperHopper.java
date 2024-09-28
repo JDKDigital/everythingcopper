@@ -8,7 +8,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
@@ -33,7 +35,7 @@ public class CopperHopper extends HopperBlock implements IWeatheringBlock
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel level, BlockPos blockPos, RandomSource random) {
-        this.onRandomTick(blockState, level, blockPos, random);
+        this.changeOverTime(blockState, level, blockPos, random);
     }
 
     @Override
@@ -47,9 +49,11 @@ public class CopperHopper extends HopperBlock implements IWeatheringBlock
     }
 
     @Override
-    public InteractionResult use(BlockState blockState, Level level, BlockPos blockpos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        InteractionResult res = applyWax(blockState, level, blockpos, player, hand);
-        return res.equals(InteractionResult.PASS) ? super.use(blockState, level, blockpos, player, hand, hitResult) : res;
+    protected ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHitResult) {
+        if (!applyWax(pState, pLevel, pPos, pPlayer, pHand).equals(ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION)) {
+            return ItemInteractionResult.SUCCESS;
+        }
+        return super.useItemOn(pStack, pState, pLevel, pPos, pPlayer, pHand, pHitResult);
     }
 
     @Override
@@ -64,49 +68,17 @@ public class CopperHopper extends HopperBlock implements IWeatheringBlock
     }
 
     @Override
-    public void applyChangeOverTime(BlockState blockState, ServerLevel level, BlockPos pos, RandomSource random) {
-        int i = this.getAge().ordinal();
-        int j = 0;
-        int k = 0;
-
-        for(BlockPos blockpos : BlockPos.withinManhattan(pos, 4, 4, 4)) {
-            int l = blockpos.distManhattan(pos);
-            if (l > 4) {
-                break;
-            }
-
-            if (!blockpos.equals(pos)) {
-                BlockState blockstate = level.getBlockState(blockpos);
-                Block block = blockstate.getBlock();
-                if (block instanceof ChangeOverTimeBlock changeOverTimeBlock) {
-                    Enum<?> age = changeOverTimeBlock.getAge();
-                    if (this.getAge().getClass() == age.getClass()) {
-                        int i1 = age.ordinal();
-                        if (i1 < i) {
-                            return;
-                        }
-
-                        if (i1 > i) {
-                            ++k;
-                        } else {
-                            ++j;
-                        }
-                    }
-                }
-            }
-        }
-
-        float f = (float)(k + 1) / (float)(k + j + 1);
-        float f1 = f * f * this.getChanceModifier();
-        if (random.nextFloat() < f1) {
-            this.getNext(blockState).ifPresent((newState) -> {
-                BlockEntity blockEntity = level.getBlockEntity(pos);
+    public void changeOverTime(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+        float f = 0.05688889F;
+        if (pRandom.nextFloat() < 0.05688889F) {
+            this.getNextState(pState, pLevel, pPos, pRandom).ifPresent(newState -> {
+                BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
                 if (blockEntity instanceof CopperHopperBlockEntity hopperBlockEntity) {
-                    CompoundTag tag = hopperBlockEntity.saveWithoutMetadata();
+                    CompoundTag tag = hopperBlockEntity.saveWithoutMetadata(pLevel.registryAccess());
                     hopperBlockEntity.clearContent();
 
-                    level.setBlockAndUpdate(pos, newState);
-                    level.getBlockEntity(pos).load(tag);
+                    pLevel.setBlockAndUpdate(pPos, newState);
+                    pLevel.getBlockEntity(pPos).loadWithComponents(tag, pLevel.registryAccess());
                 }
             });
         }

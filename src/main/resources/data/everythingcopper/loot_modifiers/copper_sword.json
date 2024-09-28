@@ -4,24 +4,26 @@
             "condition": "minecraft:any_of",
             "terms": [
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/village/village_weaponsmith"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/stronghold_corridor"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/bastion_other"
                 },
                 {
-                    "condition": "forge:loot_table_id",
+                    "condition": "neoforge:loot_table_id",
                     "loot_table_id": "minecraft:chests/buried_treasure"
                 }
             ]
         }
     ],
     "type": "everythingcopper:copper_item",
-    "addition": "everythingcopper:copper_sword"
+    "addition": {
+        "id": "everythingcopper:copper_sword"
+    }
 }

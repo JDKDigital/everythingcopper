@@ -10,8 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class CopperAxeItem extends AxeItem implements ICopperItem
 {
-    public CopperAxeItem(Tier tier, float attackDamage, float attackSpeed, Properties properties) {
-        super(tier, attackDamage, attackSpeed, properties);
+    public CopperAxeItem(Tier tier, Properties properties) {
+        super(tier, properties);
     }
 
     @Override

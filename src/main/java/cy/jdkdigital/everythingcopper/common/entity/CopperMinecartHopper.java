@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.MinecartHopper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.WeatheringCopper;
 
 public class CopperMinecartHopper extends MinecartHopper implements IWeatheringEntity
 {
@@ -26,9 +27,11 @@ public class CopperMinecartHopper extends MinecartHopper implements IWeatheringE
         return super.getEntityData();
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        defineData();
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(DATA_WEATHER_STATE, WeatheringCopper.WeatherState.UNAFFECTED.name());
+        pBuilder.define(DATA_WAXED, false);
     }
 
     @Override

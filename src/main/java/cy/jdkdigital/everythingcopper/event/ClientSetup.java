@@ -14,29 +14,29 @@ import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.EntityRenderersEvent;
-import net.minecraftforge.client.event.RegisterColorHandlersEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.EntityRenderersEvent;
+import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 
-@Mod.EventBusSubscriber(modid = EverythingCopper.MODID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = EverythingCopper.MODID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.MOD)
 public class ClientSetup
 {
     @SubscribeEvent
     public static void clientSetup(final FMLClientSetupEvent event) {
-        ItemProperties.register(ModItems.COPPER_SWORD.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_SHOVEL.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_PICKAXE.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_AXE.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_HOE.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_SHEARS.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_HELMET.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_CHESTPLATE.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_LEGGINGS.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_BOOTS.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
-        ItemProperties.register(ModItems.COPPER_HORSE_ARMOR.get(), new ResourceLocation("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_SWORD.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_SHOVEL.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_PICKAXE.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_AXE.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_HOE.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_SHEARS.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_HELMET.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_CHESTPLATE.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_LEGGINGS.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_BOOTS.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
+        ItemProperties.register(ModItems.COPPER_HORSE_ARMOR.get(), ResourceLocation.withDefaultNamespace("state"), (stack, world, entity, i) -> ICopperItem.getStateAsFloat(stack));
     }
 
     @SubscribeEvent
