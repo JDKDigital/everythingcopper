@@ -123,7 +123,7 @@ public class EventHandler
             event.accept(ModItems.COPPER_SHOVEL.get());
             event.accept(ModItems.COPPER_SHEARS.get());
         }
-        if (event.getTabKey().equals(CreativeModeTabs.TOOLS_AND_UTILITIES)) {
+        if (event.getTabKey().equals(CreativeModeTabs.INGREDIENTS)) {
             event.accept(ModItems.COPPER_NUGGET.get());
         }
         if (event.getTabKey().equals(CreativeModeTabs.BUILDING_BLOCKS)) {
