@@ -21,8 +21,8 @@ public class ModArmorMaterials
     @SuppressWarnings("unchecked")
     private static final Map<ArmorItem.Type, Integer> COPPER_DEFENSE = (EnumMap) Util.make(new EnumMap(ArmorItem.Type.class), (copper) -> {
         copper.put(ArmorItem.Type.HELMET, 2);
-        copper.put(ArmorItem.Type.CHESTPLATE, 4);
-        copper.put(ArmorItem.Type.LEGGINGS, 5);
+        copper.put(ArmorItem.Type.CHESTPLATE, 5);
+        copper.put(ArmorItem.Type.LEGGINGS, 4);
         copper.put(ArmorItem.Type.BOOTS, 2);
         copper.put(ArmorItem.Type.BODY, 3);
     });
