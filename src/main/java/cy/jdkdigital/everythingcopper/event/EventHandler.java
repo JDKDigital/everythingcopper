@@ -24,7 +24,6 @@ import net.minecraft.world.level.block.state.pattern.BlockPattern;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.common.ItemAbilities;
-import net.neoforged.neoforge.common.ItemAbility;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
@@ -70,35 +69,6 @@ public class EventHandler
                         level.blockUpdated(block.getPos(), Blocks.AIR);
                     }
                 }
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public static void toolInteract(BlockEvent.BlockToolModificationEvent event) {
-        Block block = event.getState().getBlock();
-        LevelAccessor level = event.getLevel();
-
-        BlockState blockState = event.getState();
-        if (event.getItemAbility().equals(ItemAbilities.AXE_WAX_OFF)) {
-            // Replace the opposite half of double blocks
-            if (blockState.hasProperty(DoorBlock.HALF)) {
-                IWeatheringBlock.getUnwaxed(blockState).ifPresent((unWaxedBlockState) -> {
-                    WeatheringUtils.handleAxeEvent(level, unWaxedBlockState, event.getPos());
-                    event.setFinalState(unWaxedBlockState);
-                });
-            } else {
-                IWeatheringBlock.getUnwaxed(blockState).ifPresent(event::setFinalState);
-            }
-        } else if (event.getItemAbility().equals(ItemAbilities.AXE_SCRAPE) && block instanceof IWeatheringBlock) {
-            // Replace the opposite half of double blocks
-            if (blockState.hasProperty(DoorBlock.HALF)) {
-                IWeatheringBlock.getPrevious(blockState).ifPresent((nextBlockState) -> {
-                    WeatheringUtils.handleAxeEvent(level, nextBlockState, event.getPos());
-                    event.setFinalState(nextBlockState);
-                });
-            } else {
-                IWeatheringBlock.getPrevious(blockState).ifPresent(event::setFinalState);
             }
         }
     }

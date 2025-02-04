@@ -1,3 +1,16 @@
+1.21.0-2.4.0
+
+- Moved everything to waxables and oxidizables data maps
+- Added Turkish localization (RuyaSavascisi)
+- Added Japanese localization (Abbage230)
+- Fixed bee related recipes conditions being noisy
+
+
+1.21.0-2.3.9
+
+- Fixed armor durability (Rimplestilt)
+
+
 1.21.0-2.3.8
 
 - Fixed copper pickaxe disallowed blocks tag

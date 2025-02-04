@@ -5,11 +5,11 @@ import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import cy.jdkdigital.everythingcopper.common.block.IWeatheringBlock;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.IGlobalLootModifier;
@@ -40,7 +40,7 @@ public class CopperBlockLootModifier extends LootModifier
         if (context.getRandom().nextBoolean() && addition.getItem() instanceof BlockItem blockItem) {
             Block block = blockItem.getBlock();
             for (int i = 0; i < context.getRandom().nextInt(5); i++) {
-                block = IWeatheringBlock.getNext(block).orElse(block);
+                block = WeatheringCopper.getNext(block).orElse(block);
             }
             ItemStack loot = new ItemStack(block.asItem(), count);
             generatedLoot.add(loot);

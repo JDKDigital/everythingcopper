@@ -16,8 +16,11 @@
       "modid": "productivebees"
     },
     {
-      "type": "productivebees:bee_exists",
-      "bee": "productivebees:copper"
+      "type": "everythingcopper:lazy",
+      "value": {
+        "type": "productivebees:bee_exists",
+        "bee": "productivebees:copper"
+      }
     }
   ]
 }

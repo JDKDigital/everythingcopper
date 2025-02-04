@@ -8,7 +8,6 @@ import cy.jdkdigital.everythingcopper.init.ModBlockEntities;
 import cy.jdkdigital.everythingcopper.util.WeatheringUtils;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.nbt.CompoundTag;
