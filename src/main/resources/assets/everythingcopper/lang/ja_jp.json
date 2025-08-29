@@ -1,13 +1,13 @@
 {
-    "entity.everythingcopper.copper_golem": "コッパーゴーレム",
-    "entity.everythingcopper.unaffected_copper_golem": "コッパーゴーレム",
-    "entity.everythingcopper.exposed_copper_golem": "風化したコッパーゴーレム",
-    "entity.everythingcopper.weathered_copper_golem": "錆びたコッパーゴーレム",
-    "entity.everythingcopper.oxidized_copper_golem": "酸化したコッパーゴーレム",
-    "entity.everythingcopper.waxed_unaffected_copper_golem": "錆止めされたコッパーゴーレム",
-    "entity.everythingcopper.waxed_exposed_copper_golem": "錆止めされた風化したコッパーゴーレム",
-    "entity.everythingcopper.waxed_weathered_copper_golem": "錆止めされた錆びたコッパーゴーレム",
-    "entity.everythingcopper.waxed_oxidized_copper_golem": "錆止めされた酸化したコッパーゴーレム",
+    "entity.everythingcopper.copper_golem": "カッパーゴーレム",
+    "entity.everythingcopper.unaffected_copper_golem": "カッパーゴーレム",
+    "entity.everythingcopper.exposed_copper_golem": "風化したカッパーゴーレム",
+    "entity.everythingcopper.weathered_copper_golem": "錆びたカッパーゴーレム",
+    "entity.everythingcopper.oxidized_copper_golem": "酸化したカッパーゴーレム",
+    "entity.everythingcopper.waxed_unaffected_copper_golem": "錆止めされたカッパーゴーレム",
+    "entity.everythingcopper.waxed_exposed_copper_golem": "錆止めされた風化したカッパーゴーレム",
+    "entity.everythingcopper.waxed_weathered_copper_golem": "錆止めされた錆びたカッパーゴーレム",
+    "entity.everythingcopper.waxed_oxidized_copper_golem": "錆止めされた酸化したカッパーゴーレム",
     "entity.everythingcopper.copper_minecart": "銅のトロッコ",
     "entity.everythingcopper.unaffected_copper_minecart": "銅のトロッコ",
     "entity.everythingcopper.exposed_copper_minecart": "風化した銅のトロッコ",
@@ -350,7 +350,7 @@
     "everythingcopper.bulb.tip2": "グロウストーンダストを使用すると明るさが最大になり、レッドストーントーチを使用すると手動でオン・オフを切り替えられます",
 
     "death.attack.everythingcopper.copper_poisoning": "%1$sは銅中毒で死んだ",
-    "death.attack.everythingcopper.copper_poisoning.player": "%1$sは%2$sと遊びながら銅中毒で死んだ",
+    "death.attack.everythingcopper.copper_poisoning.player": "%1$sは%2$sと戯れながら銅中毒で死んだ",
     "death.attack.everythingcopper.copper_poisoning1": "%1$sは銅を食べて最後の歯が欠けた",
     "death.attack.everythingcopper.copper_poisoning1.player": "%1$sは%2$sをくすぐりながら銅を食べて最後の歯が欠けた",
     "death.attack.everythingcopper.copper_poisoning2": "%1$sは銅中毒が悪化した",
@@ -361,5 +361,5 @@
     "advancements.adventure.consume_copper_nugget.title": "歯が割れるわ",
     "advancements.adventure.consume_copper_nugget.description": "健康に良い銅塊を食べる",
     "advancements.adventure.summon_copper_golem.title": "色変えゴーレム",
-    "advancements.adventure.summon_copper_golem.description": "コッパーゴーレムを召喚する。余った銅の消費先以外に特に意味はありません"
+    "advancements.adventure.summon_copper_golem.description": "カッパーゴーレムを召喚する。余った銅の消費先以外に特に意味はありません"
 }
